@@ -1,0 +1,184 @@
+{
+  "nav": {
+    "home": "Home",
+    "about": "About",
+    "gallery": "Gallery",
+    "boutique": "Shop",
+    "services": "Services",
+    "contact": "Contact",
+    "cta": "Order"
+  },
+  "hero": {
+    "title": {
+      "line1": "The Art of",
+      "line2": "Pastry",
+      "line3": "Reimagined"
+    },
+    "subtitle": "Discover our artisanal creations blending French tradition with modern innovation. Each dessert tells a story of passion and craftsmanship.",
+    "cta": "Discover Our Creations"
+  },
+  "about": {
+    "badge": "Our Story",
+    "title": "Tradition & Innovation",
+    "description": "For over 20 years, our workshop has perpetuated the excellence of French pastry while embracing modern techniques to create unique taste experiences.",
+    "stats": {
+      "experience": "Years of Experience",
+      "creations": "Unique Creations",
+      "customers": "Satisfied Customers"
+    },
+    "features": {
+      "artisan": {
+        "title": "Artisanal Craftsmanship",
+        "description": "Each creation is handcrafted with passion and precision"
+      },
+      "ingredients": {
+        "title": "Premium Ingredients",
+        "description": "We select only the finest French ingredients"
+      },
+      "innovation": {
+        "title": "Continuous Innovation",
+        "description": "Always searching for new flavors and techniques"
+      }
+    },
+    "photos": {
+      "artisan": "Our master pastry chef",
+      "macarons": "Our macarons",
+      "catering": "Catering service",
+      "cake": "Our cakes"
+    }
+  },
+  "gallery": {
+    "badge": "Our Creations",
+    "title": "Gourmet Gallery",
+    "subtitle": "Discover our pastry creations and catering services",
+    "video": {
+      "title": "Discover our craftsmanship in video",
+      "description": "Go behind the scenes of our workshop and discover the creation of our delicious entremets"
+    },
+    "items": {
+      "entremet1": {
+        "title": "Chocolate-Passion Entremet",
+        "description": "A perfect marriage between intense dark chocolate and tangy passion fruit"
+      },
+      "entremet2": {
+        "title": "Reimagined Lemon Tart",
+        "description": "Our modern version of the great French classic"
+      },
+      "entremet3": {
+        "title": "Contemporary Black Forest",
+        "description": "An elegant reinterpretation of the traditional dessert"
+      },
+      "entremet4": {
+        "title": "Vanilla Mille-feuille",
+        "description": "French tradition in all its splendor"
+      },
+      "entremet5": {
+        "title": "Royal Opera",
+        "description": "Parisian excellence revisited with finesse"
+      },
+      "entremet6": {
+        "title": "Modern Saint-Honoré",
+        "description": "Innovation and tradition in one dessert"
+      }
+    },
+    "loadMore": "See More Creations"
+  },
+  "boutique": {
+    "title": "Our shop is still in the oven!",
+    "description": "Like our most beautiful entremets, our online shop requires the time and patience necessary to offer you a perfect experience. We're putting the finishing touches so you can soon order your favorite pastries online.",
+    "features": {
+      "delivery": "Home delivery",
+      "delivery_desc": "Your creations delivered fresh",
+      "preorder": "Custom orders",
+      "preorder_desc": "Reserve your cakes in advance",
+      "gifts": "Gift boxes",
+      "gifts_desc": "Gourmet presents"
+    },
+    "notify_title": "Be the first to know!",
+    "email_placeholder": "Your email address",
+    "notify_btn": "Notify me"
+  },
+  "services": {
+    "badge": "Our Services",
+    "title": "Tailor-Made Services",
+    "subtitle": "Solutions adapted to all your events",
+    "items": {
+      "events": {
+        "title": "Private Events",
+        "description": "Weddings, birthdays, receptions - we create unforgettable moments",
+        "features": ["Personalized menu", "Catering service", "Custom decoration"]
+      },
+      "corporate": {
+        "title": "Corporate Events",
+        "description": "Impress your clients and colleagues with our exceptional creations",
+        "features": ["Gourmet buffets", "Wedding cakes", "Food branding"]
+      },
+      "courses": {
+        "title": "Pastry Classes",
+        "description": "Learn the secrets of our master pastry chefs in our workshop",
+        "features": ["Individual lessons", "Group workshops", "Intensive courses"]
+      }
+    }
+  },
+  "contact": {
+    "badge": "Contact",
+    "title": "Stay in Touch",
+    "subtitle": "A question? A project? Contact us!",
+    "info": {
+      "address": "Hameau de Rebelle, Montgradail, France, 11240",
+      "phone": "+33 1 23 45 67 89",
+      "email": "contact@entremets-saveurs.fr",
+      "hours": "Mon-Sat: 9am-5pm | Sun: 9am-12pm"
+    },
+    "form": {
+      "name": "Full name",
+      "email": "Email",
+      "phone": "Phone",
+      "subject": "Subject",
+      "subjects": {
+        "general": "General inquiry",
+        "event": "Private event",
+        "corporate": "Corporate event",
+        "course": "Pastry class",
+        "other": "Other"
+      },
+      "message": "Message",
+      "consent": "I agree to be contacted regarding my request",
+      "submit": "Send Message"
+    }
+  },
+  "footer": {
+    "tagline": "French pastry excellence",
+    "about": {
+      "title": "About",
+      "links": ["Our Story", "Our Team", "Our Values", "Careers"]
+    },
+    "services": {
+      "title": "Services",
+      "links": ["Private Events", "Corporate", "Classes", "Delivery"]
+    },
+    "contact": {
+      "title": "Contact",
+      "address": "Hameau de Rebelle",
+      "city": "Montgradail, France, 11240",
+      "phone": "+33 1 23 45 67 89",
+      "email": "contact@entremets-saveurs.fr"
+    },
+    "social": {
+      "title": "Follow us"
+    },
+    "formules": {
+      "hero": {
+        "title": {
+          "line1": "Our",
+          "line2": "Gourmet",
+          "line3": "Packages"
+        },
+        "subtitle": "Discover our unique pastry experiences, designed to create unforgettable moments around the passion of sweets and authentic flavors.",
+        "cta1": "Discover our packages",
+        "cta2": "Book Now"
+      }
+    },
+    "copyright": "© 2024 Entremets & Saveurs. All rights reserved."
+  }
+}

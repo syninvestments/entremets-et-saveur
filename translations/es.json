@@ -1,0 +1,185 @@
+{
+  "nav": {
+    "home": "Inicio",
+    "about": "Nosotros",
+    "gallery": "Galería",
+    "boutique": "Tienda",
+    "services": "Servicios",
+    "contact": "Contacto",
+    "cta": "Pedir"
+  },
+  },
+  "hero": {
+    "title": {
+      "line1": "El Arte de la",
+      "line2": "Pastelería",
+      "line3": "Reimaginado"
+    },
+    "subtitle": "Descubre nuestras creaciones artesanales que combinan la tradición francesa con la innovación moderna. Cada postre cuenta una historia de pasión y maestría.",
+    "cta": "Descubrir Nuestras Creaciones"
+  },
+  "about": {
+    "badge": "Nuestra Historia",
+    "title": "Tradición e Innovación",
+    "description": "Durante más de 20 años, nuestro taller ha perpetuado la excelencia de la pastelería francesa mientras abraza las técnicas modernas para crear experiencias gustativas únicas.",
+    "stats": {
+      "experience": "Años de Experiencia",
+      "creations": "Creaciones Únicas",
+      "customers": "Clientes Satisfechos"
+    },
+    "features": {
+      "artisan": {
+        "title": "Artesanía Tradicional",
+        "description": "Cada creación es elaborada a mano con pasión y precisión"
+      },
+      "ingredients": {
+        "title": "Ingredientes Premium",
+        "description": "Seleccionamos únicamente los mejores ingredientes franceses"
+      },
+      "innovation": {
+        "title": "Innovación Continua",
+        "description": "Siempre buscando nuevos sabores y técnicas"
+      }
+    },
+    "photos": {
+      "artisan": "Nuestro maestro pastelero",
+      "macarons": "Nuestros macarons",
+      "catering": "Servicio de catering",
+      "cake": "Nuestros pasteles"
+    }
+  },
+  "gallery": {
+    "badge": "Nuestras Creaciones",
+    "title": "Galería Gourmet",
+    "subtitle": "Descubre nuestras creaciones de pastelería y servicios de catering",
+    "video": {
+      "title": "Descubre nuestro saber hacer en vídeo",
+      "description": "Sumérgete entre bastidores de nuestro taller y descubre la creación de nuestros deliciosos entremets"
+    },
+    "items": {
+      "entremet1": {
+        "title": "Entremet Chocolate-Maracuyá",
+        "description": "Una perfecta unión entre chocolate negro intenso y maracuyá ácido"
+      },
+      "entremet2": {
+        "title": "Tarta de Limón Reimaginada",
+        "description": "Nuestra versión moderna del gran clásico francés"
+      },
+      "entremet3": {
+        "title": "Selva Negra Contemporánea",
+        "description": "Una reinterpretación elegante del postre tradicional"
+      },
+      "entremet4": {
+        "title": "Milhojas de Vainilla",
+        "description": "La tradición francesa en todo su esplendor"
+      },
+      "entremet5": {
+        "title": "Ópera Real",
+        "description": "La excelencia parisina revisitada con fineza"
+      },
+      "entremet6": {
+        "title": "Saint-Honoré Moderno",
+        "description": "Innovación y tradición en un mismo postre"
+      }
+    },
+    "loadMore": "Ver Más Creaciones"
+  },
+  "boutique": {
+    "title": "¡Nuestra tienda está aún en el horno!",
+    "description": "Como nuestros más hermosos entremets, nuestra tienda online requiere el tiempo y la paciencia necesarios para ofrecerte una experiencia perfecta. Estamos dando los últimos retoques para que pronto puedas pedir tus pasteles favoritos en línea.",
+    "features": {
+      "delivery": "Entrega a domicilio",
+      "delivery_desc": "Tus creaciones entregadas frescas",
+      "preorder": "Pedidos personalizados",
+      "preorder_desc": "Reserva tus pasteles con anticipación",
+      "gifts": "Cajas de regalo",
+      "gifts_desc": "Regalos gourmet"
+    },
+    "notify_title": "¡Sé el primero en saberlo!",
+    "email_placeholder": "Tu dirección de email",
+    "notify_btn": "Notificarme"
+  },
+  "services": {
+    "badge": "Nuestros Servicios",
+    "title": "Servicios a Medida",
+    "subtitle": "Soluciones adaptadas a todos tus eventos",
+    "items": {
+      "events": {
+        "title": "Eventos Privados",
+        "description": "Bodas, cumpleaños, recepciones - creamos momentos inolvidables",
+        "features": ["Menú personalizado", "Servicio de catering", "Decoración a medida"]
+      },
+      "corporate": {
+        "title": "Eventos Corporativos",
+        "description": "Impresiona a tus clientes y colaboradores con nuestras creaciones excepcionales",
+        "features": ["Buffets gourmet", "Tartas nupciales", "Branding alimentario"]
+      },
+      "courses": {
+        "title": "Clases de Pastelería",
+        "description": "Aprende los secretos de nuestros maestros pasteleros en nuestro taller",
+        "features": ["Clases individuales", "Talleres grupales", "Cursos intensivos"]
+      }
+    }
+  },
+  "contact": {
+    "badge": "Contacto",
+    "title": "Mantengámonos en Contacto",
+    "subtitle": "¿Una pregunta? ¿Un proyecto? ¡Contáctanos!",
+    "info": {
+      "address": "Hameau de Rebelle, Montgradail, Francia, 11240",
+      "phone": "+33 1 23 45 67 89",
+      "email": "contact@entremets-saveurs.fr",
+      "hours": "Lun-Sáb: 9h-17h | Dom: 9h-12h"
+    },
+    "form": {
+      "name": "Nombre completo",
+      "email": "Email",
+      "phone": "Teléfono",
+      "subject": "Asunto",
+      "subjects": {
+        "general": "Consulta general",
+        "event": "Evento privado",
+        "corporate": "Evento corporativo",
+        "course": "Clase de pastelería",
+        "other": "Otro"
+      },
+      "message": "Mensaje",
+      "consent": "Acepto ser contactado respecto a mi solicitud",
+      "submit": "Enviar Mensaje"
+    }
+  },
+  "footer": {
+    "tagline": "Excelencia pastelera francesa",
+    "about": {
+      "title": "Nosotros",
+      "links": ["Nuestra Historia", "Nuestro Equipo", "Nuestros Valores", "Carreras"]
+    },
+    "services": {
+      "title": "Servicios",
+      "links": ["Eventos Privados", "Corporativos", "Clases", "Entrega"]
+    },
+    "contact": {
+      "title": "Contacto",
+      "address": "Hameau de Rebelle",
+      "city": "Montgradail, Francia, 11240",
+      "phone": "+33 1 23 45 67 89",
+      "email": "contact@entremets-saveurs.fr"
+    },
+    "social": {
+      "title": "Síguenos"
+    },
+    "formules": {
+      "hero": {
+        "title": {
+          "line1": "Nuestros",
+          "line2": "Paquetes",
+          "line3": "Gourmet"
+        },
+        "subtitle": "Descubre nuestras experiencias pasteleras únicas, diseñadas para crear momentos inolvidables en torno a la pasión por los dulces y sabores auténticos.",
+        "cta1": "Descubrir nuestros paquetes",
+        "cta2": "Reservar"
+      }
+    },
+    "copyright": "© 2024 Entremets & Saveurs. Todos los derechos reservados."
+  }
+}

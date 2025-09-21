@@ -1,0 +1,857 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Formules - Entremets et Saveurs</title>
+    <link rel="icon" type="image/svg+xml" href="assets/images/favicon.svg">
+    
+    <!-- Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;500;600;700&family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    
+    <!-- Font Awesome -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    
+    <!-- AOS Animation Library -->
+    <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
+    
+    <style>
+    /* Reset et base */
+    * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+    }
+
+    body {
+        font-family: 'Inter', sans-serif;
+        line-height: 1.6;
+        color: #333;
+        background-color: #ffffff;
+    }
+
+    .container {
+        max-width: 1200px;
+        margin: 0 auto;
+        padding: 0 20px;
+    }
+
+    /* Navigation */
+    .navbar {
+        background: rgba(255, 255, 255, 0.95);
+        backdrop-filter: blur(10px);
+        padding: 1rem 0;
+        position: fixed;
+        top: 0;
+        left: 0;
+        right: 0;
+        z-index: 1000;
+        box-shadow: 0 2px 20px rgba(0, 0, 0, 0.1);
+    }
+
+    .nav-container {
+        max-width: 1200px;
+        margin: 0 auto;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        padding: 0 20px;
+    }
+
+    .nav-logo {
+        display: flex;
+        align-items: center;
+    }
+
+    .nav-logo a {
+        display: flex;
+        align-items: center;
+        text-decoration: none;
+        color: #2c5530;
+        font-weight: 600;
+    }
+
+    .nav-logo img {
+        width: 40px;
+        height: 40px;
+        border-radius: 50%;
+        margin-right: 10px;
+    }
+
+    .nav-menu {
+        display: flex;
+        gap: 2rem;
+    }
+
+    .nav-link {
+        text-decoration: none;
+        color: #2c5530;
+        font-weight: 500;
+        transition: color 0.3s ease;
+    }
+
+    .nav-link:hover, .nav-link.active {
+        color: #d4af37;
+    }
+
+    .nav-toggle {
+        display: none;
+    }
+
+    /* Hero Section */
+    .hero-section {
+        background: linear-gradient(135deg, #2c5530 0%, #1a3a1e 100%);
+        color: white;
+        padding: 120px 0 80px;
+        text-align: center;
+        position: relative;
+        overflow: hidden;
+    }
+
+    .hero-overlay {
+        position: absolute;
+        top: 0;
+        left: 0;
+        right: 0;
+        bottom: 0;
+        background: rgba(0, 0, 0, 0.2);
+    }
+
+    .hero-content {
+        position: relative;
+        z-index: 2;
+        max-width: 800px;
+        margin: 0 auto;
+        padding: 0 20px;
+    }
+
+    .hero-content h1 {
+        font-family: 'Playfair Display', serif;
+        font-size: 3.5rem;
+        font-weight: 700;
+        margin-bottom: 1.5rem;
+        text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.3);
+    }
+
+    .hero-content h1 i {
+        color: #d4af37;
+        margin-right: 15px;
+    }
+
+    .hero-content p {
+        font-size: 1.2rem;
+        line-height: 1.8;
+        opacity: 0.95;
+        max-width: 600px;
+        margin: 0 auto;
+    }
+
+    /* Section headers */
+    .section-header {
+        text-align: center;
+        margin-bottom: 50px;
+    }
+
+    .section-header h2 {
+        font-family: 'Playfair Display', serif;
+        font-size: 2.5rem;
+        color: #2c5530;
+        margin-bottom: 15px;
+    }
+
+    .section-header h2 i {
+        color: #d4af37;
+        margin-right: 15px;
+    }
+
+    .section-header p {
+        font-size: 1.1rem;
+        color: #666;
+        max-width: 600px;
+        margin: 0 auto;
+    }
+
+    /* Section des formules */
+    .formules-section {
+        padding: 80px 0;
+        background: linear-gradient(135deg, #f8f9fa 0%, #ffffff 100%);
+    }
+
+    .formulas-cards-grid {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(400px, 1fr));
+        gap: 40px;
+        margin-top: 50px;
+    }
+
+    /* Cartes de formules */
+    .formule-card {
+        background: white;
+        border-radius: 20px;
+        box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+        padding: 30px;
+        transition: all 0.3s ease;
+        border: 2px solid transparent;
+        position: relative;
+        overflow: hidden;
+    }
+
+    .formule-card:hover {
+        transform: translateY(-10px);
+        box-shadow: 0 20px 50px rgba(0, 0, 0, 0.15);
+        border-color: #d4af37;
+    }
+
+    .formule-card.featured {
+        border-color: #d4af37;
+        background: linear-gradient(135deg, #fff 0%, #faf8f0 100%);
+    }
+
+    .formule-card.premium {
+        border-color: #8b5cf6;
+        background: linear-gradient(135deg, #fff 0%, #f8f6ff 100%);
+    }
+
+    /* Badge pour les cartes */
+    .card-badge {
+        position: absolute;
+        top: 20px;
+        right: 20px;
+        background: #d4af37;
+        color: white;
+        padding: 5px 15px;
+        border-radius: 20px;
+        font-size: 0.8rem;
+        font-weight: 600;
+        text-transform: uppercase;
+        z-index: 10;
+    }
+
+    .card-badge.premium-badge {
+        background: #8b5cf6;
+    }
+
+    /* Icône de la carte */
+    .card-icon {
+        width: 80px;
+        height: 80px;
+        background: linear-gradient(135deg, #d4af37 0%, #f4e6a0 100%);
+        border-radius: 20px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        margin-bottom: 25px;
+    }
+
+    .card-icon i {
+        font-size: 2rem;
+        color: white;
+    }
+
+    .featured .card-icon {
+        background: linear-gradient(135deg, #d4af37 0%, #f4e6a0 100%);
+    }
+
+    .premium .card-icon {
+        background: linear-gradient(135deg, #8b5cf6 0%, #c4b5fd 100%);
+    }
+
+    /* Contenu de la carte */
+    .card-content h3 {
+        color: #2c5530;
+        font-size: 1.4rem;
+        font-weight: 600;
+        margin-bottom: 20px;
+    }
+
+    /* Caractéristiques de la carte */
+    .card-features {
+        margin-bottom: 25px;
+    }
+
+    .card-features .feature {
+        display: flex;
+        align-items: center;
+        margin-bottom: 10px;
+        color: #555;
+    }
+
+    .card-features .feature i {
+        color: #d4af37;
+        margin-right: 12px;
+        width: 20px;
+        font-size: 1rem;
+    }
+
+    /* Description de la carte */
+    .card-description {
+        margin-bottom: 25px;
+    }
+
+    .card-description p {
+        color: #666;
+        line-height: 1.6;
+    }
+
+    /* Ce qui est inclus */
+    .card-includes {
+        margin-bottom: 25px;
+    }
+
+    .card-includes h4 {
+        color: #2c5530;
+        font-size: 1rem;
+        font-weight: 600;
+        margin-bottom: 15px;
+    }
+
+    .card-includes ul {
+        list-style: none;
+        padding: 0;
+    }
+
+    .card-includes li {
+        display: flex;
+        align-items: center;
+        margin-bottom: 8px;
+        color: #666;
+        font-size: 0.9rem;
+    }
+
+    .card-includes li::before {
+        content: "✓";
+        color: #d4af37;
+        font-weight: bold;
+        margin-right: 10px;
+        font-size: 1rem;
+    }
+
+    /* Prix de la carte */
+    .card-price {
+        text-align: center;
+        margin-bottom: 25px;
+        padding: 20px 0;
+        border-top: 2px solid #f0f0f0;
+        border-bottom: 2px solid #f0f0f0;
+    }
+
+    .card-price .price {
+        color: #2c5530;
+        font-size: 1.5rem;
+        font-weight: 700;
+        display: block;
+    }
+
+    .card-price small {
+        color: #666;
+        font-size: 0.85rem;
+        margin-top: 5px;
+        display: block;
+    }
+
+    /* Boutons */
+    .btn {
+        display: inline-flex;
+        align-items: center;
+        justify-content: center;
+        padding: 12px 24px;
+        border-radius: 50px;
+        text-decoration: none;
+        font-weight: 600;
+        transition: all 0.3s ease;
+        border: none;
+        cursor: pointer;
+        gap: 8px;
+    }
+
+    .btn-primary {
+        background: linear-gradient(135deg, #d4af37 0%, #f4e6a0 100%);
+        color: white;
+    }
+
+    .btn-primary:hover {
+        background: linear-gradient(135deg, #b8941f 0%, #d4af37 100%);
+        transform: translateY(-2px);
+        box-shadow: 0 5px 15px rgba(212, 175, 55, 0.4);
+    }
+
+    .formule-card .btn {
+        width: 100%;
+        padding: 15px;
+        font-size: 1rem;
+    }
+
+    /* Contact Section */
+    .contact-section {
+        padding: 80px 0;
+        background: linear-gradient(135deg, #2c5530 0%, #1a3a1e 100%);
+        color: white;
+    }
+
+    .contact-content {
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        gap: 50px;
+        align-items: center;
+        margin-top: 50px;
+    }
+
+    .contact-item {
+        display: flex;
+        align-items: center;
+        margin-bottom: 30px;
+    }
+
+    .contact-icon {
+        width: 60px;
+        height: 60px;
+        background: linear-gradient(135deg, #d4af37 0%, #f4e6a0 100%);
+        border-radius: 15px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        margin-right: 20px;
+    }
+
+    .contact-icon i {
+        font-size: 1.5rem;
+        color: white;
+    }
+
+    .contact-details h4 {
+        font-size: 1.2rem;
+        margin-bottom: 5px;
+    }
+
+    .contact-details p {
+        opacity: 0.9;
+    }
+
+    .contact-details a {
+        color: #d4af37;
+        text-decoration: none;
+    }
+
+    .cta-buttons {
+        display: flex;
+        gap: 20px;
+        flex-wrap: wrap;
+    }
+
+    .btn-large {
+        padding: 18px 35px;
+        font-size: 1.1rem;
+    }
+
+    .btn-outline {
+        background: transparent;
+        color: white;
+        border: 2px solid white;
+    }
+
+    .btn-outline:hover {
+        background: white;
+        color: #2c5530;
+    }
+
+    /* Footer */
+    .footer {
+        background: #1a3a1e;
+        color: white;
+        padding: 50px 0 30px;
+    }
+
+    .footer-content {
+        display: grid;
+        grid-template-columns: 1fr 1fr 1fr;
+        gap: 40px;
+        margin-bottom: 30px;
+    }
+
+    .footer-logo {
+        display: flex;
+        align-items: center;
+    }
+
+    .footer-logo img {
+        width: 40px;
+        height: 40px;
+        border-radius: 50%;
+        margin-right: 10px;
+    }
+
+    .footer-links {
+        display: flex;
+        flex-direction: column;
+        gap: 10px;
+    }
+
+    .footer-links a {
+        color: rgba(255, 255, 255, 0.8);
+        text-decoration: none;
+        transition: color 0.3s ease;
+    }
+
+    .footer-links a:hover {
+        color: #d4af37;
+    }
+
+    .footer-contact p {
+        color: rgba(255, 255, 255, 0.8);
+        margin-bottom: 10px;
+    }
+
+    .footer-contact i {
+        color: #d4af37;
+        margin-right: 10px;
+    }
+
+    .footer-bottom {
+        border-top: 1px solid rgba(255, 255, 255, 0.2);
+        padding-top: 20px;
+        text-align: center;
+        color: rgba(255, 255, 255, 0.7);
+    }
+
+    /* Responsive */
+    @media (max-width: 768px) {
+        .nav-menu {
+            display: none;
+        }
+        
+        .nav-toggle {
+            display: block;
+        }
+        
+        .hero-content h1 {
+            font-size: 2.5rem;
+        }
+        
+        .formulas-cards-grid {
+            grid-template-columns: 1fr;
+            gap: 30px;
+        }
+        
+        .contact-content {
+            grid-template-columns: 1fr;
+            gap: 30px;
+        }
+        
+        .footer-content {
+            grid-template-columns: 1fr;
+            gap: 20px;
+        }
+        
+        .cta-buttons {
+            flex-direction: column;
+        }
+    }
+    </style>
+</head>
+<body>
+    <!-- Navigation -->
+    <nav class="navbar">
+        <div class="nav-container">
+            <div class="nav-logo">
+                <a href="index.html">
+                    <img src="assets/images/logo.jpg" alt="Entremets et Saveurs">
+                    <span>Entremets et Saveurs</span>
+                </a>
+            </div>
+            <div class="nav-menu">
+                <a href="index.html" class="nav-link">Accueil</a>
+                <a href="formules.html" class="nav-link active">Formules</a>
+                <a href="boutique.html" class="nav-link">Boutique</a>
+                <a href="index.html#gallery" class="nav-link">Galerie</a>
+                <a href="index.html#contact" class="nav-link">Contact</a>
+            </div>
+            <div class="nav-toggle" id="mobile-menu">
+                <span class="bar"></span>
+                <span class="bar"></span>
+                <span class="bar"></span>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <section class="hero-section">
+        <div class="hero-content">
+            <h1>
+                <i class="fas fa-graduation-cap"></i>
+                Nos Formules Gourmandes
+            </h1>
+            <p>
+                Découvrez nos expériences pâtissières uniques, conçues pour créer des moments inoubliables 
+                autour de la passion du sucré et des saveurs authentiques.
+            </p>
+        </div>
+        <div class="hero-overlay"></div>
+    </section>
+
+    <!-- Section Formules -->
+    <section class="formules-section">
+        <div class="container">
+            <div class="section-header">
+                <h2>
+                    <i class="fas fa-star"></i>
+                    Choisissez votre formule
+                </h2>
+                <p>Des expériences pâtissières sur mesure pour tous les goûts et toutes les occasions</p>
+            </div>
+
+            <div class="formulas-cards-grid">
+                <!-- Cours de Pâtisserie Adultes -->
+                <div class="formule-card">
+                    <div class="card-icon">
+                        <i class="fas fa-graduation-cap"></i>
+                    </div>
+                    <div class="card-content">
+                        <h3>Cours de Pâtisserie Adultes</h3>
+                        <div class="card-features">
+                            <div class="feature">
+                                <i class="fas fa-clock"></i>
+                                <span>2h30 - 3h de cours</span>
+                            </div>
+                            <div class="feature">
+                                <i class="fas fa-users"></i>
+                                <span>2 à 8 personnes</span>
+                            </div>
+                            <div class="feature">
+                                <i class="fas fa-home"></i>
+                                <span>À votre domicile</span>
+                            </div>
+                        </div>
+                        <div class="card-description">
+                            <p>Apprenez les techniques professionnelles de la pâtisserie française. Réalisez des entremets, macarons, tartes ou gâteaux selon vos envies.</p>
+                        </div>
+                        <div class="card-includes">
+                            <h4>Inclus :</h4>
+                            <ul>
+                                <li>Tous les ingrédients et ustensiles</li>
+                                <li>Tabliers et toques fournis</li>
+                                <li>Recettes détaillées à emporter</li>
+                                <li>Dégustation en fin de cours</li>
+                            </ul>
+                        </div>
+                        <div class="card-price">
+                            <span class="price">À partir de 45€/pers</span>
+                        </div>
+                        <a href="#contact" class="btn btn-primary">Réserver</a>
+                    </div>
+                </div>
+
+                <!-- Formule POP Anniversaires -->
+                <div class="formule-card featured">
+                    <div class="card-badge">Populaire</div>
+                    <div class="card-icon">
+                        <i class="fas fa-gift"></i>
+                    </div>
+                    <div class="card-content">
+                        <h3>Formule POP - Anniversaires</h3>
+                        <div class="card-features">
+                            <div class="feature">
+                                <i class="fas fa-clock"></i>
+                                <span>2h d'animation</span>
+                            </div>
+                            <div class="feature">
+                                <i class="fas fa-users"></i>
+                                <span>6 à 12 enfants</span>
+                            </div>
+                            <div class="feature">
+                                <i class="fas fa-calendar-alt"></i>
+                                <span>Samedis uniquement</span>
+                            </div>
+                        </div>
+                        <div class="card-description">
+                            <p>Animation pâtisserie ludique pour un anniversaire inoubliable ! Les enfants créent leurs propres pop cakes avec notre pâtissier.</p>
+                        </div>
+                        <div class="card-includes">
+                            <h4>Inclus :</h4>
+                            <ul>
+                                <li>6 Pop Cakes par enfant</li>
+                                <li>Sirop à l'eau par enfant</li>
+                                <li>Animation complète par un pâtissier</li>
+                                <li>Matériel et ingrédients fournis</li>
+                            </ul>
+                        </div>
+                        <div class="card-price">
+                            <span class="price">15€/enfant</span>
+                            <small>Samedis uniquement</small>
+                        </div>
+                        <a href="#contact" class="btn btn-primary">Réserver</a>
+                    </div>
+                </div>
+
+                <!-- Formule FUN Anniversaires -->
+                <div class="formule-card premium">
+                    <div class="card-badge premium-badge">Premium</div>
+                    <div class="card-icon">
+                        <i class="fas fa-birthday-cake"></i>
+                    </div>
+                    <div class="card-content">
+                        <h3>Formule FUN - Anniversaires</h3>
+                        <div class="card-features">
+                            <div class="feature">
+                                <i class="fas fa-clock"></i>
+                                <span>2h d'animation</span>
+                            </div>
+                            <div class="feature">
+                                <i class="fas fa-users"></i>
+                                <span>6 à 12 enfants</span>
+                            </div>
+                            <div class="feature">
+                                <i class="fas fa-check-circle"></i>
+                                <span>Tous les jours</span>
+                            </div>
+                        </div>
+                        <div class="card-description">
+                            <p>L'expérience anniversaire complète avec techniques de pochage professionnel et goûter complet inclus !</p>
+                        </div>
+                        <div class="card-includes">
+                            <h4>Inclus :</h4>
+                            <ul>
+                                <li>6 Cup Cakes décorés par enfant</li>
+                                <li>Techniques de pochage professionnel</li>
+                                <li>Goûter complet (cake marbré + bougies)</li>
+                                <li>Bonbons, chips et boissons</li>
+                                <li>Café et thé pour les parents</li>
+                            </ul>
+                        </div>
+                        <div class="card-price">
+                            <span class="price">25€/enfant</span>
+                            <small>Disponible tous les jours</small>
+                        </div>
+                        <a href="#contact" class="btn btn-primary">Réserver</a>
+                    </div>
+                </div>
+
+                <!-- Ateliers Entreprise -->
+                <div class="formule-card">
+                    <div class="card-icon">
+                        <i class="fas fa-building"></i>
+                    </div>
+                    <div class="card-content">
+                        <h3>Ateliers Entreprise</h3>
+                        <div class="card-features">
+                            <div class="feature">
+                                <i class="fas fa-clock"></i>
+                                <span>3h d'atelier</span>
+                            </div>
+                            <div class="feature">
+                                <i class="fas fa-users"></i>
+                                <span>10 à 20 personnes</span>
+                            </div>
+                            <div class="feature">
+                                <i class="fas fa-trophy"></i>
+                                <span>Team building</span>
+                            </div>
+                        </div>
+                        <div class="card-description">
+                            <p>Renforcez la cohésion de votre équipe avec nos ateliers pâtisserie team building. Une expérience gourmande et fédératrice.</p>
+                        </div>
+                        <div class="card-includes">
+                            <h4>Inclus :</h4>
+                            <ul>
+                                <li>Animation par pâtissier professionnel</li>
+                                <li>Matériel et ingrédients premium</li>
+                                <li>Activités collaboratives</li>
+                                <li>Dégustation collective</li>
+                            </ul>
+                        </div>
+                        <div class="card-price">
+                            <span class="price">Sur devis</span>
+                        </div>
+                        <a href="#contact" class="btn btn-primary">Demander un devis</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Section Contact -->
+    <section id="contact" class="contact-section">
+        <div class="container">
+            <div class="section-header">
+                <h2>
+                    <i class="fas fa-envelope"></i>
+                    Contactez-nous
+                </h2>
+                <p>Prêt à vivre une expérience pâtissière unique ? Contactez-nous pour réserver votre formule !</p>
+            </div>
+
+            <div class="contact-content">
+                <div class="contact-info">
+                    <div class="contact-item">
+                        <div class="contact-icon">
+                            <i class="fas fa-phone"></i>
+                        </div>
+                        <div class="contact-details">
+                            <h4>Téléphone</h4>
+                            <p><a href="tel:+33644177920">06 44 17 79 20</a></p>
+                        </div>
+                    </div>
+
+                    <div class="contact-item">
+                        <div class="contact-icon">
+                            <i class="fas fa-envelope"></i>
+                        </div>
+                        <div class="contact-details">
+                            <h4>Email</h4>
+                            <p><a href="mailto:entremets-et-saveurs@orange.fr">entremets-et-saveurs@orange.fr</a></p>
+                        </div>
+                    </div>
+
+                    <div class="contact-item">
+                        <div class="contact-icon">
+                            <i class="fas fa-map-marker-alt"></i>
+                        </div>
+                        <div class="contact-details">
+                            <h4>Zone d'intervention</h4>
+                            <p>Paris et Île-de-France</p>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="cta-buttons">
+                    <a href="tel:+33644177920" class="btn btn-primary btn-large">
+                        <i class="fas fa-phone"></i>
+                        <span>Appeler maintenant</span>
+                    </a>
+                    <a href="mailto:entremets-et-saveurs@orange.fr" class="btn btn-outline btn-large">
+                        <i class="fas fa-envelope"></i>
+                        <span>Envoyer un email</span>
+                    </a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-logo">
+                    <img src="assets/images/logo.jpg" alt="Entremets et Saveurs">
+                    <span>Entremets et Saveurs</span>
+                </div>
+                <div class="footer-links">
+                    <a href="index.html">Accueil</a>
+                    <a href="formules.html">Formules</a>
+                    <a href="boutique.html">Boutique</a>
+                    <a href="index.html#gallery">Galerie</a>
+                    <a href="#contact">Contact</a>
+                </div>
+                <div class="footer-contact">
+                    <p><i class="fas fa-phone"></i> 06 44 17 79 20</p>
+                    <p><i class="fas fa-envelope"></i> entremets-et-saveurs@orange.fr</p>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 2024 Entremets et Saveurs. Tous droits réservés.</p>
+            </div>
+        </div>
+    </footer>
+</body>
+</html>

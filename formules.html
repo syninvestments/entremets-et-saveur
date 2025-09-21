@@ -1,0 +1,2256 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Formules - Entremets et Saveurs</title>
+    <link rel="icon" type="image/svg+xml" href="assets/images/favicon.svg">
+    
+    <!-- Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;500;600;700&family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    
+    <!-- Font Awesome -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    
+    <!-- AOS Animation Library -->
+    <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
+    
+    <style>
+    /* Reset et base */
+    * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+    }
+
+    /* Variables de couleurs - reprises de l'index */
+    :root {
+        --primary-color: rgba(241, 130, 100, 1);      /* Orange principal */
+        --primary-light: rgba(248, 206, 190);         /* Orange très clair pour dégradé */
+        --primary-dark: rgba(200, 100, 75, 1);       /* Orange foncé */
+        --secondary-color: #3D2914;                  /* Chocolat foncé */
+        --secondary-light: #5D3E2A;                  /* Chocolat moyen */
+        --white: #ffffff;
+        --light-gray: #FAF7F2;                       /* Crème légère */
+        --accent-cream: #F5E6D3;                     /* Crème vanille */
+        --font-primary: 'Playfair Display', serif;   /* Police principale */
+        --font-secondary: 'Inter', sans-serif;       /* Police secondaire */
+        --gradient-primary: linear-gradient(135deg, var(--primary-color), var(--primary-light));
+        --gradient-warm: linear-gradient(135deg, rgba(241, 130, 100, 1), rgba(241, 130, 100, 0.8), #F5E6D3);
+    }
+
+    body {
+        font-family: 'Inter', sans-serif;
+        line-height: 1.6;
+        color: #333;
+        background-color: var(--white);
+    }
+
+    .container {
+        max-width: 1200px;
+        margin: 0 auto;
+        padding: 0 20px;
+    }
+
+    /* Navigation */
+    .navbar {
+        background: rgba(255, 255, 255, 0.95);
+        backdrop-filter: blur(10px);
+        padding: 1rem 0;
+        position: fixed;
+        top: 0;
+        left: 0;
+        right: 0;
+        z-index: 1000;
+        box-shadow: 0 2px 20px rgba(0, 0, 0, 0.1);
+    }
+
+    .nav-container {
+        max-width: 1200px;
+        margin: 0 auto;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        padding: 0 20px;
+    }
+
+    .nav-logo {
+        display: flex;
+        align-items: center;
+    }
+
+    .nav-logo a {
+        display: flex;
+        align-items: center;
+        text-decoration: none;
+        color: var(--secondary-color);
+        font-weight: 600;
+    }
+
+    .nav-logo img {
+        width: 40px;
+        height: 40px;
+        border-radius: 50%;
+        margin-right: 10px;
+    }
+
+    .nav-menu {
+        display: flex;
+        gap: 2rem;
+    }
+
+    .nav-link {
+        text-decoration: none;
+        color: var(--secondary-color);
+        font-weight: 500;
+        transition: color 0.3s ease;
+    }
+
+    .nav-link {
+        text-decoration: none !important;
+        color: var(--secondary-color);
+        font-weight: 500;
+        font-size: 0.95rem;
+        position: relative;
+        transition: all 0.3s ease;
+        padding: 0.5rem 0;
+        border: none !important;
+        outline: none !important;
+    }
+
+    .nav-link:hover, .nav-link.active {
+        color: var(--primary-color);
+        text-decoration: none !important;
+    }
+
+    .nav-link::after {
+        content: '';
+        position: absolute;
+        bottom: -5px;
+        left: 0;
+        width: 0;
+        height: 2px;
+        background: var(--primary-color);
+        transition: width 0.3s ease;
+    }
+
+    .nav-link:hover::after,
+    .nav-link.active::after {
+        width: 100%;
+    }
+
+    /* Navigation Menu Structure */
+    .nav-menu {
+        display: flex;
+        list-style: none;
+        gap: 2rem;
+        align-items: center;
+        position: absolute;
+        left: 50%;
+        transform: translateX(-50%);
+    }
+
+    .nav-item.cta .nav-link {
+        background: var(--gradient-warm);
+        color: var(--white);
+        padding: 0.75rem 1.5rem;
+        border-radius: 25px;
+        border: none;
+        font-weight: 600;
+        display: flex;
+        align-items: center;
+        gap: 0.5rem;
+        transition: all 0.3s ease;
+        box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+    }
+
+    .nav-item.cta .nav-link::after {
+        display: none;
+    }
+
+    .nav-item.cta .nav-link:hover {
+        background: var(--primary-color);
+        transform: translateY(-2px);
+        box-shadow: 0 8px 25px rgba(241, 130, 100, 0.3);
+        color: var(--white);
+    }
+
+    /* Hamburger Menu */
+    .hamburger {
+        display: none;
+        flex-direction: column;
+        cursor: pointer;
+        gap: 4px;
+        margin-left: auto;
+    }
+
+    .hamburger .bar {
+        width: 25px;
+        height: 3px;
+        background: var(--secondary-color);
+        border-radius: 2px;
+        transition: all 0.3s ease;
+    }
+
+    .hamburger.active .bar:nth-child(1) {
+        transform: rotate(45deg) translate(6px, 6px);
+    }
+
+    .hamburger.active .bar:nth-child(2) {
+        opacity: 0;
+    }
+
+    .hamburger.active .bar:nth-child(3) {
+        transform: rotate(-45deg) translate(6px, -6px);
+    }
+
+    /* Language Switcher */
+    .language-switcher {
+        position: absolute;
+        right: 0;
+        top: 50%;
+        transform: translateY(-50%);
+    }
+
+    .lang-dropdown {
+        position: relative;
+    }
+
+    .lang-current {
+        background: none;
+        border: 1px solid rgba(241, 130, 100, 0.3);
+        border-radius: 25px;
+        padding: 0.5rem 1rem;
+        display: flex;
+        align-items: center;
+        gap: 0.5rem;
+        cursor: pointer;
+        font-size: 0.9rem;
+        color: var(--secondary-color);
+        transition: all 0.3s ease;
+    }
+
+    .lang-current:hover {
+        border-color: var(--primary-color);
+        background: rgba(241, 130, 100, 0.1);
+    }
+
+    .lang-options {
+        position: absolute;
+        top: 100%;
+        right: 0;
+        background: white;
+        border: 1px solid rgba(241, 130, 100, 0.3);
+        border-radius: 10px;
+        box-shadow: 0 5px 20px rgba(0, 0, 0, 0.1);
+        z-index: 1000;
+        min-width: 140px;
+        opacity: 0;
+        visibility: hidden;
+        transform: translateY(-10px);
+        transition: all 0.3s ease;
+    }
+
+    .lang-dropdown:hover .lang-options {
+        opacity: 1;
+        visibility: visible;
+        transform: translateY(0);
+    }
+
+    .lang-btn {
+        width: 100%;
+        background: none;
+        border: none;
+        padding: 0.75rem 1rem;
+        display: flex;
+        align-items: center;
+        gap: 0.5rem;
+        cursor: pointer;
+        font-size: 0.9rem;
+        color: var(--secondary-color);
+        transition: background 0.3s ease;
+    }
+
+    .lang-btn:hover {
+        background: rgba(241, 130, 100, 0.1);
+    }
+
+    .lang-btn.active {
+        background: rgba(241, 130, 100, 0.2);
+        font-weight: 600;
+    }
+
+    .flag {
+        width: 20px;
+        height: 15px;
+        border-radius: 2px;
+        display: inline-block;
+        position: relative;
+        overflow: hidden;
+    }
+
+    .flag-fr { 
+        background: linear-gradient(to right, #002395 33%, white 33%, white 66%, #ED2939 66%); 
+    }
+    
+    .flag-en { 
+        background: #012169;
+    }
+    
+    .flag-en::before {
+        content: '';
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        background: 
+            linear-gradient(to bottom, transparent 40%, white 40%, white 60%, transparent 60%),
+            linear-gradient(to right, transparent 40%, white 40%, white 60%, transparent 60%),
+            linear-gradient(45deg, transparent 45%, white 45%, white 55%, transparent 55%),
+            linear-gradient(-45deg, transparent 45%, white 45%, white 55%, transparent 55%);
+    }
+    
+    .flag-en::after {
+        content: '';
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        background: 
+            linear-gradient(to bottom, transparent 45%, #C8102E 45%, #C8102E 55%, transparent 55%),
+            linear-gradient(to right, transparent 45%, #C8102E 45%, #C8102E 55%, transparent 55%),
+            linear-gradient(45deg, transparent 47%, #C8102E 47%, #C8102E 53%, transparent 53%),
+            linear-gradient(-45deg, transparent 47%, #C8102E 47%, #C8102E 53%, transparent 53%);
+    }
+    
+    .flag-es { 
+        background: linear-gradient(to bottom, #AA151B 25%, #F1BF00 25%, #F1BF00 75%, #AA151B 75%); 
+    }
+
+    .nav-toggle {
+        display: none;
+    }
+
+    /* === HERO SECTION === */
+    .hero {
+        position: relative;
+        height: 100vh;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        overflow: hidden;
+        z-index: 1;
+    }
+
+    .hero-background {
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        z-index: -2;
+    }
+
+    .hero-overlay {
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        background: linear-gradient(rgba(244, 177, 150, 0.8), rgba(244, 177, 150, 0.4));
+        z-index: -1;
+    }
+
+    .hero-video {
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+    }
+
+    .hero-content {
+        position: relative;
+        z-index: 5;
+        text-align: center;
+        color: var(--white);
+        max-width: 800px;
+        padding: 0 2rem;
+        margin: 0 auto;
+    }
+
+    .hero-title {
+        font-family: 'Playfair Display', serif;
+        font-size: clamp(3rem, 8vw, 6rem);
+        font-weight: 800;
+        line-height: 1.1;
+        margin-bottom: 2rem;
+        text-shadow: 0 4px 20px rgba(0, 0, 0, 0.3);
+        color: white !important;
+        display: block !important;
+        visibility: visible !important;
+        opacity: 1 !important;
+    }
+
+    .hero-title .title-line {
+        display: block;
+        color: white !important;
+        visibility: visible !important;
+        opacity: 1 !important;
+    }
+
+    .hero-title .accent {
+        color: var(--primary-color) !important;
+        text-shadow: 0 0 30px rgba(212, 175, 55, 0.5);
+    }
+
+    .hero-description {
+        font-size: 1.25rem;
+        line-height: 1.7;
+        opacity: 0.9;
+        margin-bottom: 3rem;
+        max-width: 600px;
+        margin-left: auto;
+        margin-right: auto;
+        color: white !important;
+    }
+
+    .hero-buttons {
+        display: flex;
+        gap: 1.5rem;
+        justify-content: center;
+        flex-wrap: wrap;
+        margin-bottom: 3rem;
+    }
+
+    .hero-scroll-indicator {
+        position: absolute;
+        bottom: 2rem;
+        left: 50%;
+        transform: translateX(-50%);
+        text-align: center;
+        color: var(--white);
+        opacity: 0.8;
+        z-index: 5;
+    }
+
+    .scroll-mouse {
+        width: 24px;
+        height: 40px;
+        border: 2px solid var(--white);
+        border-radius: 12px;
+        position: relative;
+        margin: 0 auto 10px;
+    }
+
+    .scroll-wheel {
+        width: 4px;
+        height: 8px;
+        background: var(--white);
+        border-radius: 2px;
+        position: absolute;
+        top: 6px;
+        left: 50%;
+        transform: translateX(-50%);
+        animation: scroll 2s infinite;
+    }
+
+    @keyframes scroll {
+        0% { top: 6px; opacity: 1; }
+        50% { top: 16px; opacity: 0.5; }
+        100% { top: 6px; opacity: 1; }
+    }
+
+    /* === HERO UTENSILS BACKGROUND === */
+    .hero-utensils {
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        pointer-events: none;
+        z-index: 2;
+    }
+
+    .utensil {
+        position: absolute;
+        color: rgba(241, 130, 100, 0.3);
+        font-size: 3rem;
+        animation: floatUtensil 6s ease-in-out infinite;
+        opacity: 0.8;
+        text-shadow: 0 0 20px rgba(241, 130, 100, 0.5);
+    }
+
+    .utensil-1 {
+        top: 15%;
+        left: 10%;
+        animation-delay: 0s;
+        animation-duration: 8s;
+    }
+    .utensil-2 {
+        top: 25%;
+        right: 15%;
+        animation-delay: 1s;
+        animation-duration: 7s;
+    }
+    .utensil-3 {
+        top: 45%;
+        left: 8%;
+        animation-delay: 2s;
+        animation-duration: 9s;
+        font-size: 2.5rem;
+    }
+    .utensil-4 {
+        top: 35%;
+        right: 8%;
+        animation-delay: 3s;
+        animation-duration: 6s;
+        font-size: 2.8rem;
+    }
+    .utensil-5 {
+        top: 65%;
+        left: 12%;
+        animation-delay: 4s;
+        animation-duration: 7.5s;
+        font-size: 2.6rem;
+    }
+    .utensil-6 {
+        top: 55%;
+        right: 12%;
+        animation-delay: 5s;
+        animation-duration: 8.5s;
+    }
+    .utensil-7 {
+        top: 75%;
+        left: 20%;
+        animation-delay: 1.5s;
+        animation-duration: 9.5s;
+        font-size: 2.4rem;
+    }
+    .utensil-8 {
+        top: 70%;
+        right: 18%;
+        animation-delay: 2.5s;
+        animation-duration: 7.8s;
+        font-size: 2.7rem;
+    }
+
+    @keyframes floatUtensil {
+        0%, 100% {
+            transform: translateY(0px) rotate(0deg);
+            opacity: 0.6;
+        }
+        25% {
+            transform: translateY(-15px) rotate(8deg);
+            opacity: 0.8;
+        }
+        50% {
+            transform: translateY(-30px) rotate(-5deg);
+            opacity: 1;
+        }
+        75% {
+            transform: translateY(-20px) rotate(10deg);
+            opacity: 0.7;
+        }
+    }
+
+    /* Section headers */
+    .section-header {
+        text-align: center;
+        margin-bottom: 50px;
+    }
+
+    .section-header h2 {
+        font-family: 'Playfair Display', serif;
+        font-size: 2.5rem;
+        color: var(--secondary-color);
+        margin-bottom: 15px;
+    }
+
+    .section-header h2 i {
+        color: var(--primary-color);
+        margin-right: 15px;
+    }
+
+    .section-header p {
+        font-size: 1.1rem;
+        color: #666;
+        max-width: 600px;
+        margin: 0 auto;
+    }
+
+    /* Section des formules */
+    .formules-section {
+        padding: 80px 0;
+        background: linear-gradient(135deg, var(--light-gray) 0%, var(--white) 100%);
+    }
+
+    .formulas-cards-grid {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(400px, 1fr));
+        gap: 40px;
+        margin-top: 50px;
+    }
+
+    /* Cartes de formules */
+    .formule-card {
+        background: white;
+        border-radius: 20px;
+        box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+        padding: 30px;
+        transition: all 0.3s ease;
+        border: 2px solid transparent;
+        position: relative;
+        overflow: hidden;
+    }
+
+    .formule-card:hover {
+        transform: translateY(-10px);
+        box-shadow: 0 20px 50px rgba(241, 130, 100, 0.15);
+        border-color: var(--primary-color);
+    }
+
+    .formule-card.featured {
+        border-color: var(--primary-color);
+        background: linear-gradient(135deg, var(--white) 0%, var(--accent-cream) 100%);
+    }
+
+    .formule-card.premium {
+        border-color: var(--primary-dark);
+        background: linear-gradient(135deg, var(--white) 0%, rgba(241, 130, 100, 0.05) 100%);
+    }
+
+    /* Badge pour les cartes */
+    .card-badge {
+        position: absolute;
+        top: 20px;
+        right: 20px;
+        background: var(--primary-color);
+        color: white;
+        padding: 5px 15px;
+        border-radius: 20px;
+        font-size: 0.8rem;
+        font-weight: 600;
+        text-transform: uppercase;
+        z-index: 10;
+    }
+
+    .card-badge.premium-badge {
+        background: var(--primary-dark);
+    }
+
+    /* Icône de la carte */
+    .card-icon {
+        width: 80px;
+        height: 80px;
+        background: var(--gradient-primary);
+        border-radius: 20px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        margin-bottom: 25px;
+    }
+
+    .card-icon i {
+        font-size: 2rem;
+        color: white;
+    }
+
+    .featured .card-icon {
+        background: var(--gradient-primary);
+    }
+
+    .premium .card-icon {
+        background: linear-gradient(135deg, var(--primary-dark) 0%, var(--primary-color) 100%);
+    }
+
+    /* Contenu de la carte */
+    .card-content h3 {
+        color: var(--secondary-color);
+        font-size: 1.4rem;
+        font-weight: 600;
+        margin-bottom: 20px;
+    }
+
+    /* Caractéristiques de la carte */
+    .card-features {
+        margin-bottom: 25px;
+    }
+
+    .card-features .feature {
+        display: flex;
+        align-items: center;
+        margin-bottom: 10px;
+        color: #555;
+    }
+
+    .card-features .feature i {
+        color: var(--primary-color);
+        margin-right: 12px;
+        width: 20px;
+        font-size: 1rem;
+    }
+
+    /* Description de la carte */
+    .card-description {
+        margin-bottom: 25px;
+    }
+
+    .card-description p {
+        color: #666;
+        line-height: 1.6;
+    }
+
+    /* Ce qui est inclus */
+    .card-includes {
+        margin-bottom: 25px;
+    }
+
+    .card-includes h4 {
+        color: var(--secondary-color);
+        font-size: 1rem;
+        font-weight: 600;
+        margin-bottom: 15px;
+    }
+
+    .card-includes ul {
+        list-style: none;
+        padding: 0;
+    }
+
+    .card-includes li {
+        display: flex;
+        align-items: center;
+        margin-bottom: 8px;
+        color: #666;
+        font-size: 0.9rem;
+    }
+
+    .card-includes li::before {
+        content: "✓";
+        color: var(--primary-color);
+        font-weight: bold;
+        margin-right: 10px;
+        font-size: 1rem;
+    }
+
+    /* Prix de la carte */
+    .card-price {
+        text-align: center;
+        margin-bottom: 25px;
+        padding: 20px 0;
+        border-top: 2px solid #f0f0f0;
+        border-bottom: 2px solid #f0f0f0;
+    }
+
+    .card-price .price {
+        color: var(--secondary-color);
+        font-size: 1.5rem;
+        font-weight: 700;
+        display: block;
+    }
+
+    .card-price small {
+        color: #666;
+        font-size: 0.85rem;
+        margin-top: 5px;
+        display: block;
+    }
+
+    /* Boutons */
+    .btn {
+        display: inline-flex;
+        align-items: center;
+        justify-content: center;
+        padding: 12px 24px;
+        border-radius: 50px;
+        text-decoration: none;
+        font-weight: 600;
+        transition: all 0.3s ease;
+        border: none;
+        cursor: pointer;
+        gap: 8px;
+    }
+
+    .btn-primary {
+        background: var(--gradient-primary);
+        color: white;
+    }
+
+    .btn-primary:hover {
+        background: linear-gradient(135deg, var(--primary-dark) 0%, var(--primary-color) 100%);
+        transform: translateY(-2px);
+        box-shadow: 0 5px 15px rgba(241, 130, 100, 0.4);
+    }
+
+    .formule-card .btn {
+        width: 100%;
+        padding: 15px;
+        font-size: 1rem;
+    }
+
+    /* Styles pour le bloc anniversaire regroupé */
+    .anniversaire-double {
+        grid-column: span 2;
+        background: linear-gradient(135deg, var(--white) 0%, rgba(241, 130, 100, 0.05) 100%);
+        border: 2px solid var(--primary-color);
+        position: relative;
+    }
+
+    .anniversaire-double::before {
+        content: '';
+        position: absolute;
+        top: 0;
+        left: 0;
+        right: 0;
+        height: 4px;
+        background: var(--gradient-primary);
+        border-radius: 20px 20px 0 0;
+    }
+
+    .anniversaire-double .card-header {
+        text-align: center;
+        margin-bottom: 30px;
+    }
+
+    .anniversaire-double .card-header .card-icon {
+        margin: 0 auto 20px;
+        background: var(--gradient-primary);
+    }
+
+    .anniversaire-double .card-header h3 {
+        color: var(--secondary-color);
+        font-size: 1.8rem;
+        margin-bottom: 10px;
+    }
+
+    .anniversaire-double .card-subtitle {
+        color: #666;
+        font-size: 1.1rem;
+        margin: 0;
+    }
+
+    .anniversaire-options {
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        gap: 30px;
+        margin-top: 30px;
+    }
+
+    .anniversaire-option {
+        background: white;
+        padding: 25px;
+        border-radius: 15px;
+        box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+        position: relative;
+        border: 2px solid transparent;
+        transition: all 0.3s ease;
+    }
+
+    .anniversaire-option:hover {
+        transform: translateY(-5px);
+        box-shadow: 0 10px 25px rgba(0, 0, 0, 0.15);
+    }
+
+    .anniversaire-option.pop {
+        border-color: var(--primary-color);
+    }
+
+    .anniversaire-option.fun {
+        border-color: var(--primary-dark);
+    }
+
+    .option-badge {
+        position: absolute;
+        top: -10px;
+        left: 20px;
+        padding: 5px 12px;
+        border-radius: 15px;
+        font-size: 0.75rem;
+        font-weight: 600;
+        text-transform: uppercase;
+        color: white;
+    }
+
+    .option-badge.popular {
+        background: var(--primary-color);
+    }
+
+    .option-badge.premium {
+        background: var(--primary-dark);
+    }
+
+    .anniversaire-option h4 {
+        color: var(--secondary-color);
+        font-size: 1.2rem;
+        margin-bottom: 15px;
+        display: flex;
+        align-items: center;
+        gap: 10px;
+    }
+
+    .anniversaire-option h4 i {
+        color: var(--primary-color);
+    }
+
+    .anniversaire-option.fun h4 i {
+        color: var(--primary-dark);
+    }
+
+    .anniversaire-option h5 {
+        color: var(--secondary-color);
+        font-size: 1rem;
+        margin-bottom: 10px;
+        font-weight: 600;
+    }
+
+    .anniversaire-option .btn {
+        width: 100%;
+        margin-top: 15px;
+    }
+
+    /* Responsive pour le bloc anniversaire */
+    @media (max-width: 1024px) {
+        .anniversaire-double {
+            grid-column: span 1;
+        }
+        
+        .anniversaire-options {
+            grid-template-columns: 1fr;
+            gap: 20px;
+        }
+    }
+
+    /* Styles pour les onglets */
+    .tabs-navigation {
+        display: flex;
+        justify-content: center;
+        gap: 0;
+        margin: 40px 0 30px;
+        background: white;
+        border-radius: 50px;
+        padding: 5px;
+        box-shadow: 0 5px 20px rgba(0, 0, 0, 0.1);
+        max-width: 600px;
+        margin: 40px auto 30px;
+    }
+
+    .tab-btn {
+        flex: 1;
+        background: transparent;
+        border: none;
+        padding: 15px 25px;
+        border-radius: 50px;
+        cursor: pointer;
+        transition: all 0.3s ease;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        gap: 10px;
+        color: #666;
+        font-weight: 500;
+        font-size: 0.95rem;
+    }
+
+    .tab-btn:hover {
+        color: var(--primary-color);
+    }
+
+    .tab-btn.active {
+        background: var(--gradient-primary);
+        color: white;
+        transform: translateY(-2px);
+        box-shadow: 0 5px 15px rgba(241, 130, 100, 0.4);
+    }
+
+    .tab-btn i {
+        font-size: 1.1rem;
+    }
+
+    .tabs-content {
+        margin-top: 40px;
+    }
+
+    .tab-pane {
+        display: none;
+        animation: fadeIn 0.3s ease;
+    }
+
+    .tab-pane.active {
+        display: block;
+    }
+
+    @keyframes fadeIn {
+        from {
+            opacity: 0;
+            transform: translateY(20px);
+        }
+        to {
+            opacity: 1;
+            transform: translateY(0);
+        }
+    }
+
+    /* Responsive pour les onglets */
+    @media (max-width: 768px) {
+        .tabs-navigation {
+            flex-direction: column;
+            gap: 10px;
+            padding: 15px;
+            border-radius: 20px;
+        }
+        
+        .tab-btn {
+            border-radius: 15px;
+            padding: 12px 20px;
+        }
+        
+        .tab-btn span {
+            font-size: 0.9rem;
+        }
+    }
+
+    /* Styles pour harmoniser avec index.html */
+    .section-badge {
+        display: inline-block;
+        background: var(--gradient-gold);
+        color: var(--secondary-color);
+        padding: 0.5rem 1.2rem;
+        border-radius: 25px;
+        font-size: 0.9rem;
+        font-weight: 600;
+        margin-bottom: 1.5rem;
+        text-transform: uppercase;
+        letter-spacing: 0.5px;
+        box-shadow: 0 4px 15px rgba(200, 134, 13, 0.3);
+    }
+
+    .section-title {
+        font-family: var(--font-primary);
+        font-size: clamp(2.5rem, 5vw, 4rem);
+        font-weight: 700;
+        color: var(--secondary-color);
+        margin-bottom: 1.5rem;
+        line-height: 1.2;
+        text-align: center;
+        width: 100%;
+    }
+
+    .section-description {
+        font-size: 1.1rem;
+        color: #666;
+        line-height: 1.7;
+        text-align: center;
+        max-width: 700px;
+        margin: 0 auto;
+    }
+
+    .hero-title {
+        font-family: var(--font-primary);
+        font-weight: 700;
+        color: white;
+    }
+
+    .hero-section h1 i {
+        color: white;
+        margin-right: 15px;
+    }
+
+    .title-line {
+        display: block;
+        font-family: var(--font-primary);
+        font-weight: 700;
+    }
+
+    .title-line.accent {
+        color: var(--primary-color);
+        text-shadow: 0 0 30px rgba(212, 175, 55, 0.5);
+    }
+
+    /* Styles pour la popup de réservation */
+    .reservation-popup {
+        display: none;
+        position: fixed;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        background: rgba(0, 0, 0, 0.7);
+        z-index: 9999;
+        backdrop-filter: blur(5px);
+    }
+
+    .reservation-popup.show {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        animation: fadeIn 0.3s ease;
+    }
+
+    .popup-content {
+        background: white;
+        border-radius: 20px;
+        padding: 40px;
+        max-width: 500px;
+        width: 90%;
+        text-align: center;
+        box-shadow: 0 20px 60px rgba(0, 0, 0, 0.3);
+        position: relative;
+        animation: slideUp 0.3s ease;
+    }
+
+    @keyframes slideUp {
+        from {
+            transform: translateY(50px);
+            opacity: 0;
+        }
+        to {
+            transform: translateY(0);
+            opacity: 1;
+        }
+    }
+
+    .popup-close {
+        position: absolute;
+        top: 15px;
+        right: 20px;
+        background: none;
+        border: none;
+        font-size: 24px;
+        cursor: pointer;
+        color: #666;
+        transition: color 0.3s ease;
+    }
+
+    .popup-close:hover {
+        color: var(--primary-color);
+    }
+
+    .popup-icon {
+        width: 80px;
+        height: 80px;
+        background: var(--gradient-primary);
+        border-radius: 50%;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        margin: 0 auto 20px;
+    }
+
+    .popup-icon i {
+        font-size: 2rem;
+        color: white;
+    }
+
+    .popup-title {
+        color: var(--secondary-color);
+        font-size: 1.5rem;
+        font-weight: 600;
+        margin-bottom: 15px;
+    }
+
+    .popup-message {
+        color: #666;
+        font-size: 1.1rem;
+        margin-bottom: 25px;
+        line-height: 1.5;
+    }
+
+    .popup-phone {
+        background: var(--gradient-primary);
+        color: white;
+        padding: 15px 25px;
+        border-radius: 50px;
+        font-size: 1.2rem;
+        font-weight: 600;
+        text-decoration: none;
+        display: inline-flex;
+        align-items: center;
+        gap: 10px;
+        transition: transform 0.3s ease;
+        margin-bottom: 20px;
+    }
+
+    .popup-phone:hover {
+        transform: translateY(-2px);
+        box-shadow: 0 5px 15px rgba(241, 130, 100, 0.4);
+        color: white;
+        text-decoration: none;
+    }
+
+    .popup-phone i {
+        font-size: 1.1rem;
+    }
+
+    .popup-note {
+        color: #999;
+        font-size: 0.9rem;
+        font-style: italic;
+    }
+
+    /* Contact Section */
+    .contact-section {
+        padding: 80px 0;
+        background: var(--gradient-warm);
+        color: white;
+    }
+
+    .contact-content {
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        gap: 50px;
+        align-items: center;
+        margin-top: 50px;
+    }
+
+    .contact-item {
+        display: flex;
+        align-items: center;
+        margin-bottom: 30px;
+    }
+
+    .contact-icon {
+        width: 60px;
+        height: 60px;
+        background: var(--gradient-primary);
+        border-radius: 15px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        margin-right: 20px;
+        transition: transform 0.3s ease;
+    }
+
+    .contact-icon:hover {
+        transform: translateY(-2px);
+    }
+
+    .contact-icon i {
+        font-size: 1.5rem;
+        color: white;
+    }
+
+    .contact-details h4 {
+        font-size: 1.2rem;
+        margin-bottom: 5px;
+        color: white;
+    }
+
+    .contact-details p {
+        opacity: 0.9;
+        color: white;
+    }
+
+    .contact-details a {
+        color: white;
+        text-decoration: none;
+        transition: color 0.3s ease;
+    }
+
+    .contact-details a:hover {
+        color: var(--primary-color);
+    }
+
+    .cta-buttons {
+        display: flex;
+        gap: 20px;
+        flex-wrap: wrap;
+    }
+
+    .btn-large {
+        padding: 18px 35px;
+        font-size: 1.1rem;
+    }
+
+    .btn-outline {
+        background: transparent;
+        color: white;
+        border: 2px solid white;
+    }
+
+    .btn-outline:hover {
+        background: white;
+        color: var(--secondary-color);
+    }
+
+    /* Footer */
+    .footer {
+        background: var(--secondary-color);
+        color: white;
+        padding: 50px 0 30px;
+    }
+
+    .footer-content {
+        display: grid;
+        grid-template-columns: 1fr 1fr 1fr;
+        gap: 40px;
+        margin-bottom: 30px;
+    }
+
+    .footer-logo {
+        display: flex;
+        align-items: center;
+    }
+
+    .footer-logo img {
+        width: 40px;
+        height: 40px;
+        border-radius: 50%;
+        margin-right: 10px;
+    }
+
+    .footer-links {
+        display: flex;
+        flex-direction: column;
+        gap: 10px;
+    }
+
+    .footer-links a {
+        color: rgba(255, 255, 255, 0.8);
+        text-decoration: none;
+        transition: color 0.3s ease;
+    }
+
+    .footer-links a:hover {
+        color: var(--primary-color);
+    }
+
+    .footer-contact p {
+        color: rgba(255, 255, 255, 0.8);
+        margin-bottom: 10px;
+    }
+
+    .footer-contact i {
+        color: var(--primary-color);
+        margin-right: 10px;
+    }
+
+    .footer-bottom {
+        border-top: 1px solid rgba(255, 255, 255, 0.2);
+        padding-top: 20px;
+        text-align: center;
+        color: rgba(255, 255, 255, 0.7);
+    }
+
+    /* Responsive */
+    @media (max-width: 768px) {
+        .nav-menu {
+            position: fixed;
+            left: -100%;
+            top: 70px;
+            flex-direction: column;
+            background: rgba(252, 248, 243, 0.98);
+            width: 100%;
+            text-align: center;
+            transition: 0.3s;
+            box-shadow: 0 10px 27px rgba(0, 0, 0, 0.05);
+            padding: 2rem 0;
+            gap: 1rem;
+            transform: none;
+        }
+
+        .nav-menu.active {
+            left: 0;
+        }
+
+        .hamburger {
+            display: flex;
+        }
+
+        .language-switcher {
+            position: static;
+            transform: none;
+            margin-left: 1rem;
+        }
+        
+        .hero-title {
+            font-size: 2.5rem !important;
+        }
+        
+        .hero-content {
+            padding: 1rem;
+        }
+        
+        .hero-description {
+            font-size: 1.1rem;
+        }
+        
+        .hero-buttons {
+            flex-direction: column;
+            align-items: center;
+        }
+        
+        .hero-buttons .btn {
+            width: 100%;
+            max-width: 300px;
+        }
+        
+        .utensil {
+            font-size: 2rem;
+        }
+        
+        .formulas-cards-grid {
+            grid-template-columns: 1fr;
+            gap: 30px;
+        }
+        
+        .contact-content {
+            grid-template-columns: 1fr;
+            gap: 30px;
+        }
+        
+        .footer-content {
+            grid-template-columns: 1fr;
+            gap: 20px;
+        }
+        
+        .cta-buttons {
+            flex-direction: column;
+        }
+    }
+
+    @media (max-width: 480px) {
+        .hero-title {
+            font-size: 2rem !important;
+        }
+        
+        .hero-content {
+            padding: 0.5rem;
+        }
+        
+        .hero-description {
+            font-size: 1rem;
+            margin-bottom: 2rem;
+        }
+        
+        .utensil {
+            font-size: 1.5rem;
+        }
+        
+        .hero-scroll-indicator {
+            bottom: 1rem;
+        }
+    }
+    </style>
+</head>
+<body>
+    <!-- Navigation -->
+    <nav class="navbar" id="navbar">
+        <div class="nav-container">
+            <div class="nav-logo">
+                <a href="index.html">
+                    <img src="assets/images/logo.jpg" alt="Entremets et Saveurs - Logo" class="logo-image">
+                </a>
+            </div>
+            
+            <ul class="nav-menu" id="nav-menu">
+                <li class="nav-item">
+                    <a href="index.html" class="nav-link" data-translate="nav.home">Accueil</a>
+                </li>
+                <li class="nav-item">
+                    <a href="index.html#about" class="nav-link" data-translate="nav.about">À Propos</a>
+                </li>
+                <li class="nav-item">
+                    <a href="index.html#gallery" class="nav-link" data-translate="nav.gallery">Galerie</a>
+                </li>
+                <li class="nav-item">
+                    <a href="boutique.html" class="nav-link" data-translate="nav.boutique">Boutique</a>
+                </li>
+                <li class="nav-item">
+                    <a href="formules.html" class="nav-link active">Formules</a>
+                </li>
+                <li class="nav-item">
+                    <a href="index.html#services" class="nav-link" data-translate="nav.services">Services</a>
+                </li>
+                <li class="nav-item">
+                    <a href="index.html#contact" class="nav-link" data-translate="nav.contact">Contact</a>
+                </li>
+                <li class="nav-item cta">
+                    <a href="tel:+33644177920" class="nav-link btn-call">
+                        <i class="fas fa-phone"></i> <span data-translate="nav.cta">Commander</span>
+                    </a>
+                </li>
+            </ul>
+            
+            <div class="hamburger" id="hamburger">
+                <span class="bar"></span>
+                <span class="bar"></span>
+                <span class="bar"></span>
+            </div>
+            <div class="language-switcher">
+                <div class="lang-dropdown">
+                    <button class="lang-current" id="currentLang">
+                        <span class="flag flag-fr"></span>
+                        <span class="lang-name">Français</span>
+                        <i class="fas fa-chevron-down"></i>
+                    </button>
+                    <div class="lang-options">
+                        <button class="lang-btn active" data-lang="fr">
+                            <span class="flag flag-fr"></span>
+                            <span>Français</span>
+                        </button>
+                        <button class="lang-btn " data-lang="en">
+                            <span class="flag flag-en"></span>
+                            <span>English</span>
+                        </button>
+                        <button class="lang-btn " data-lang="es">
+                            <span class="flag flag-es"></span>
+                            <span>Español</span>
+                        </button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <section id="home" class="hero">
+        <div class="hero-background">
+            <div class="hero-overlay"></div>
+            <video autoplay muted loop class="hero-video">
+                <source src="assets/images/hero-video.mp4" type="video/mp4">
+            </video>
+        </div>
+        
+        <!-- Hero Utensils Background -->
+        <div class="hero-utensils">
+            <div class="utensil utensil-1"><i class="fas fa-cookie-bite"></i></div>
+            <div class="utensil utensil-2"><i class="fas fa-birthday-cake"></i></div>
+            <div class="utensil utensil-3"><i class="fas fa-ice-cream"></i></div>
+            <div class="utensil utensil-4"><i class="fas fa-coffee"></i></div>
+            <div class="utensil utensil-5"><i class="fas fa-apple-alt"></i></div>
+            <div class="utensil utensil-6"><i class="fas fa-cookie"></i></div>
+            <div class="utensil utensil-7"><i class="fas fa-candy-cane"></i></div>
+            <div class="utensil utensil-8"><i class="fas fa-wine-glass"></i></div>
+        </div>
+        
+        <div class="hero-content">
+            <div class="container">
+                <div class="hero-text">
+                    <h1 class="hero-title" data-aos="fade-up" data-aos-delay="200">
+                        <span class="title-line" data-translate="formules.hero.title.line1">Nos</span>
+                        <span class="title-line accent" data-translate="formules.hero.title.line2">Formules</span>
+                        <span class="title-line" data-translate="formules.hero.title.line3">Gourmandes</span>
+                    </h1>
+                    <p class="hero-description" data-aos="fade-up" data-aos-delay="400" data-translate="formules.hero.subtitle">
+                        Découvrez nos expériences pâtissières uniques, conçues pour créer des moments inoubliables 
+                        autour de la passion du sucré et des saveurs authentiques.
+                    </p>
+                    <div class="hero-buttons" data-aos="fade-up" data-aos-delay="600">
+                        <a href="#formules" class="btn btn-primary">
+                            <span data-translate="formules.hero.cta1">Découvrir nos formules</span>
+                            <i class="fas fa-arrow-right"></i>
+                        </a>
+                        <a href="#contact" class="btn btn-primary">
+                            <i class="fas fa-calendar"></i>
+                            <span data-translate="formules.hero.cta2">Réserver</span>
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </div>
+        
+        <div class="hero-scroll-indicator" data-aos="fade-in" data-aos-delay="800">
+            <div class="scroll-mouse">
+                <div class="scroll-wheel"></div>
+            </div>
+            <span>Découvrez</span>
+        </div>
+    </section>
+
+    <!-- Section Formules -->
+    <section class="formules-section">
+        <div class="container">
+            <div class="section-header">
+                <span class="section-badge">Nos Formules</span>
+                <h2 class="section-title">Choisissez votre formule</h2>
+                <p class="section-description">Des expériences pâtissières sur mesure pour tous les goûts et toutes les occasions</p>
+            </div>
+
+            <!-- Onglets Navigation -->
+            <div class="tabs-navigation">
+                <button class="tab-btn active" data-tab="adultes">
+                    <i class="fas fa-graduation-cap"></i>
+                    <span>Adultes</span>
+                </button>
+                <button class="tab-btn" data-tab="anniversaires">
+                    <i class="fas fa-birthday-cake"></i>
+                    <span>Anniversaires</span>
+                </button>
+                <button class="tab-btn" data-tab="entreprises">
+                    <i class="fas fa-building"></i>
+                    <span>Entreprises</span>
+                </button>
+            </div>
+
+            <!-- Contenu des Onglets -->
+            <div class="tabs-content">
+                
+                <!-- Onglet Adultes -->
+                <div class="tab-pane active" id="adultes">
+                    <div class="formulas-cards-grid">
+                <!-- Cours de Pâtisserie Adultes -->
+                <div class="formule-card">
+                    <div class="card-icon">
+                        <i class="fas fa-graduation-cap"></i>
+                    </div>
+                    <div class="card-content">
+                        <h3>Cours de Pâtisserie Adultes</h3>
+                        <div class="card-features">
+                            <div class="feature">
+                                <i class="fas fa-clock"></i>
+                                <span>2h30 - 3h de cours</span>
+                            </div>
+                            <div class="feature">
+                                <i class="fas fa-users"></i>
+                                <span>2 à 8 personnes</span>
+                            </div>
+                            <div class="feature">
+                                <i class="fas fa-home"></i>
+                                <span>À votre domicile</span>
+                            </div>
+                        </div>
+                        <div class="card-description">
+                            <p>Apprenez les techniques professionnelles de la pâtisserie française. Réalisez des entremets, macarons, tartes ou gâteaux selon vos envies.</p>
+                        </div>
+                        <div class="card-includes">
+                            <h4>Inclus :</h4>
+                            <ul>
+                                <li>Tous les ingrédients et ustensiles</li>
+                                <li>Tabliers et toques fournis</li>
+                                <li>Recettes détaillées à emporter</li>
+                                <li>Dégustation en fin de cours</li>
+                            </ul>
+                        </div>
+                        <div class="card-price">
+                            <span class="price">À partir de 45€/pers</span>
+                        </div>
+                        <a href="#contact" class="btn btn-primary">Réserver</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Onglet Anniversaires -->
+        <div class="tab-pane" id="anniversaires">
+            <div class="formulas-cards-grid">
+                <!-- Formules Anniversaires -->
+                <div class="formule-card anniversaire-double">
+                    <div class="card-header">
+                        <div class="card-icon">
+                            <i class="fas fa-birthday-cake"></i>
+                        </div>
+                        <h3>Formules Anniversaires Enfants</h3>
+                        <p class="card-subtitle">Deux formules adaptées à tous les budgets pour un anniversaire inoubliable</p>
+                    </div>
+                    
+                    <div class="anniversaire-options">
+                        <!-- Formule POP -->
+                        <div class="anniversaire-option pop">
+                            <div class="option-badge popular">Populaire</div>
+                            <h4>
+                                <i class="fas fa-gift"></i>
+                                Formule POP
+                            </h4>
+                            <div class="card-features">
+                                <div class="feature">
+                                    <i class="fas fa-clock"></i>
+                                    <span>2h d'animation</span>
+                                </div>
+                                <div class="feature">
+                                    <i class="fas fa-users"></i>
+                                    <span>6 à 12 enfants</span>
+                                </div>
+                                <div class="feature">
+                                    <i class="fas fa-calendar-alt"></i>
+                                    <span>Samedis uniquement</span>
+                                </div>
+                            </div>
+                            <div class="card-description">
+                                <p>Animation pâtisserie ludique avec création de pop cakes personnalisés.</p>
+                            </div>
+                            <div class="card-includes">
+                                <h5>Inclus :</h5>
+                                <ul>
+                                    <li>6 Pop Cakes par enfant</li>
+                                    <li>1 Sirop à l'eau par enfant</li>
+                                    <li>Animation par un pâtissier</li>
+                                    <li>Matériel et ingrédients fournis</li>
+                                </ul>
+                            </div>
+                            <div class="card-price">
+                                <span class="price">15€/enfant</span>
+                                <small>Samedis uniquement</small>
+                            </div>
+                            <a href="#contact" class="btn btn-primary">Réserver POP</a>
+                        </div>
+
+                        <!-- Formule FUN -->
+                        <div class="anniversaire-option fun">
+                            <div class="option-badge premium">Premium</div>
+                            <h4>
+                                <i class="fas fa-star"></i>
+                                Formule FUN
+                            </h4>
+                            <div class="card-features">
+                                <div class="feature">
+                                    <i class="fas fa-clock"></i>
+                                    <span>2h d'animation</span>
+                                </div>
+                                <div class="feature">
+                                    <i class="fas fa-users"></i>
+                                    <span>6 à 12 enfants</span>
+                                </div>
+                                <div class="feature">
+                                    <i class="fas fa-check-circle"></i>
+                                    <span>Tous les jours</span>
+                                </div>
+                            </div>
+                            <div class="card-description">
+                                <p>L'expérience anniversaire complète avec goûter inclus et techniques professionnelles.</p>
+                            </div>
+                            <div class="card-includes">
+                                <h5>Inclus :</h5>
+                                <ul>
+                                    <li>6 Cup Cakes décorés par enfant</li>
+                                    <li>Techniques de pochage professionnel</li>
+                                    <li>Goûter complet (cake marbré + bougies)</li>
+                                    <li>Bonbons, chips et boissons</li>
+                                    <li>Café et thé pour les parents</li>
+                                </ul>
+                            </div>
+                            <div class="card-price">
+                                <span class="price">25€/enfant</span>
+                                <small>Disponible tous les jours</small>
+                            </div>
+                            <a href="#contact" class="btn btn-primary">Réserver FUN</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Onglet Entreprises -->
+        <div class="tab-pane" id="entreprises">
+            <div class="formulas-cards-grid">
+                <!-- Ateliers Entreprise -->
+                <div class="formule-card">
+                    <div class="card-icon">
+                        <i class="fas fa-building"></i>
+                    </div>
+                    <div class="card-content">
+                        <h3>Ateliers Entreprise</h3>
+                        <div class="card-features">
+                            <div class="feature">
+                                <i class="fas fa-clock"></i>
+                                <span>3h d'atelier</span>
+                            </div>
+                            <div class="feature">
+                                <i class="fas fa-users"></i>
+                                <span>10 à 20 personnes</span>
+                            </div>
+                            <div class="feature">
+                                <i class="fas fa-trophy"></i>
+                                <span>Team building</span>
+                            </div>
+                        </div>
+                        <div class="card-description">
+                            <p>Renforcez la cohésion de votre équipe avec nos ateliers pâtisserie team building. Une expérience gourmande et fédératrice.</p>
+                        </div>
+                        <div class="card-includes">
+                            <h4>Inclus :</h4>
+                            <ul>
+                                <li>Animation par pâtissier professionnel</li>
+                                <li>Matériel et ingrédients premium</li>
+                                <li>Activités collaboratives</li>
+                                <li>Dégustation collective</li>
+                            </ul>
+                        </div>
+                        <div class="card-price">
+                            <span class="price">Sur devis</span>
+                        </div>
+                        <a href="#contact" class="btn btn-primary">Demander un devis</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Onglet Anniversaires -->
+        <div class="tab-pane" id="anniversaires">
+            <div class="formulas-cards-grid">
+                <!-- Formules Anniversaires -->
+                <div class="formule-card anniversaire-double">
+                    <div class="card-header">
+                        <div class="card-icon">
+                            <i class="fas fa-birthday-cake"></i>
+                        </div>
+                        <h3>Formules Anniversaires Enfants</h3>
+                        <p class="card-subtitle">Deux formules adaptées à tous les budgets pour un anniversaire inoubliable</p>
+                    </div>
+                    
+                    <div class="anniversaire-options">
+                        <!-- Formule POP -->
+                        <div class="anniversaire-option pop">
+                            <div class="option-badge popular">Populaire</div>
+                            <h4>
+                                <i class="fas fa-gift"></i>
+                                Formule POP
+                            </h4>
+                            <div class="card-features">
+                                <div class="feature">
+                                    <i class="fas fa-clock"></i>
+                                    <span>L'après-midi</span>
+                                </div>
+                                <div class="feature">
+                                    <i class="fas fa-users"></i>
+                                    <span>6 à 12 enfants</span>
+                                </div>
+                                <div class="feature">
+                                    <i class="fas fa-calendar-alt"></i>
+                                    <span>Samedis uniquement</span>
+                                </div>
+                            </div>
+                            <div class="card-description">
+                                <p>Animation pâtisserie ludique avec création de pop cakes personnalisés par les enfants.</p>
+                            </div>
+                            <div class="card-includes">
+                                <h5>Inclus :</h5>
+                                <ul>
+                                    <li>6 Pop Cakes par enfant</li>
+                                    <li>Sirop à l'eau par enfant</li>
+                                    <li>Animation complète par un pâtissier</li>
+                                    <li>Matériel et ingrédients fournis</li>
+                                </ul>
+                            </div>
+                            <div class="card-price">
+                                <span class="price">15€/enfant</span>
+                                <small>Samedis uniquement</small>
+                            </div>
+                            <a href="#contact" class="btn btn-primary">Réserver POP</a>
+                        </div>
+
+                        <!-- Formule FUN -->
+                        <div class="anniversaire-option fun">
+                            <div class="option-badge premium">Premium</div>
+                            <h4>
+                                <i class="fas fa-star"></i>
+                                Formule FUN
+                            </h4>
+                            <div class="card-features">
+                                <div class="feature">
+                                    <i class="fas fa-clock"></i>
+                                    <span>L'après-midi</span>
+                                </div>
+                                <div class="feature">
+                                    <i class="fas fa-users"></i>
+                                    <span>6 à 12 enfants</span>
+                                </div>
+                                <div class="feature">
+                                    <i class="fas fa-check-circle"></i>
+                                    <span>Mercredi ou samedi</span>
+                                </div>
+                            </div>
+                            <div class="card-description">
+                                <p>L'expérience anniversaire complète avec techniques de pochage professionnel et goûter complet inclus !</p>
+                            </div>
+                            <div class="card-includes">
+                                <h5>Inclus :</h5>
+                                <ul>
+                                    <li>6 Cup Cakes décorés par enfant</li>
+                                    <li>Techniques de pochage professionnel</li>
+                                    <li>Goûter complet (cake marbré + bougies)</li>
+                                    <li>Bonbons et boissons</li>
+                                    <li>Café et thé pour les parents</li>
+                                    <li>Animation par un chef pâtissier</li>
+                                    <li>Matériel professionnel fourni</li>
+                                </ul>
+                            </div>
+                            <div class="card-price">
+                                <span class="price">25€/enfant</span>
+                                <small>Mercredi ou samedi</small>
+                            </div>
+                            <a href="#contact" class="btn btn-primary">Réserver FUN</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Onglet Entreprises -->
+        <div class="tab-pane" id="entreprises">
+            <div class="formulas-cards-grid">
+                <div class="formule-card">
+                    <div class="card-icon">
+                        <i class="fas fa-building"></i>
+                    </div>
+                    <div class="card-content">
+                        <h3>Ateliers Entreprise</h3>
+                        <div class="card-features">
+                            <div class="feature">
+                                <i class="fas fa-clock"></i>
+                                <span>2h à 4h d'atelier</span>
+                            </div>
+                            <div class="feature">
+                                <i class="fas fa-users"></i>
+                                <span>8 à 20 personnes</span>
+                            </div>
+                        </div>
+                        <div class="card-description">
+                            <p>Renforcez la cohésion de vos équipes autour d'un atelier pâtisserie.</p>
+                        </div>
+                        <div class="card-price">
+                            <span class="price">Sur devis</span>
+                        </div>
+                        <a href="#contact" class="btn btn-primary">Demander un devis</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+            </div>
+        </div>
+    </section>
+
+    <!-- Section Contact -->
+    <section id="contact" class="contact-section">
+        <div class="container">
+            <div class="section-header">
+                <span class="section-badge">Contact</span>
+                <h2 class="section-title">Contactez-nous</h2>
+                <p class="section-description">Prêt à vivre une expérience pâtissière unique ? Contactez-nous pour réserver votre formule !</p>
+            </div>
+
+            <div class="contact-content">
+                <div class="contact-info">
+                    <div class="contact-item">
+                        <div class="contact-icon">
+                            <i class="fas fa-phone"></i>
+                        </div>
+                        <div class="contact-details">
+                            <h4>Téléphone</h4>
+                            <p><a href="tel:+33644177920">06 44 17 79 20</a></p>
+                        </div>
+                    </div>
+
+                    <div class="contact-item">
+                        <div class="contact-icon">
+                            <i class="fas fa-envelope"></i>
+                        </div>
+                        <div class="contact-details">
+                            <h4>Email</h4>
+                            <p><a href="mailto:entremets-et-saveurs@orange.fr">entremets-et-saveurs@orange.fr</a></p>
+                        </div>
+                    </div>
+
+                    <div class="contact-item">
+                        <div class="contact-icon">
+                            <i class="fas fa-map-marker-alt"></i>
+                        </div>
+                        <div class="contact-details">
+                            <h4>Zone d'intervention</h4>
+                            <p>Montgradail</p>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="cta-buttons">
+                    <a href="tel:+33644177920" class="btn btn-primary btn-large">
+                        <i class="fas fa-phone"></i>
+                        <span>Appeler maintenant</span>
+                    </a>
+                    <a href="mailto:entremets-et-saveurs@orange.fr" class="btn btn-outline btn-large">
+                        <i class="fas fa-envelope"></i>
+                        <span>Envoyer un email</span>
+                    </a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-logo">
+                    <img src="assets/images/logo.jpg" alt="Entremets et Saveurs">
+                    <span>Entremets et Saveurs</span>
+                </div>
+                <div class="footer-links">
+                    <a href="index.html">Accueil</a>
+                    <a href="formules.html">Formules</a>
+                    <a href="boutique.html">Boutique</a>
+                    <a href="index.html#gallery">Galerie</a>
+                    <a href="#contact">Contact</a>
+                </div>
+                <div class="footer-contact">
+                    <p><i class="fas fa-phone"></i> 06 44 17 79 20</p>
+                    <p><i class="fas fa-envelope"></i> entremets-et-saveurs@orange.fr</p>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 2024 Entremets et Saveurs. Tous droits réservés.</p>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Popup de réservation -->
+    <div class="reservation-popup" id="reservationPopup">
+        <div class="popup-content">
+            <button class="popup-close" onclick="closeReservationPopup()">&times;</button>
+            <div class="popup-icon">
+                <i class="fas fa-phone"></i>
+            </div>
+            <h3 class="popup-title">Réservation par téléphone</h3>
+            <p class="popup-message">
+                Pour réserver votre formule, appelez-nous directement :
+            </p>
+            <a href="tel:+33644177920" class="popup-phone">
+                <i class="fas fa-phone"></i>
+                06 44 17 79 20
+            </a>
+            <p class="popup-note">
+                Nous sommes disponibles pour répondre à toutes vos questions !
+            </p>
+        </div>
+    </div>
+
+    <!-- JavaScript pour les onglets -->
+    <script>
+        // Gestion des onglets
+        document.addEventListener('DOMContentLoaded', function() {
+            const tabBtns = document.querySelectorAll('.tab-btn');
+            const tabPanes = document.querySelectorAll('.tab-pane');
+
+            tabBtns.forEach(btn => {
+                btn.addEventListener('click', () => {
+                    const targetTab = btn.getAttribute('data-tab');
+
+                    // Supprimer la classe active de tous les boutons et panneaux
+                    tabBtns.forEach(b => b.classList.remove('active'));
+                    tabPanes.forEach(pane => pane.classList.remove('active'));
+
+                    // Ajouter la classe active au bouton cliqué et au panneau correspondant
+                    btn.classList.add('active');
+                    document.getElementById(targetTab).classList.add('active');
+                });
+            });
+
+            // Gestion des boutons de réservation
+            const reservationBtns = document.querySelectorAll('a[href="#contact"]:not([href*="tel"])');
+            reservationBtns.forEach(btn => {
+                btn.addEventListener('click', function(e) {
+                    e.preventDefault();
+                    showReservationPopup();
+                });
+            });
+        });
+
+        // Fonctions pour la popup de réservation
+        function showReservationPopup() {
+            document.getElementById('reservationPopup').classList.add('show');
+            document.body.style.overflow = 'hidden'; // Empêche le scroll
+        }
+
+        function closeReservationPopup() {
+            document.getElementById('reservationPopup').classList.remove('show');
+            document.body.style.overflow = 'auto'; // Rétablit le scroll
+        }
+
+        // Fermer la popup en cliquant sur l'arrière-plan
+        document.getElementById('reservationPopup').addEventListener('click', function(e) {
+            if (e.target === this) {
+                closeReservationPopup();
+            }
+        });
+
+        // Fermer la popup avec la touche Échap
+        document.addEventListener('keydown', function(e) {
+            if (e.key === 'Escape') {
+                closeReservationPopup();
+            }
+        });
+
+        // === NAVBAR FUNCTIONALITY ===
+        // Mobile menu toggle
+        const hamburger = document.getElementById('hamburger');
+        const navMenu = document.getElementById('nav-menu');
+
+        if (hamburger && navMenu) {
+            hamburger.addEventListener('click', function() {
+                hamburger.classList.toggle('active');
+                navMenu.classList.toggle('active');
+            });
+        }
+
+        // === TRANSLATION SYSTEM ===
+        let currentLanguage = 'fr';
+        let translations = {};
+
+        // Traductions intégrées pour éviter les problèmes de chargement de fichiers
+        translations['fr'] = {
+            "nav": {
+                "home": "Accueil",
+                "about": "À Propos",
+                "gallery": "Galerie",
+                "boutique": "Boutique",
+                "services": "Services",
+                "contact": "Contact",
+                "cta": "Commander"
+            },
+            "formules": {
+                "hero": {
+                    "title": {
+                        "line1": "Nos",
+                        "line2": "Formules",
+                        "line3": "Gourmandes"
+                    },
+                    "subtitle": "Découvrez nos expériences pâtissières uniques, conçues pour créer des moments inoubliables autour de la passion du sucré et des saveurs authentiques.",
+                    "cta1": "Découvrir nos formules",
+                    "cta2": "Réserver"
+                }
+            }
+        };
+
+        translations['en'] = {
+            "nav": {
+                "home": "Home",
+                "about": "About",
+                "gallery": "Gallery",
+                "boutique": "Shop",
+                "services": "Services",
+                "contact": "Contact",
+                "cta": "Order"
+            },
+            "formules": {
+                "hero": {
+                    "title": {
+                        "line1": "Our",
+                        "line2": "Gourmet",
+                        "line3": "Packages"
+                    },
+                    "subtitle": "Discover our unique pastry experiences, designed to create unforgettable moments around the passion of sweets and authentic flavors.",
+                    "cta1": "Discover our packages",
+                    "cta2": "Book Now"
+                }
+            }
+        };
+
+        translations['es'] = {
+            "nav": {
+                "home": "Inicio",
+                "about": "Acerca de",
+                "gallery": "Galería",
+                "boutique": "Tienda",
+                "services": "Servicios",
+                "contact": "Contacto",
+                "cta": "Pedir"
+            },
+            "formules": {
+                "hero": {
+                    "title": {
+                        "line1": "Nuestros",
+                        "line2": "Paquetes",
+                        "line3": "Gourmet"
+                    },
+                    "subtitle": "Descubre nuestras experiencias pasteleras únicas, diseñadas para crear momentos inolvidables en torno a la pasión por los dulces y sabores auténticos.",
+                    "cta1": "Descubrir nuestros paquetes",
+                    "cta2": "Reservar"
+                }
+            }
+        };
+
+        // Apply translations to the page
+        function applyTranslations(lang) {
+            const elements = document.querySelectorAll('[data-translate]');
+            const langData = translations[lang];
+            
+            if (!langData) {
+                console.error('Language data not found for:', lang);
+                return;
+            }
+
+            elements.forEach(element => {
+                const key = element.getAttribute('data-translate');
+                const keys = key.split('.');
+                let value = langData;
+                
+                // Navigate through nested object
+                for (let i = 0; i < keys.length; i++) {
+                    if (value && value[keys[i]]) {
+                        value = value[keys[i]];
+                    } else {
+                        console.warn('Translation key not found:', key);
+                        return;
+                    }
+                }
+                
+                if (value && typeof value === 'string') {
+                    element.textContent = value;
+                    console.log('Translated:', key, '→', value);
+                }
+            });
+
+            currentLanguage = lang;
+            console.log('Applied translations for:', lang);
+        }
+
+        // Language switcher functionality
+        const langButtons = document.querySelectorAll('.lang-btn');
+        const currentLang = document.getElementById('currentLang');
+
+        langButtons.forEach(btn => {
+            btn.addEventListener('click', function() {
+                const lang = this.dataset.lang;
+                const langName = this.querySelector('span:last-child').textContent;
+                const flag = this.querySelector('.flag').className;
+
+                console.log('Switching to language:', lang);
+
+                // Apply translations
+                applyTranslations(lang);
+
+                // Update current language display
+                if (currentLang) {
+                    currentLang.querySelector('.lang-name').textContent = langName;
+                    currentLang.querySelector('.flag').className = flag;
+                }
+
+                // Update active state
+                langButtons.forEach(b => b.classList.remove('active'));
+                this.classList.add('active');
+            });
+        });
+
+        // Initialize with French
+        console.log('Initializing translations...');
+        setTimeout(() => {
+            applyTranslations('fr');
+        }, 100);
+
+        // Navbar scroll behavior
+        let lastScrollTop = 0;
+        const navbar = document.getElementById('navbar');
+
+        window.addEventListener('scroll', function() {
+            let scrollTop = window.pageYOffset || document.documentElement.scrollTop;
+            
+            if (scrollTop > 100) {
+                navbar.classList.add('scrolled');
+            } else {
+                navbar.classList.remove('scrolled');
+            }
+
+            if (scrollTop > lastScrollTop && scrollTop > 200) {
+                // Scrolling down
+                navbar.classList.add('hidden');
+            } else {
+                // Scrolling up
+                navbar.classList.remove('hidden');
+            }
+            lastScrollTop = scrollTop;
+        });
+    </script>
+</body>
+</html>

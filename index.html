@@ -1,0 +1,693 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Entremets et Saveurs - Pâtisserie d'Exception à Limoux</title>
+    <meta name="description" content="Pâtisserie traditionnelle, moderne et revisitée sur mesure. Produits frais et sélectionnés. Services traiteur, buffets et événements privés à Saint-Polycarpe.">
+    
+    <!-- Preload critical resources -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;500;600;700&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
+    
+    <!-- Favicon -->
+    <link rel="icon" type="image/svg+xml" href="assets/images/favicon.svg">
+    
+    <!-- Styles -->
+    <link rel="stylesheet" href="src/styles.css">
+    
+    <!-- Icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    
+    <!-- Translations -->
+    <script src="src/translations.js" defer></script>
+    
+    <!-- SEO and Social -->
+    <meta property="og:title" content="Entremets et Saveurs - Pâtisserie d'Exception">
+    <meta property="og:description" content="Pâtisserie traditionnelle, moderne et revisitée sur mesure. Produits frais et sélectionnés.">
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://entremets-et-saveurs.fr">
+    
+    <!-- Structured Data -->
+    <script type="application/ld+json">
+    {
+        "@context": "https://schema.org",
+        "@type": "Bakery",
+        "name": "Entremets et Saveurs",
+        "description": "Pâtisserie traditionnelle, moderne et revisitée sur mesure",
+        "address": {
+            "@type": "PostalAddress",
+            "streetAddress": "Hameau de Rebelle",
+            "postalCode": "11240",
+            "addressLocality": "Montgradail",
+            "addressCountry": "FR"
+        },
+        "telephone": "+33644177920",
+        "email": "entremets-et-saveurs@orange.fr",
+        "openingHours": [
+            "Mo-Sa 09:00-17:00",
+            "Su 09:00-12:00"
+        ],
+        "sameAs": [
+            "https://www.facebook.com/entremetsetsaveurs/",
+            "https://www.instagram.com/entremetsetsaveurs/"
+        ]
+    }
+    </script>
+</head>
+<body>
+    <!-- Loading Screen -->
+    <div id="loading-screen">
+        <div class="loading-content">
+            <div class="loading-logo">
+                <h1>Entremets & Saveurs</h1>
+                
+                <!-- Ustensiles de pâtisserie animés -->
+                <div class="loading-utensils">
+                    <div class="loading-utensil utensil-1"><i class="fas fa-cookie-bite"></i></div>
+                    <div class="loading-utensil utensil-2"><i class="fas fa-birthday-cake"></i></div>
+                    <div class="loading-utensil utensil-3"><i class="fas fa-ice-cream"></i></div>
+                    <div class="loading-utensil utensil-4"><i class="fas fa-coffee"></i></div>
+                    <div class="loading-utensil utensil-5"><i class="fas fa-apple-alt"></i></div>
+                    <div class="loading-utensil utensil-6"><i class="fas fa-cookie"></i></div>
+                    <div class="loading-utensil utensil-7"><i class="fas fa-candy-cane"></i></div>
+                    <div class="loading-utensil utensil-8"><i class="fas fa-wine-glass"></i></div>
+                </div>
+                
+                <div class="loading-animation">
+                    <div class="loading-bar"></div>
+                </div>
+                
+                <div class="loading-text">Préparation de vos délices...</div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Navigation -->
+    <nav class="navbar" id="navbar">
+        <div class="nav-container">
+            <div class="nav-logo">
+                <a href="#home">
+                    <img src="assets/images/logo.jpg" alt="Entremets et Saveurs - Logo" class="logo-image">
+                </a>
+            </div>
+            
+            <ul class="nav-menu" id="nav-menu">
+                <li class="nav-item">
+                    <a href="#home" class="nav-link active" data-translate="nav.home">Accueil</a>
+                </li>
+                <li class="nav-item">
+                    <a href="#about" class="nav-link" data-translate="nav.about">À Propos</a>
+                </li>
+                <li class="nav-item">
+                    <a href="#gallery" class="nav-link" data-translate="nav.gallery">Galerie</a>
+                </li>
+                <li class="nav-item">
+                    <a href="boutique.html" class="nav-link" data-translate="nav.boutique">Boutique</a>
+                </li>
+                <li class="nav-item">
+                    <a href="formules.html" class="nav-link">Formules</a>
+                </li>
+                <li class="nav-item">
+                    <a href="#services" class="nav-link" data-translate="nav.services">Services</a>
+                </li>
+                <li class="nav-item">
+                    <a href="#contact" class="nav-link" data-translate="nav.contact">Contact</a>
+                </li>
+                <li class="nav-item cta">
+                    <a href="tel:+33644177920" class="nav-link btn-call">
+                        <i class="fas fa-phone"></i> <span data-translate="nav.cta">Appeler</span>
+                    </a>
+                </li>
+            </ul>
+            
+            <div class="hamburger" id="hamburger">
+                <span class="bar"></span>
+                <span class="bar"></span>
+                <span class="bar"></span>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Bandeau défilant -->
+    <div class="announcement-banner">
+        <a href="formules.html" class="banner-link">
+            <div class="banner-content">
+                <div class="banner-text">
+                    <i class="fas fa-star"></i>
+                    <span>NOUVEAU ! VOS COURS DE PÂTISSERIE ET ANNIVERSAIRE ENFANTS À DOMICILE !</span>
+                    <i class="fas fa-birthday-cake"></i>
+                    <span>NOUVEAU ! VOS COURS DE PÂTISSERIE ET ANNIVERSAIRE ENFANTS À DOMICILE !</span>
+                    <i class="fas fa-star"></i>
+                    <span>NOUVEAU ! VOS COURS DE PÂTISSERIE ET ANNIVERSAIRE ENFANTS À DOMICILE !</span>
+                    <i class="fas fa-birthday-cake"></i>
+                </div>
+            </div>
+        </a>
+    </div>
+
+    <!-- Hero Section -->
+    <section id="home" class="hero">
+        <div class="hero-background">
+            <div class="hero-overlay"></div>
+            <video autoplay muted loop class="hero-video">
+                <source src="assets/images/hero-video.mp4" type="video/mp4">
+            </video>
+        </div>
+        
+        <!-- Hero Utensils Background -->
+        <div class="hero-utensils">
+            <div class="utensil utensil-1"><i class="fas fa-cookie-bite"></i></div>
+            <div class="utensil utensil-2"><i class="fas fa-birthday-cake"></i></div>
+            <div class="utensil utensil-3"><i class="fas fa-ice-cream"></i></div>
+            <div class="utensil utensil-4"><i class="fas fa-coffee"></i></div>
+            <div class="utensil utensil-5"><i class="fas fa-apple-alt"></i></div>
+            <div class="utensil utensil-6"><i class="fas fa-cookie"></i></div>
+            <div class="utensil utensil-7"><i class="fas fa-candy-cane"></i></div>
+            <div class="utensil utensil-8"><i class="fas fa-wine-glass"></i></div>
+        </div>
+        
+        <div class="hero-content">
+            <div class="container">
+                <div class="hero-text">
+                    <h1 class="hero-title" data-aos="fade-up" data-aos-delay="200">
+                        <span class="title-line" data-translate="hero.title.line1">L'Art de la</span>
+                        <span class="title-line accent" data-translate="hero.title.line2">Pâtisserie</span>
+                        <span class="title-line" data-translate="hero.title.line3">Revisité</span>
+                    </h1>
+                    <p class="hero-description" data-aos="fade-up" data-aos-delay="400" data-translate="hero.subtitle">
+                        Découvrez nos créations artisanales alliant tradition française et innovation moderne. Chaque entremet raconte une histoire de passion et de savoir-faire.
+                    </p>
+                    <div class="hero-buttons" data-aos="fade-up" data-aos-delay="600">
+                        <a href="#gallery" class="btn btn-primary">
+                            <span data-translate="hero.cta">Découvrir nos créations</span>
+                            <i class="fas fa-arrow-right"></i>
+                        </a>
+                        <a href="#contact" class="btn btn-primary">
+                            <i class="fas fa-calendar"></i>
+                            <span data-translate="nav.contact">Réserver</span>
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </div>
+        
+        <div class="hero-scroll-indicator" data-aos="fade-in" data-aos-delay="800">
+            <div class="scroll-mouse">
+                <div class="scroll-wheel"></div>
+            </div>
+            <span>Découvrez</span>
+        </div>
+    </section>
+
+    <!-- About Section -->
+    <section id="about" class="about-section">
+        <div class="container">
+            <div class="section-header" data-aos="fade-up">
+                <span class="section-badge">Notre Savoir-Faire</span>
+                <h2 class="section-title">Tradition & Innovation</h2>
+                <p class="section-description">
+                    Une pâtisserie où chaque création raconte une histoire, 
+                    mêlant les techniques traditionnelles aux inspirations contemporaines.
+                </p>
+            </div>
+            
+            <div class="about-grid">
+                <div class="about-content" data-aos="fade-right">
+                    <div class="about-stats">
+                        <div class="stat-item">
+                            <div class="stat-number">15+</div>
+                            <div class="stat-label">Années d'expérience</div>
+                        </div>
+                        <div class="stat-item">
+                            <div class="stat-number">500+</div>
+                            <div class="stat-label">Créations uniques</div>
+                        </div>
+                        <div class="stat-item">
+                            <div class="stat-number">50+</div>
+                            <div class="stat-label">Clients satisfaits</div>
+                        </div>
+                    </div>
+                    
+                    <div class="about-text">
+                        <h3>Pâtisserie d'Exception sur Mesure</h3>
+                        <p>
+                            Située à Montgradail, notre pâtisserie 
+                            s'engage à créer des moments d'exception à travers des saveurs authentiques 
+                            et des présentations innovantes.
+                        </p>
+                        <p>
+                            Nos produits frais et soigneusement sélectionnés garantissent une qualité 
+                            irréprochable, que ce soit pour vos événements privés, mariages ou 
+                            simplement pour le plaisir de savourer l'excellence.
+                        </p>
+                        
+                        <div class="about-features">
+                            <div class="feature-item">
+                                <i class="fas fa-leaf"></i>
+                                <h4>Ingrédients frais & locaux</h4>
+                            </div>
+                            <div class="feature-item">
+                                <i class="fas fa-award"></i>
+                                <h4>Créations sur mesure</h4>
+                            </div>
+                            <div class="feature-item">
+                                <i class="fas fa-heart"></i>
+                                <h4>Passion & savoir-faire</h4>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="about-image" data-aos="fade-left">
+                    <div class="about-photos-grid">
+                        <div class="photo-item photo-main">
+                            <img src="assets/images/artisan.jpg" alt="Artisan pâtissier au travail" loading="lazy">
+                            <div class="photo-caption">Notre maître pâtissier</div>
+                        </div>
+                        <div class="photo-item photo-small">
+                            <img src="assets/images/macaron.jpg" alt="Macarons colorés" loading="lazy">
+                            <div class="photo-caption">Nos macarons</div>
+                        </div>
+                        <div class="photo-item photo-small">
+                            <img src="assets/images/salade.jpg" alt="Service traiteur" loading="lazy">
+                            <div class="photo-caption">Service traiteur</div>
+                        </div>
+                        <div class="photo-item photo-medium">
+                            <img src="assets/images/gateau halloween.jpg" alt="Nos gâteaux" loading="lazy">
+                            <div class="photo-caption">Nos gâteaux</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Gallery Section -->
+    <section id="gallery" class="gallery-section">
+        <div class="container">
+            <div class="section-header" data-aos="fade-up">
+                <span class="section-badge">Nos Créations</span>
+                <h2 class="section-title">Galerie Gourmande</h2>
+                <p class="section-description">
+                    Plongez dans l'univers visuel de nos créations pâtissières et découvrez 
+                    nos services traiteur, où chaque détail est pensé pour éveiller vos sens.
+                </p>
+            </div>
+            
+            <div class="gallery-filters" data-aos="fade-up" data-aos-delay="200">
+                <button class="filter-btn active" data-filter="all">Toutes</button>
+                <button class="filter-btn" data-filter="cakes">Gâteaux</button>
+                <button class="filter-btn" data-filter="pastries">Pâtisseries</button>
+                <button class="filter-btn" data-filter="macarons">Macarons</button>
+                <button class="filter-btn" data-filter="catering">Traiteur</button>
+                <button class="filter-btn" data-filter="wedding">Mariage</button>
+            </div>
+            
+            <!-- Featured Video Section -->
+            <div class="gallery-video-section" data-aos="fade-up" data-aos-delay="300">
+                <div class="video-container">
+                    <h3 class="video-title" data-translate="gallery.video.title">Découvrez notre savoir-faire en vidéo</h3>
+                    <p class="video-description" data-translate="gallery.video.description">Plongez dans les coulisses de notre atelier et découvrez la création de nos délicieux entremets</p>
+                    <div class="youtube-video-wrapper">
+                        <iframe src="https://www.youtube.com/embed/pP1HCSfKNJo" 
+                                width="560" 
+                                height="315" 
+                                frameborder="0" 
+                                allowfullscreen
+                                allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share">
+                        </iframe>
+                    </div>
+                </div>
+            </div>
+
+            <div class="gallery-grid" id="gallery-grid">
+                <!-- Gallery items will be dynamically loaded -->
+            </div>
+            
+            <div class="gallery-load-more" data-aos="fade-up">
+                <button class="btn btn-primary" id="load-more-btn">
+                    <span>Voir plus de créations</span>
+                    <i class="fas fa-plus"></i>
+                </button>
+            </div>
+        </div>
+    </section>
+
+    <!-- Services Section -->
+    <section id="services" class="services-section">
+        <div class="container">
+            <div class="section-header" data-aos="fade-up">
+                <span class="section-badge">Nos Services</span>
+                <h2 class="section-title">Une Offre Complète</h2>
+                <p class="section-description">
+                    Des services sur mesure pour tous vos événements, 
+                    de l'intime au grandiose.
+                </p>
+            </div>
+            
+            <div class="services-grid">
+                <div class="service-card" data-aos="fade-up" data-aos-delay="100">
+                    <div class="service-icon">
+                        <i class="fas fa-birthday-cake"></i>
+                    </div>
+                    <h3>Pâtisseries Sur Mesure</h3>
+                    <p>Créations personnalisées selon vos goûts et l'occasion. Chaque pâtisserie est unique et réalisée avec la plus grande attention.</p>
+                    <div class="service-features">
+                        <span>Designs personnalisés</span>
+                        <span>Saveurs au choix</span>
+                        <span>Adaptation allergies</span>
+                    </div>
+                </div>
+                
+                <div class="service-card" data-aos="fade-up" data-aos-delay="200">
+                    <div class="service-icon">
+                        <i class="fas fa-utensils"></i>
+                    </div>
+                    <h3>Service Traiteur</h3>
+                    <p>Un service traiteur complet pour vos événements professionnels et privés. Buffets sucrés et salés, présentations élégantes.</p>
+                    <div class="service-features">
+                        <span>Buffets personnalisés</span>
+                        <span>Service complet</span>
+                        <span>Présentation soignée</span>
+                    </div>
+                </div>
+                
+                <div class="service-card" data-aos="fade-up" data-aos-delay="300">
+                    <div class="service-icon">
+                        <i class="fas fa-heart"></i>
+                    </div>
+                    <h3>Mariages & Événements</h3>
+                    <p>Pièces montées, wedding cakes et desserts d'exception pour marquer vos moments les plus précieux avec élégance.</p>
+                    <div class="service-features">
+                        <span>Pièces montées</span>
+                        <span>Wedding cakes</span>
+                        <span>Coordination événement</span>
+                    </div>
+                </div>
+                
+                <div class="service-card" data-aos="fade-up" data-aos-delay="100">
+                    <div class="service-icon">
+                        <i class="fas fa-truck"></i>
+                    </div>
+                    <h3>Livraison</h3>
+                    <p>Service de livraison soigné pour vous apporter nos créations en parfait état, où que vous soyez dans la région.</p>
+                    <div class="service-features">
+                        <span>Livraison régionale</span>
+                        <span>Transport sécurisé</span>
+                        <span>Horaires flexibles</span>
+                    </div>
+                </div>
+                
+                <div class="service-card" data-aos="fade-up" data-aos-delay="200">
+                    <div class="service-icon">
+                        <i class="fas fa-calendar-alt"></i>
+                    </div>
+                    <h3>Événements Privés</h3>
+                    <p>Organisation complète de vos réceptions privées avec un service personnalisé et des créations adaptées à l'ambiance souhaitée.</p>
+                    <div class="service-features">
+                        <span>Réceptions privées</span>
+                        <span>Service personnalisé</span>
+                        <span>Ambiance sur mesure</span>
+                    </div>
+                </div>
+                
+                <div class="service-card" data-aos="fade-up" data-aos-delay="300">
+                    <div class="service-icon">
+                        <i class="fas fa-star"></i>
+                    </div>
+                    <h3>Consultations</h3>
+                    <p>Rencontres personnalisées pour concevoir ensemble vos créations idéales, avec conseils d'expert et dégustation.</p>
+                    <div class="service-features">
+                        <span>Consultation gratuite</span>
+                        <span>Conseils d'expert</span>
+                        <span>Séances dégustation</span>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="services-cta" data-aos="fade-up" data-aos-delay="400">
+                <div class="cta-content">
+                    <h3>Un Projet en Tête ?</h3>
+                    <p>Discutons ensemble de vos envies et créons quelque chose d'exceptionnel.</p>
+                    <a href="#contact" class="btn btn-primary">
+                        <span>Démarrer votre projet</span>
+                        <i class="fas fa-arrow-right"></i>
+                    </a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Contact Section -->
+    <section id="contact" class="contact-section">
+        <div class="container">
+            <div class="section-header" data-aos="fade-up">
+                <span class="section-badge">Contact</span>
+                <h2 class="section-title">Restons en Contact</h2>
+                <p class="section-description">
+                    Une question, un projet ? N'hésitez pas à nous contacter. 
+                    Nous serons ravis de vous accompagner dans vos envies gourmandes.
+                </p>
+            </div>
+            
+            <div class="contact-grid">
+                <div class="contact-info" data-aos="fade-right">
+                    <div class="contact-item">
+                        <div class="contact-icon">
+                            <i class="fas fa-map-marker-alt"></i>
+                        </div>
+                        <div class="contact-details">
+                            <h4>Adresse</h4>
+                            <p>Hameau de Rebelle<br>11240 Montgradail<br>France</p>
+                            <a href="https://www.google.com/maps/search/?api=1&query=Hameau%20de%20Rebelle,%2011240%20Montgradail" 
+                               target="_blank" class="contact-link">
+                                <span>Voir sur la carte</span>
+                                <i class="fas fa-external-link-alt"></i>
+                            </a>
+                        </div>
+                    </div>
+                    
+                    <div class="contact-item">
+                        <div class="contact-icon">
+                            <i class="fas fa-phone"></i>
+                        </div>
+                        <div class="contact-details">
+                            <h4>Téléphone</h4>
+                            <p>+33 6 44 17 79 20</p>
+                            <a href="tel:+33644177920" class="contact-link">
+                                <span>Appeler maintenant</span>
+                                <i class="fas fa-phone"></i>
+                            </a>
+                        </div>
+                    </div>
+                    
+                    <div class="contact-item">
+                        <div class="contact-icon">
+                            <i class="fas fa-envelope"></i>
+                        </div>
+                        <div class="contact-details">
+                            <h4>Email</h4>
+                            <p>entremets-et-saveurs@orange.fr</p>
+                            <a href="mailto:entremets-et-saveurs@orange.fr" class="contact-link">
+                                <span>Envoyer un email</span>
+                                <i class="fas fa-envelope"></i>
+                            </a>
+                        </div>
+                    </div>
+                    
+                    <div class="contact-hours">
+                        <h4>Horaires d'ouverture</h4>
+                        <div class="hours-grid">
+                            <div class="hours-item">
+                                <span class="day">Lundi - Samedi</span>
+                                <span class="time">09:00 - 17:00</span>
+                            </div>
+                            <div class="hours-item weekend">
+                                <span class="day">Dimanche</span>
+                                <span class="time">09:00 - 12:00</span>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="social-links">
+                        <h4>Suivez-nous</h4>
+                        <div class="social-buttons">
+                            <a href="https://www.facebook.com/entremetsetsaveurs/" target="_blank" class="social-btn facebook">
+                                <i class="fab fa-facebook-f"></i>
+                                <span>Facebook</span>
+                            </a>
+                            <a href="https://www.instagram.com/entremetsetsaveurs/" target="_blank" class="social-btn instagram">
+                                <i class="fab fa-instagram"></i>
+                                <span>Instagram</span>
+                            </a>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="contact-form-container" data-aos="fade-left">
+                    <form class="contact-form" id="contact-form">
+                        <div class="form-group">
+                            <label for="name">Nom complet *</label>
+                            <input type="text" id="name" name="name" required>
+                        </div>
+                        
+                        <div class="form-group">
+                            <label for="email">Email *</label>
+                            <input type="email" id="email" name="email" required>
+                        </div>
+                        
+                        <div class="form-group">
+                            <label for="phone">Téléphone</label>
+                            <input type="tel" id="phone" name="phone">
+                        </div>
+                        
+                        <div class="form-group">
+                            <label for="service">Type de service</label>
+                            <select id="service" name="service">
+                                <option value="">Sélectionnez un service</option>
+                                <option value="patisseries">Pâtisseries sur mesure</option>
+                                <option value="traiteur">Service traiteur</option>
+                                <option value="mariage">Mariage & événements</option>
+                                <option value="livraison">Livraison</option>
+                                <option value="consultation">Consultation</option>
+                                <option value="autre">Autre</option>
+                            </select>
+                        </div>
+                        
+                        <div class="form-group">
+                            <label for="date">Date souhaitée</label>
+                            <input type="date" id="date" name="date">
+                        </div>
+                        
+                        <div class="form-group full-width">
+                            <label for="message">Votre message *</label>
+                            <textarea id="message" name="message" rows="6" 
+                                placeholder="Décrivez-nous votre projet, vos envies, le nombre de personnes, etc." required></textarea>
+                        </div>
+                        
+                        <div class="form-group checkbox-group">
+                            <label class="checkbox-label">
+                                <input type="checkbox" id="newsletter" name="newsletter">
+                                <span class="checkmark"></span>
+                                Je souhaite recevoir les actualités et offres spéciales
+                            </label>
+                        </div>
+                        
+                        <button type="submit" class="btn btn-primary btn-full">
+                            <span>Envoyer le message</span>
+                            <i class="fas fa-paper-plane"></i>
+                        </button>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-brand">
+                    <div class="footer-logo">
+                        <img src="assets/images/logo.jpg" alt="Entremets et Saveurs - Logo" class="footer-logo-image">
+                    </div>
+                    <p>L'art de la pâtisserie revisité avec passion et créativité depuis 2009.</p>
+                    <div class="footer-social">
+                        <a href="https://www.facebook.com/entremetsetsaveurs/" target="_blank">
+                            <i class="fab fa-facebook-f"></i>
+                        </a>
+                        <a href="https://www.instagram.com/entremetsetsaveurs/" target="_blank">
+                            <i class="fab fa-instagram"></i>
+                        </a>
+                    </div>
+                </div>
+                
+                <div class="footer-links">
+                    <h4>Navigation</h4>
+                    <ul>
+                        <li><a href="#home">Accueil</a></li>
+                        <li><a href="#about">À Propos</a></li>
+                        <li><a href="#gallery">Galerie</a></li>
+                        <li><a href="#services">Services</a></li>
+                        <li><a href="#contact">Contact</a></li>
+                    </ul>
+                </div>
+                
+                <div class="footer-services">
+                    <h4>Services</h4>
+                    <ul>
+                        <li><a href="#services">Pâtisseries sur mesure</a></li>
+                        <li><a href="#services">Service traiteur</a></li>
+                        <li><a href="#services">Mariages & événements</a></li>
+                        <li><a href="#services">Livraison</a></li>
+                    </ul>
+                </div>
+                
+                <div class="footer-contact">
+                    <h4>Contact Rapide</h4>
+                    <div class="footer-contact-item">
+                        <i class="fas fa-phone"></i>
+                        <a href="tel:+33644177920">+33 6 44 17 79 20</a>
+                    </div>
+                    <div class="footer-contact-item">
+                        <i class="fas fa-envelope"></i>
+                        <a href="mailto:entremets-et-saveurs@orange.fr">entremets-et-saveurs@orange.fr</a>
+                    </div>
+                    <div class="footer-contact-item">
+                        <i class="fas fa-map-marker-alt"></i>
+                        <span>Montgradail, France</span>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="footer-bottom">
+                <div class="footer-bottom-content">
+                    <p>&copy; 2024 Entremets et Saveurs. Tous droits réservés.</p>
+                    <div class="footer-legal">
+                        <a href="#" onclick="openPrivacyModal()">Mentions légales</a>
+                        <a href="#" onclick="openPrivacyModal()">Protection des données</a>
+                        <a href="#" onclick="openCookieSettings()">Paramètres cookies</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Back to Top Button -->
+    <button id="back-to-top" class="back-to-top" title="Retour en haut">
+        <i class="fas fa-arrow-up"></i>
+    </button>
+
+    <!-- Lightbox Modal -->
+    <div id="lightbox-modal" class="modal">
+        <div class="modal-content">
+            <span class="close-modal">&times;</span>
+            <img id="lightbox-image" src="" alt="">
+            <div class="lightbox-caption"></div>
+            <div class="lightbox-navigation">
+                <button class="lightbox-prev"><i class="fas fa-chevron-left"></i></button>
+                <button class="lightbox-next"><i class="fas fa-chevron-right"></i></button>
+            </div>
+        </div>
+    </div>
+
+    <!-- Video Modal -->
+    <div id="video-modal" class="modal">
+        <div class="modal-content">
+            <span class="close-modal">&times;</span>
+            <div class="video-container">
+                <iframe id="video-frame" src="" frameborder="0" allowfullscreen></iframe>
+            </div>
+        </div>
+    </div>
+
+    <!-- AOS CSS -->
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/aos/2.3.4/aos.css" rel="stylesheet">
+    
+    <!-- Scripts -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/aos/2.3.4/aos.js"></script>
+    <script src="src/script.js"></script>
+</body>
+</html>

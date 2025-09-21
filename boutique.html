@@ -1,0 +1,242 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Boutique - Entremets et Saveurs</title>
+    <meta name="description" content="Notre boutique en ligne arrive bientôt ! Découvrez nos futures offres de pâtisserie et services en ligne.">
+    
+    <!-- Preload critical resources -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;500;600;700&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
+    
+    <!-- Favicon -->
+    <link rel="icon" type="image/svg+xml" href="assets/images/favicon.svg">
+    
+    <!-- Styles -->
+    <link rel="stylesheet" href="src/styles.css">
+    
+    <!-- Icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    
+    <!-- AOS Animation Library -->
+    <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
+</head>
+<body>
+    <!-- Navigation -->
+    <nav class="navbar" id="navbar">
+        <div class="nav-container">
+            <div class="nav-logo">
+                <a href="index.html">
+                    <img src="assets/images/logo.jpg" alt="Entremets et Saveurs - Logo" class="logo-image">
+                </a>
+            </div>
+            
+            <ul class="nav-menu" id="nav-menu">
+                <li class="nav-item">
+                    <a href="index.html" class="nav-link">Accueil</a>
+                </li>
+                <li class="nav-item">
+                    <a href="index.html#about" class="nav-link">À Propos</a>
+                </li>
+                <li class="nav-item">
+                    <a href="index.html#gallery" class="nav-link">Galerie</a>
+                </li>
+                <li class="nav-item">
+                    <a href="boutique.html" class="nav-link active">Boutique</a>
+                </li>
+                <li class="nav-item">
+                    <a href="index.html#services" class="nav-link">Services</a>
+                </li>
+                <li class="nav-item">
+                    <a href="index.html#contact" class="nav-link">Contact</a>
+                </li>
+                <li class="nav-item cta">
+                    <a href="tel:+33644177920" class="nav-link btn-call">
+                        <i class="fas fa-phone"></i> <span>Appeler</span>
+                    </a>
+                </li>
+            </ul>
+            
+            <div class="hamburger" id="hamburger">
+                <span class="bar"></span>
+                <span class="bar"></span>
+                <span class="bar"></span>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Boutique Hero Section -->
+    <section class="boutique-hero">
+        <div class="container">
+            <div class="boutique-hero-content" data-aos="fade-up">
+                <div class="hero-badge">
+                    <i class="fas fa-store"></i>
+                    <span>Bientôt Disponible</span>
+                </div>
+                <h1 class="hero-title">Notre Boutique en Ligne</h1>
+                <p class="hero-subtitle">
+                    Nous préparons avec soin une expérience d'achat exceptionnelle pour vous offrir 
+                    nos délicieuses créations directement chez vous.
+                </p>
+            </div>
+        </div>
+        
+        <!-- Floating pastry utensils -->
+        <div class="hero-utensils">
+            <div class="utensil utensil-1"><i class="fas fa-cookie-bite"></i></div>
+            <div class="utensil utensil-3"><i class="fas fa-ice-cream"></i></div>
+            <div class="utensil utensil-4"><i class="fas fa-coffee"></i></div>
+            <div class="utensil utensil-5"><i class="fas fa-apple-alt"></i></div>
+            <div class="utensil utensil-6"><i class="fas fa-cookie"></i></div>
+            <div class="utensil utensil-7"><i class="fas fa-candy-cane"></i></div>
+            <div class="utensil utensil-8"><i class="fas fa-wine-glass"></i></div>
+        </div>
+    </section>
+
+    <!-- Coming Soon Section -->
+    <section class="boutique-section">
+        <div class="container">
+            <div class="boutique-coming-soon" data-aos="fade-up" data-aos-delay="200">
+                <div class="coming-soon-content">
+                    <div class="oven-animation">
+                        <i class="fas fa-fire"></i>
+                        <div class="oven-icon">
+                        </div>
+                        <div class="heat-waves">
+                            <span></span>
+                            <span></span>
+                            <span></span>
+                        </div>
+                    </div>
+                    
+                    <h2>Notre boutique est encore au four !</h2>
+                    <p>
+                        Comme nos plus beaux entremets, notre boutique en ligne nécessite le temps et la patience 
+                        nécessaires pour vous offrir une expérience parfaite. Nous mettons les dernières touches 
+                        pour que vous puissiez bientôt commander vos pâtisseries préférées en ligne.
+                    </p>
+                    
+                    <div class="coming-soon-features">
+                        <div class="feature-item" data-aos="fade-up" data-aos-delay="300">
+                            <i class="fas fa-shopping-cart"></i>
+                            <h4>Livraison à domicile</h4>
+                        </div>
+                        <div class="feature-item" data-aos="fade-up" data-aos-delay="400">
+                            <i class="fas fa-calendar-alt"></i>
+                            <h4>Commandes sur mesure</h4>
+                        </div>
+                        <div class="feature-item" data-aos="fade-up" data-aos-delay="500">
+                            <i class="fas fa-gift"></i>
+                            <h4>Coffrets cadeaux</h4>
+                        </div>
+                    </div>
+                    
+                    <div class="notify-form" data-aos="fade-up" data-aos-delay="600">
+                        <h4>Soyez les premiers informés !</h4>
+                        <form class="newsletter-form" onsubmit="handleNewsletterSubmit(event)">
+                            <div class="input-group">
+                                <input type="email" placeholder="Votre adresse email" required>
+                                <button type="submit" class="btn btn-primary">
+                                    <span>Me prévenir</span>
+                                    <i class="fas fa-bell"></i>
+                                </button>
+                            </div>
+                        </form>
+                    </div>
+
+                    <div class="back-to-home" data-aos="fade-up" data-aos-delay="700">
+                        <a href="index.html" class="btn btn-outline">
+                            <i class="fas fa-arrow-left"></i>
+                            <span>Retour à l'accueil</span>
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-section">
+                    <h4>Entremets et Saveurs</h4>
+                    <p>L'art de la pâtisserie française revisité avec passion et innovation.</p>
+                    <div class="social-links">
+                        <a href="https://www.facebook.com/entremetsetsaveurs/" target="_blank" class="social-btn facebook">
+                            <i class="fab fa-facebook-f"></i>
+                        </a>
+                        <a href="https://www.instagram.com/entremetsetsaveurs/" target="_blank" class="social-btn instagram">
+                            <i class="fab fa-instagram"></i>
+                        </a>
+                    </div>
+                </div>
+                
+                <div class="footer-section">
+                    <h4>Contact</h4>
+                    <div class="contact-info">
+                        <p><i class="fas fa-map-marker-alt"></i> Hameau de Rebelle, Montgradail, France, 11240</p>
+                        <p><i class="fas fa-phone"></i> +33 6 44 17 79 20</p>
+                        <p><i class="fas fa-envelope"></i> entremets-et-saveurs@orange.fr</p>
+                    </div>
+                </div>
+                
+                <div class="footer-section">
+                    <h4>Horaires</h4>
+                    <div class="hours">
+                        <p>Lundi - Samedi : 09h00 - 17h00</p>
+                        <p>Dimanche : 09h00 - 12h00</p>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="footer-bottom">
+                <p>&copy; 2024 Entremets et Saveurs. Tous droits réservés.</p>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Scripts -->
+    <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+    <script>
+        // Initialize AOS
+        AOS.init({
+            duration: 800,
+            easing: 'ease-in-out',
+            once: true,
+            mirror: false
+        });
+
+        // Mobile menu functionality
+        const hamburger = document.getElementById('hamburger');
+        const navMenu = document.getElementById('nav-menu');
+
+        if (hamburger && navMenu) {
+            hamburger.addEventListener('click', () => {
+                hamburger.classList.toggle('active');
+                navMenu.classList.toggle('active');
+            });
+        }
+
+        // Newsletter form handler
+        function handleNewsletterSubmit(event) {
+            event.preventDefault();
+            const email = event.target.querySelector('input[type="email"]').value;
+            alert('Merci ! Nous vous préviendrons dès que la boutique sera disponible.');
+            event.target.reset();
+        }
+
+        // Navbar scroll effect
+        window.addEventListener('scroll', function() {
+            const navbar = document.getElementById('navbar');
+            if (window.scrollY > 100) {
+                navbar.classList.add('scrolled');
+            } else {
+                navbar.classList.remove('scrolled');
+            }
+        });
+    </script>
+</body>
+</html>

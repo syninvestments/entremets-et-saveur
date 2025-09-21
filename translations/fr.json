@@ -1,0 +1,184 @@
+{
+  "nav": {
+    "home": "Accueil",
+    "about": "À Propos",
+    "gallery": "Galerie",
+    "boutique": "Boutique",
+    "services": "Services",
+    "contact": "Contact",
+    "cta": "Commander"
+  },
+  "hero": {
+    "title": {
+      "line1": "L'Art de la",
+      "line2": "Pâtisserie",
+      "line3": "Revisité"
+    },
+    "subtitle": "Découvrez nos créations artisanales alliant tradition française et innovation moderne. Chaque entremet raconte une histoire de passion et de savoir-faire.",
+    "cta": "Découvrir nos Créations"
+  },
+  "about": {
+    "badge": "Notre Histoire",
+    "title": "Tradition & Innovation",
+    "description": "Depuis plus de 20 ans, notre atelier perpétue l'excellence de la pâtisserie française tout en embrassant les techniques modernes pour créer des expériences gustatives uniques.",
+    "stats": {
+      "experience": "Années d'Expérience",
+      "creations": "Créations Uniques",
+      "customers": "Clients Satisfaits"
+    },
+    "features": {
+      "artisan": {
+        "title": "Savoir-faire Artisanal",
+        "description": "Chaque création est façonnée à la main avec passion et précision"
+      },
+      "ingredients": {
+        "title": "Ingrédients Premium",
+        "description": "Nous sélectionnons uniquement les meilleurs ingrédients français"
+      },
+      "innovation": {
+        "title": "Innovation Continue",
+        "description": "Toujours à la recherche de nouvelles saveurs et techniques"
+      }
+    },
+    "photos": {
+      "artisan": "Notre maître pâtissier",
+      "macarons": "Nos macarons",
+      "catering": "Service traiteur",
+      "cake": "Nos gâteaux"
+    }
+  },
+  "gallery": {
+    "badge": "Nos Créations",
+    "title": "Galerie Gourmande",
+    "subtitle": "Découvrez nos créations pâtissières et services traiteur",
+    "video": {
+      "title": "Découvrez notre savoir-faire en vidéo",
+      "description": "Plongez dans les coulisses de notre atelier et découvrez la création de nos délicieux entremets"
+    },
+    "items": {
+      "entremet1": {
+        "title": "Entremet Chocolat-Passion",
+        "description": "Un mariage parfait entre chocolat noir intense et fruit de la passion acidulé"
+      },
+      "entremet2": {
+        "title": "Tarte Citron Revisitée",
+        "description": "Notre version moderne du grand classique français"
+      },
+      "entremet3": {
+        "title": "Forêt Noire Contemporaine",
+        "description": "Une réinterprétation élégante du dessert traditionnel"
+      },
+      "entremet4": {
+        "title": "Mille-feuille Vanille",
+        "description": "La tradition française dans toute sa splendeur"
+      },
+      "entremet5": {
+        "title": "Opéra Royal",
+        "description": "L'excellence parisienne revisitée avec finesse"
+      },
+      "entremet6": {
+        "title": "Saint-Honoré Moderne",
+        "description": "Innovation et tradition dans un même dessert"
+      }
+    },
+    "loadMore": "Voir Plus de Créations"
+  },
+  "boutique": {
+    "title": "Notre boutique est encore au four !",
+    "description": "Comme nos plus beaux entremets, notre boutique en ligne nécessite le temps et la patience nécessaires pour vous offrir une expérience parfaite. Nous mettons les dernières touches pour que vous puissiez bientôt commander vos pâtisseries préférées en ligne.",
+    "features": {
+      "delivery": "Livraison à domicile",
+      "delivery_desc": "Vos créations livrées fraîches",
+      "preorder": "Commandes sur mesure",
+      "preorder_desc": "Réservez vos gâteaux à l'avance",
+      "gifts": "Coffrets cadeaux",
+      "gifts_desc": "Des présents gourmands"
+    },
+    "notify_title": "Soyez les premiers informés !",
+    "email_placeholder": "Votre adresse email",
+    "notify_btn": "Me prévenir"
+  },
+  "services": {
+    "badge": "Nos Services",
+    "title": "Services Sur-Mesure",
+    "subtitle": "Des solutions adaptées à tous vos événements",
+    "items": {
+      "events": {
+        "title": "Événements Privés",
+        "description": "Mariages, anniversaires, réceptions - nous créons des moments inoubliables",
+        "features": ["Menu personnalisé", "Service traiteur", "Décoration sur-mesure"]
+      },
+      "corporate": {
+        "title": "Événements d'Entreprise",
+        "description": "Impressionnez vos clients et collaborateurs avec nos créations d'exception",
+        "features": ["Buffets gourmands", "Pièces montées", "Branding alimentaire"]
+      },
+      "courses": {
+        "title": "Cours de Pâtisserie",
+        "description": "Apprenez les secrets de nos maîtres pâtissiers dans notre atelier",
+        "features": ["Cours individuels", "Ateliers de groupe", "Stages intensifs"]
+      }
+    }
+  },
+  "contact": {
+    "badge": "Contact",
+    "title": "Restons en Contact",
+    "subtitle": "Une question ? Un projet ? Contactez-nous !",
+    "info": {
+      "address": "Hameau de Rebelle, Montgradail, France, 11240",
+      "phone": "+33 1 23 45 67 89",
+      "email": "contact@entremets-saveurs.fr",
+      "hours": "Lun-Sam: 9h-17h | Dim: 9h-12h"
+    },
+    "form": {
+      "name": "Nom complet",
+      "email": "Email",
+      "phone": "Téléphone",
+      "subject": "Sujet",
+      "subjects": {
+        "general": "Demande générale",
+        "event": "Événement privé",
+        "corporate": "Événement entreprise",
+        "course": "Cours de pâtisserie",
+        "other": "Autre"
+      },
+      "message": "Message",
+      "consent": "J'accepte d'être recontacté concernant ma demande",
+      "submit": "Envoyer le Message"
+    }
+  },
+  "footer": {
+    "tagline": "L'excellence pâtissière française",
+    "about": {
+      "title": "À Propos",
+      "links": ["Notre Histoire", "Notre Équipe", "Nos Valeurs", "Carrières"]
+    },
+    "services": {
+      "title": "Services",
+      "links": ["Événements Privés", "Entreprises", "Cours", "Livraison"]
+    },
+    "contact": {
+      "title": "Contact",
+      "address": "Hameau de Rebelle",
+      "city": "Montgradail, France, 11240",
+      "phone": "+33 1 23 45 67 89",
+      "email": "contact@entremets-saveurs.fr"
+    },
+    "social": {
+      "title": "Suivez-nous"
+    },
+    "formules": {
+      "hero": {
+        "title": {
+          "line1": "Nos",
+          "line2": "Formules",
+          "line3": "Gourmandes"
+        },
+        "subtitle": "Découvrez nos expériences pâtissières uniques, conçues pour créer des moments inoubliables autour de la passion du sucré et des saveurs authentiques.",
+        "cta1": "Découvrir nos formules",
+        "cta2": "Réserver"
+      }
+    },
+    "copyright": "© 2024 Entremets & Saveurs. Tous droits réservés."
+  }
+}
