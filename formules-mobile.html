@@ -1,0 +1,1084 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
+    <title>Formules - Entremets et Saveurs Mobile</title>
+    <meta name="description" content="Découvrez nos formules pâtisserie : Adultes, Anniversaires et Entreprises. Produits frais et service personnalisé.">
+    
+    <!-- Preload critical resources -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;500;600;700&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
+    
+    <!-- Favicon -->
+    <link rel="icon" type="image/svg+xml" href="assets/images/favicon.svg">
+    
+    <!-- Icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    
+    <style>
+        /* === MOBILE FORMULES STYLES === */
+        
+        :root {
+            --primary-color: #F18264;
+            --primary-dark: #E66A4A;
+            --secondary-color: #2C3E50;
+            --accent-color: #E8B86A;
+            --bg-color: #FCF8F3;
+            --white: #FFFFFF;
+            --dark-gray: #2C2C2C;
+            --light-gray: #F5F5F5;
+            --text-color: #333333;
+            --font-primary: 'Playfair Display', serif;
+            --font-secondary: 'Inter', sans-serif;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        html {
+            font-size: 16px;
+            scroll-behavior: smooth;
+            overflow-x: hidden;
+            width: 100%;
+            max-width: 100vw;
+        }
+
+        body {
+            font-family: var(--font-secondary);
+            line-height: 1.6;
+            color: var(--text-color);
+            background-color: var(--bg-color);
+            overflow-x: hidden;
+            width: 100%;
+            max-width: 100vw;
+            margin: 0;
+            padding: 0;
+        }
+
+        .container {
+            width: 100%;
+            max-width: 100%;
+            margin: 0 auto;
+            padding: 0 1rem;
+            box-sizing: border-box;
+        }
+
+        /* Navigation Mobile */
+        .navbar {
+            position: fixed;
+            top: 0;
+            width: 100%;
+            background: rgba(252, 248, 243, 0.95);
+            backdrop-filter: blur(10px);
+            padding: 0.75rem 0;
+            z-index: 1000;
+            border-bottom: 1px solid rgba(241, 130, 100, 0.1);
+        }
+
+        .nav-container {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 0 1rem;
+        }
+
+        .nav-logo img {
+            height: 40px;
+            width: auto;
+        }
+
+        .hamburger {
+            display: flex;
+            flex-direction: column;
+            cursor: pointer;
+            gap: 4px;
+        }
+
+        .hamburger span {
+            width: 25px;
+            height: 3px;
+            background: var(--primary-color);
+            transition: 0.3s;
+        }
+
+        .nav-menu {
+            position: fixed;
+            left: -100%;
+            top: 70px;
+            flex-direction: column;
+            background: var(--bg-color);
+            width: 100%;
+            text-align: center;
+            transition: 0.3s;
+            padding: 2rem 0;
+            border-top: 1px solid rgba(241, 130, 100, 0.2);
+        }
+
+        .nav-menu.active {
+            left: 0;
+        }
+
+        .nav-item {
+            list-style: none;
+            margin: 0.75rem 0;
+        }
+
+        .nav-link {
+            font-size: 1.1rem;
+            font-weight: 500;
+            color: var(--text-color);
+            text-decoration: none;
+            padding: 0.75rem 1.5rem;
+            display: block;
+            border-radius: 25px;
+            transition: all 0.3s ease;
+        }
+
+        .nav-link:hover,
+        .nav-link.active {
+            color: var(--white);
+            background: var(--primary-color);
+        }
+
+        /* Hero Section Mobile */
+        .hero {
+            height: 60vh;
+            min-height: 400px;
+            background: linear-gradient(135deg, rgba(241, 130, 100, 0.9), rgba(232, 184, 106, 0.8)),
+                        url('assets/images/patisserie.jpg');
+            background-size: cover;
+            background-position: center;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            position: relative;
+            overflow: hidden;
+            margin-top: 70px;
+        }
+
+        .hero-content {
+            text-align: center;
+            color: var(--white);
+            z-index: 2;
+            padding: 0 1rem;
+            max-width: 100%;
+        }
+
+        .hero-title {
+            font-family: var(--font-primary);
+            font-size: 1.75rem;
+            font-weight: 700;
+            margin-bottom: 0.75rem;
+            text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.3);
+            line-height: 1.2;
+        }
+
+        .hero-description {
+            font-size: 0.9rem;
+            margin-bottom: 1.5rem;
+            line-height: 1.5;
+            text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.3);
+        }
+
+        .hero-buttons {
+            display: flex;
+            flex-direction: column;
+            gap: 0.75rem;
+            align-items: center;
+        }
+
+        .btn {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            gap: 0.5rem;
+            padding: 0.875rem 1.75rem;
+            font-size: 0.9rem;
+            font-weight: 600;
+            text-decoration: none;
+            border-radius: 50px;
+            transition: all 0.3s ease;
+            cursor: pointer;
+            border: none;
+            min-height: 44px;
+            width: 100%;
+            max-width: 280px;
+        }
+
+        .btn-primary {
+            background: var(--white);
+            color: var(--primary-color);
+        }
+
+        .btn-primary:hover {
+            background: var(--primary-color);
+            color: var(--white);
+            transform: translateY(-2px);
+        }
+
+        .btn-outline {
+            background: transparent;
+            color: var(--white);
+            border: 2px solid var(--white);
+        }
+
+        .btn-outline:hover {
+            background: var(--white);
+            color: var(--primary-color);
+        }
+
+        /* Floating animations */
+        .utensil {
+            position: absolute;
+            color: rgba(255, 255, 255, 0.1);
+            font-size: 1.5rem;
+            animation: float 6s ease-in-out infinite;
+        }
+
+        .utensil:nth-child(1) {
+            top: 20%;
+            left: 10%;
+            animation-delay: 0s;
+        }
+
+        .utensil:nth-child(2) {
+            top: 60%;
+            right: 15%;
+            animation-delay: 2s;
+        }
+
+        .utensil:nth-child(3) {
+            bottom: 30%;
+            left: 20%;
+            animation-delay: 4s;
+        }
+
+        @keyframes float {
+            0%, 100% { transform: translateY(0px); }
+            50% { transform: translateY(-15px); }
+        }
+
+        /* Tabs Navigation */
+        .tabs-container {
+            padding: 2rem 0;
+        }
+
+        .tabs-navigation {
+            display: flex;
+            flex-direction: column;
+            gap: 0.75rem;
+            margin-bottom: 2rem;
+            padding: 0 1rem;
+        }
+
+        .tab-btn {
+            background: var(--white);
+            color: var(--text-color);
+            border: 2px solid var(--light-gray);
+            padding: 1rem;
+            border-radius: 15px;
+            font-size: 1rem;
+            font-weight: 600;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            text-align: center;
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.05);
+        }
+
+        .tab-btn.active {
+            background: var(--primary-color);
+            color: var(--white);
+            border-color: var(--primary-color);
+            transform: translateY(-2px);
+            box-shadow: 0 4px 15px rgba(241, 130, 100, 0.3);
+        }
+
+        .tab-btn:hover:not(.active) {
+            border-color: var(--primary-color);
+            color: var(--primary-color);
+        }
+
+        /* Tab Content */
+        .tab-content {
+            display: none;
+            animation: fadeIn 0.5s ease-in-out;
+        }
+
+        .tab-content.active {
+            display: block;
+        }
+
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(20px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+
+        /* Formulas Cards */
+        .formulas-cards-grid {
+            display: grid;
+            grid-template-columns: 1fr;
+            gap: 1.5rem;
+            padding: 0 1rem;
+        }
+
+        .anniversaire-option {
+            background: var(--white);
+            border-radius: 20px;
+            padding: 1.5rem;
+            box-shadow: 0 5px 20px rgba(0, 0, 0, 0.1);
+            transition: all 0.3s ease;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .anniversaire-option:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 8px 25px rgba(0, 0, 0, 0.15);
+        }
+
+        .option-badge {
+            position: absolute;
+            top: 1rem;
+            right: 1rem;
+            background: var(--accent-color);
+            color: var(--white);
+            padding: 0.5rem 1rem;
+            border-radius: 20px;
+            font-size: 0.75rem;
+            font-weight: 600;
+            text-transform: uppercase;
+        }
+
+        .card-header h3 {
+            font-family: var(--font-primary);
+            font-size: 1.4rem;
+            color: var(--secondary-color);
+            margin-bottom: 0.5rem;
+        }
+
+        .card-subtitle {
+            color: var(--primary-color);
+            font-weight: 600;
+            margin-bottom: 1rem;
+        }
+
+        .card-features {
+            display: flex;
+            flex-direction: column;
+            gap: 0.75rem;
+            margin: 1.5rem 0;
+        }
+
+        .feature {
+            display: flex;
+            align-items: center;
+            gap: 0.75rem;
+            font-size: 0.9rem;
+        }
+
+        .feature i {
+            color: var(--primary-color);
+            width: 20px;
+            font-size: 1rem;
+        }
+
+        .card-includes {
+            margin: 1.5rem 0;
+        }
+
+        .card-includes h4 {
+            font-size: 1rem;
+            margin-bottom: 0.75rem;
+            color: var(--secondary-color);
+        }
+
+        .card-includes ul {
+            list-style: none;
+            padding: 0;
+        }
+
+        .card-includes li {
+            padding: 0.25rem 0;
+            font-size: 0.85rem;
+            color: var(--text-color);
+        }
+
+        .card-includes li:before {
+            content: "✓";
+            color: var(--primary-color);
+            font-weight: bold;
+            margin-right: 0.5rem;
+        }
+
+        .card-price {
+            text-align: center;
+            padding: 1rem;
+            background: var(--bg-color);
+            border-radius: 15px;
+            margin: 1rem 0;
+        }
+
+        .price {
+            font-family: var(--font-primary);
+            font-size: 1.5rem;
+            font-weight: 700;
+            color: var(--primary-color);
+        }
+
+        .price-note {
+            font-size: 0.8rem;
+            color: var(--dark-gray);
+            margin-top: 0.25rem;
+        }
+
+        .card-actions {
+            display: flex;
+            flex-direction: column;
+            gap: 0.75rem;
+            margin-top: 1.5rem;
+        }
+
+        /* Reservation Popup */
+        .reservation-popup {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0, 0, 0, 0.5);
+            display: none;
+            align-items: center;
+            justify-content: center;
+            z-index: 2000;
+        }
+
+        .popup-content {
+            background: var(--white);
+            padding: 2rem;
+            border-radius: 20px;
+            width: 90%;
+            max-width: 400px;
+            max-height: 80vh;
+            overflow-y: auto;
+            text-align: center;
+            position: relative;
+        }
+
+        .popup-close {
+            position: absolute;
+            top: 1rem;
+            right: 1rem;
+            background: none;
+            border: none;
+            font-size: 1.5rem;
+            color: var(--dark-gray);
+            cursor: pointer;
+        }
+
+        .popup-content h3 {
+            font-family: var(--font-primary);
+            font-size: 1.5rem;
+            margin-bottom: 1rem;
+            color: var(--secondary-color);
+        }
+
+        .popup-phone {
+            font-size: 1.75rem;
+            font-weight: 700;
+            color: var(--primary-color);
+            margin: 1rem 0;
+        }
+
+        .popup-actions {
+            display: flex;
+            flex-direction: column;
+            gap: 1rem;
+            margin-top: 2rem;
+        }
+
+        /* Footer */
+        .footer {
+            background: var(--secondary-color);
+            color: var(--white);
+            padding: 2rem 0 1rem;
+            margin-top: 3rem;
+        }
+
+        .footer-content {
+            display: grid;
+            grid-template-columns: 1fr;
+            gap: 2rem;
+            margin-bottom: 2rem;
+        }
+
+        .footer-section h4 {
+            font-family: var(--font-primary);
+            font-size: 1.2rem;
+            margin-bottom: 1rem;
+        }
+
+        .footer-section p {
+            font-size: 0.9rem;
+            line-height: 1.6;
+            margin-bottom: 1rem;
+        }
+
+        .social-links {
+            display: flex;
+            gap: 1rem;
+        }
+
+        .social-btn {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            width: 40px;
+            height: 40px;
+            background: var(--primary-color);
+            color: var(--white);
+            text-decoration: none;
+            border-radius: 50%;
+            transition: all 0.3s ease;
+        }
+
+        .social-btn:hover {
+            background: var(--primary-dark);
+            transform: translateY(-2px);
+        }
+
+        .footer-bottom {
+            text-align: center;
+            padding-top: 1rem;
+            border-top: 1px solid rgba(255, 255, 255, 0.1);
+        }
+
+        .footer-bottom p {
+            font-size: 0.85rem;
+            color: rgba(255, 255, 255, 0.7);
+        }
+
+        /* Contact items in footer */
+        .contact-info {
+            list-style: none;
+        }
+
+        .contact-info li {
+            margin: 0.5rem 0;
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+        }
+
+        .contact-info i {
+            color: var(--primary-color);
+            width: 20px;
+        }
+
+        /* Utilities */
+        .hidden {
+            display: none;
+        }
+
+        .text-center {
+            text-align: center;
+        }
+    </style>
+</head>
+<body>
+    <!-- Navigation -->
+    <nav class="navbar">
+        <div class="nav-container">
+            <div class="nav-logo">
+                <a href="index-mobile.html">
+                    <img src="assets/images/logo.jpg" alt="Entremets et Saveurs - Logo">
+                </a>
+            </div>
+            
+            <div class="hamburger" id="hamburger">
+                <span></span>
+                <span></span>
+                <span></span>
+            </div>
+            
+            <ul class="nav-menu" id="nav-menu">
+                <li class="nav-item">
+                    <a href="index-mobile.html" class="nav-link">Accueil</a>
+                </li>
+                <li class="nav-item">
+                    <a href="index-mobile.html#about" class="nav-link">À Propos</a>
+                </li>
+                <li class="nav-item">
+                    <a href="index-mobile.html#gallery" class="nav-link">Galerie</a>
+                </li>
+                <li class="nav-item">
+                    <a href="boutique-mobile.html" class="nav-link">Boutique</a>
+                </li>
+                <li class="nav-item">
+                    <a href="index-mobile.html#services" class="nav-link">Services</a>
+                </li>
+                <li class="nav-item">
+                    <a href="formules-mobile.html" class="nav-link active">Formules</a>
+                </li>
+                <li class="nav-item">
+                    <a href="index-mobile.html#contact" class="nav-link">Contact</a>
+                </li>
+            </ul>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <section class="hero">
+        <div class="utensil">
+            <i class="fas fa-utensils"></i>
+        </div>
+        <div class="utensil">
+            <i class="fas fa-cookie-bite"></i>
+        </div>
+        <div class="utensil">
+            <i class="fas fa-bread-slice"></i>
+        </div>
+        
+        <div class="hero-content">
+            <h1 class="hero-title">Nos Formules</h1>
+            <p class="hero-description">
+                Découvrez nos formules adaptées à tous vos événements.<br>
+                Service personnalisé et produits d'exception.
+            </p>
+            <div class="hero-buttons">
+                <a href="#formules" class="btn btn-primary">
+                    <i class="fas fa-birthday-cake"></i>
+                    <span>Voir les formules</span>
+                </a>
+                <a href="tel:+33644177920" class="btn btn-outline">
+                    <i class="fas fa-phone"></i>
+                    <span>Nous appeler</span>
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Formules Section -->
+    <section class="tabs-container" id="formules">
+        <div class="container">
+            <!-- Tabs Navigation -->
+            <div class="tabs-navigation">
+                <button class="tab-btn active" data-tab="adultes">
+                    <i class="fas fa-users"></i> Formules Adultes
+                </button>
+                <button class="tab-btn" data-tab="anniversaires">
+                    <i class="fas fa-birthday-cake"></i> Anniversaires
+                </button>
+                <button class="tab-btn" data-tab="entreprises">
+                    <i class="fas fa-building"></i> Entreprises
+                </button>
+            </div>
+
+            <!-- Tab Content: Adultes -->
+            <div class="tab-content active" id="tab-adultes">
+                <div class="formulas-cards-grid">
+                    <div class="anniversaire-option">
+                        <span class="option-badge">Populaire</span>
+                        <div class="card-header">
+                            <h3>Formule Classique</h3>
+                            <p class="card-subtitle">Pour 8-12 personnes</p>
+                        </div>
+                        <div class="card-features">
+                            <div class="feature">
+                                <i class="fas fa-users"></i>
+                                <span>Idéal pour petits groupes</span>
+                            </div>
+                            <div class="feature">
+                                <i class="fas fa-clock"></i>
+                                <span>Préparation 48h</span>
+                            </div>
+                            <div class="feature">
+                                <i class="fas fa-truck"></i>
+                                <span>Livraison incluse</span>
+                            </div>
+                        </div>
+                        <div class="card-includes">
+                            <h4>Inclus dans cette formule :</h4>
+                            <ul>
+                                <li>1 gâteau personnalisé 20cm</li>
+                                <li>Assortiment de 24 macarons</li>
+                                <li>12 mini tartelettes</li>
+                                <li>Décoration sur mesure</li>
+                            </ul>
+                        </div>
+                        <div class="card-price">
+                            <div class="price">85€</div>
+                            <div class="price-note">TTC - Livraison incluse</div>
+                        </div>
+                        <div class="card-actions">
+                            <button class="btn btn-primary" onclick="openReservationPopup('Formule Classique', '85€')">
+                                <i class="fas fa-phone"></i>
+                                <span>Réserver maintenant</span>
+                            </button>
+                        </div>
+                    </div>
+
+                    <div class="anniversaire-option">
+                        <div class="card-header">
+                            <h3>Formule Premium</h3>
+                            <p class="card-subtitle">Pour 15-20 personnes</p>
+                        </div>
+                        <div class="card-features">
+                            <div class="feature">
+                                <i class="fas fa-star"></i>
+                                <span>Service haut de gamme</span>
+                            </div>
+                            <div class="feature">
+                                <i class="fas fa-clock"></i>
+                                <span>Préparation 72h</span>
+                            </div>
+                            <div class="feature">
+                                <i class="fas fa-concierge-bell"></i>
+                                <span>Service sur place</span>
+                            </div>
+                        </div>
+                        <div class="card-includes">
+                            <h4>Inclus dans cette formule :</h4>
+                            <ul>
+                                <li>1 gâteau sur mesure 25cm</li>
+                                <li>48 macarons variés</li>
+                                <li>24 mini pâtisseries</li>
+                                <li>12 éclairs miniatures</li>
+                                <li>Service et installation</li>
+                            </ul>
+                        </div>
+                        <div class="card-price">
+                            <div class="price">150€</div>
+                            <div class="price-note">TTC - Service inclus</div>
+                        </div>
+                        <div class="card-actions">
+                            <button class="btn btn-primary" onclick="openReservationPopup('Formule Premium', '150€')">
+                                <i class="fas fa-phone"></i>
+                                <span>Réserver maintenant</span>
+                            </button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Tab Content: Anniversaires -->
+            <div class="tab-content" id="tab-anniversaires">
+                <div class="formulas-cards-grid">
+                    <div class="anniversaire-option">
+                        <span class="option-badge">Enfants</span>
+                        <div class="card-header">
+                            <h3>Anniversaire Enfant</h3>
+                            <p class="card-subtitle">Pour 10-15 enfants</p>
+                        </div>
+                        <div class="card-features">
+                            <div class="feature">
+                                <i class="fas fa-child"></i>
+                                <span>Adapté aux enfants</span>
+                            </div>
+                            <div class="feature">
+                                <i class="fas fa-palette"></i>
+                                <span>Décors colorés</span>
+                            </div>
+                            <div class="feature">
+                                <i class="fas fa-gift"></i>
+                                <span>Surprise incluse</span>
+                            </div>
+                        </div>
+                        <div class="card-includes">
+                            <h4>Inclus dans cette formule :</h4>
+                            <ul>
+                                <li>1 gâteau thématique 22cm</li>
+                                <li>24 cupcakes colorés</li>
+                                <li>Bonbons et friandises</li>
+                                <li>Bougies d'anniversaire</li>
+                                <li>Décoration thématique</li>
+                            </ul>
+                        </div>
+                        <div class="card-price">
+                            <div class="price">95€</div>
+                            <div class="price-note">TTC - Livraison incluse</div>
+                        </div>
+                        <div class="card-actions">
+                            <button class="btn btn-primary" onclick="openReservationPopup('Anniversaire Enfant', '95€')">
+                                <i class="fas fa-phone"></i>
+                                <span>Réserver maintenant</span>
+                            </button>
+                        </div>
+                    </div>
+
+                    <div class="anniversaire-option">
+                        <span class="option-badge">Adultes</span>
+                        <div class="card-header">
+                            <h3>Anniversaire Adulte</h3>
+                            <p class="card-subtitle">Pour 12-18 personnes</p>
+                        </div>
+                        <div class="card-features">
+                            <div class="feature">
+                                <i class="fas fa-glass-cheers"></i>
+                                <span>Raffinement garanti</span>
+                            </div>
+                            <div class="feature">
+                                <i class="fas fa-award"></i>
+                                <span>Qualité premium</span>
+                            </div>
+                            <div class="feature">
+                                <i class="fas fa-camera"></i>
+                                <span>Présentation soignée</span>
+                            </div>
+                        </div>
+                        <div class="card-includes">
+                            <h4>Inclus dans cette formule :</h4>
+                            <ul>
+                                <li>1 gâteau sophistiqué 24cm</li>
+                                <li>36 macarons assortis</li>
+                                <li>18 mini tartes</li>
+                                <li>Plateau de mignardises</li>
+                                <li>Présentation élégante</li>
+                            </ul>
+                        </div>
+                        <div class="card-price">
+                            <div class="price">125€</div>
+                            <div class="price-note">TTC - Livraison incluse</div>
+                        </div>
+                        <div class="card-actions">
+                            <button class="btn btn-primary" onclick="openReservationPopup('Anniversaire Adulte', '125€')">
+                                <i class="fas fa-phone"></i>
+                                <span>Réserver maintenant</span>
+                            </button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Tab Content: Entreprises -->
+            <div class="tab-content" id="tab-entreprises">
+                <div class="formulas-cards-grid">
+                    <div class="anniversaire-option">
+                        <span class="option-badge">Business</span>
+                        <div class="card-header">
+                            <h3>Réunion d'Équipe</h3>
+                            <p class="card-subtitle">Pour 20-30 personnes</p>
+                        </div>
+                        <div class="card-features">
+                            <div class="feature">
+                                <i class="fas fa-briefcase"></i>
+                                <span>Cadre professionnel</span>
+                            </div>
+                            <div class="feature">
+                                <i class="fas fa-handshake"></i>
+                                <span>Service discret</span>
+                            </div>
+                            <div class="feature">
+                                <i class="fas fa-clipboard-list"></i>
+                                <span>Facture détaillée</span>
+                            </div>
+                        </div>
+                        <div class="card-includes">
+                            <h4>Inclus dans cette formule :</h4>
+                            <ul>
+                                <li>60 mini pâtisseries variées</li>
+                                <li>30 macarons élégants</li>
+                                <li>Plateau de fruits de saison</li>
+                                <li>Service café inclus</li>
+                                <li>Installation discrète</li>
+                            </ul>
+                        </div>
+                        <div class="card-price">
+                            <div class="price">180€</div>
+                            <div class="price-note">TTC - Devis personnalisé</div>
+                        </div>
+                        <div class="card-actions">
+                            <button class="btn btn-primary" onclick="openReservationPopup('Réunion d\'Équipe', '180€')">
+                                <i class="fas fa-phone"></i>
+                                <span>Demander un devis</span>
+                            </button>
+                        </div>
+                    </div>
+
+                    <div class="anniversaire-option">
+                        <span class="option-badge">Premium</span>
+                        <div class="card-header">
+                            <h3>Événement Corporate</h3>
+                            <p class="card-subtitle">Pour 50+ personnes</p>
+                        </div>
+                        <div class="card-features">
+                            <div class="feature">
+                                <i class="fas fa-crown"></i>
+                                <span>Service de luxe</span>
+                            </div>
+                            <div class="feature">
+                                <i class="fas fa-users-cog"></i>
+                                <span>Équipe dédiée</span>
+                            </div>
+                            <div class="feature">
+                                <i class="fas fa-phone-alt"></i>
+                                <span>Suivi personnalisé</span>
+                            </div>
+                        </div>
+                        <div class="card-includes">
+                            <h4>Inclus dans cette formule :</h4>
+                            <ul>
+                                <li>Buffet sucré sur mesure</li>
+                                <li>Pièce montée d'entreprise</li>
+                                <li>Service complet avec staff</li>
+                                <li>Vaisselle et nappage</li>
+                                <li>Coordination événement</li>
+                            </ul>
+                        </div>
+                        <div class="card-price">
+                            <div class="price">Sur devis</div>
+                            <div class="price-note">À partir de 8€/personne</div>
+                        </div>
+                        <div class="card-actions">
+                            <button class="btn btn-primary" onclick="openReservationPopup('Événement Corporate', 'Sur devis')">
+                                <i class="fas fa-phone"></i>
+                                <span>Demander un devis</span>
+                            </button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Reservation Popup -->
+    <div class="reservation-popup" id="reservationPopup">
+        <div class="popup-content">
+            <button class="popup-close" onclick="closeReservationPopup()">×</button>
+            <h3>Réservation</h3>
+            <p id="popup-formula-name"></p>
+            <p id="popup-formula-price"></p>
+            <p>Appelez-nous pour réserver :</p>
+            <p class="popup-phone">06 44 17 79 20</p>
+            <div class="popup-actions">
+                <a href="tel:+33644177920" class="btn btn-primary">
+                    <i class="fas fa-phone"></i>
+                    <span>Appeler maintenant</span>
+                </a>
+                <button class="btn btn-outline" onclick="closeReservationPopup()">
+                    <span>Fermer</span>
+                </button>
+            </div>
+        </div>
+    </div>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-section">
+                    <h4>Entremets et Saveurs</h4>
+                    <p>L'art de la pâtisserie française revisité avec passion et innovation.</p>
+                    <div class="social-links">
+                        <a href="https://www.facebook.com/entremetsetsaveurs/" target="_blank" class="social-btn">
+                            <i class="fab fa-facebook-f"></i>
+                        </a>
+                        <a href="https://www.instagram.com/entremetsetsaveurs/" target="_blank" class="social-btn">
+                            <i class="fab fa-instagram"></i>
+                        </a>
+                    </div>
+                </div>
+                <div class="footer-section">
+                    <h4>Contact</h4>
+                    <ul class="contact-info">
+                        <li><i class="fas fa-map-marker-alt"></i> Hameau de Rebelle, Montgradail 11240</li>
+                        <li><i class="fas fa-phone"></i> +33 6 44 17 79 20</li>
+                        <li><i class="fas fa-envelope"></i> entremets-et-saveurs@orange.fr</li>
+                    </ul>
+                </div>
+                <div class="footer-section">
+                    <h4>Horaires</h4>
+                    <p>Lundi - Samedi : 09h00 - 17h00<br>Dimanche : 09h00 - 12h00</p>
+                </div>
+            </div>
+            
+            <div class="footer-bottom">
+                <p>&copy; 2024 Entremets et Saveurs. Tous droits réservés.</p>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        // Mobile menu functionality
+        const hamburger = document.getElementById('hamburger');
+        const navMenu = document.getElementById('nav-menu');
+
+        hamburger.addEventListener('click', () => {
+            hamburger.classList.toggle('active');
+            navMenu.classList.toggle('active');
+        });
+
+        // Close menu when clicking on a link
+        document.querySelectorAll('.nav-link').forEach(link => {
+            link.addEventListener('click', () => {
+                hamburger.classList.remove('active');
+                navMenu.classList.remove('active');
+            });
+        });
+
+        // Tabs functionality
+        const tabBtns = document.querySelectorAll('.tab-btn');
+        const tabContents = document.querySelectorAll('.tab-content');
+
+        tabBtns.forEach(btn => {
+            btn.addEventListener('click', () => {
+                const targetTab = btn.getAttribute('data-tab');
+                
+                // Remove active class from all tabs and contents
+                tabBtns.forEach(b => b.classList.remove('active'));
+                tabContents.forEach(c => c.classList.remove('active'));
+                
+                // Add active class to clicked tab and corresponding content
+                btn.classList.add('active');
+                document.getElementById(`tab-${targetTab}`).classList.add('active');
+            });
+        });
+
+        // Reservation popup functionality
+        function openReservationPopup(formulaName, price) {
+            document.getElementById('popup-formula-name').textContent = formulaName;
+            document.getElementById('popup-formula-price').textContent = `Prix: ${price}`;
+            document.getElementById('reservationPopup').style.display = 'flex';
+        }
+
+        function closeReservationPopup() {
+            document.getElementById('reservationPopup').style.display = 'none';
+        }
+
+        // Close popup when clicking outside
+        document.getElementById('reservationPopup').addEventListener('click', (e) => {
+            if (e.target.id === 'reservationPopup') {
+                closeReservationPopup();
+            }
+        });
+
+        // Smooth scrolling for anchor links
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                const target = document.querySelector(this.getAttribute('href'));
+                if (target) {
+                    target.scrollIntoView({
+                        behavior: 'smooth',
+                        block: 'start'
+                    });
+                }
+            });
+        });
+
+        // Navbar scroll effect
+        window.addEventListener('scroll', function() {
+            const navbar = document.querySelector('.navbar');
+            if (window.scrollY > 100) {
+                navbar.style.background = 'rgba(252, 248, 243, 0.98)';
+            } else {
+                navbar.style.background = 'rgba(252, 248, 243, 0.95)';
+            }
+        });
+    </script>
+</body>
+</html>
