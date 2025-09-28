@@ -443,6 +443,96 @@
             margin-top: 1.5rem;
         }
 
+        /* Cours Mobile Styles */
+        .cours-container {
+            padding: 0;
+        }
+
+        .cours-header {
+            background: linear-gradient(135deg, var(--primary-color), rgba(241, 130, 100, 0.8));
+            padding: 1.5rem;
+            border-radius: 15px;
+            margin-bottom: 1.5rem;
+            display: flex;
+            align-items: flex-start;
+            gap: 1rem;
+            box-shadow: 0 4px 15px rgba(241, 130, 100, 0.3);
+        }
+
+        .cours-icon {
+            background: white;
+            border-radius: 50%;
+            width: 50px;
+            height: 50px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            flex-shrink: 0;
+            box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+        }
+
+        .cours-icon i {
+            font-size: 1.5rem;
+            color: var(--primary-color);
+        }
+
+        .cours-info h3 {
+            color: white;
+            font-size: 1.25rem;
+            font-weight: 600;
+            margin-bottom: 0.5rem;
+            font-family: var(--font-primary);
+        }
+
+        .cours-info p {
+            color: rgba(255, 255, 255, 0.9);
+            font-size: 0.9rem;
+            line-height: 1.4;
+            margin: 0;
+        }
+
+        .calendly-wrapper {
+            background: white;
+            border-radius: 15px;
+            padding: 1rem;
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+            border: 1px solid rgba(241, 130, 100, 0.2);
+            overflow: hidden;
+        }
+
+        /* Responsive pour Calendly sur mobile */
+        @media (max-width: 375px) {
+            .cours-header {
+                padding: 1.25rem;
+            }
+
+            .cours-icon {
+                width: 45px;
+                height: 45px;
+            }
+
+            .cours-icon i {
+                font-size: 1.25rem;
+            }
+
+            .cours-info h3 {
+                font-size: 1.1rem;
+            }
+
+            .cours-info p {
+                font-size: 0.85rem;
+            }
+
+            .calendly-wrapper {
+                padding: 0.75rem;
+            }
+
+            .calendly-inline-widget {
+                min-width: 260px !important;
+                height: 450px !important;
+            }
+        }
+
         /* Reservation Popup */
         .reservation-popup {
             position: fixed;
@@ -676,6 +766,9 @@
                 <button class="tab-btn" data-tab="entreprises">
                     <i class="fas fa-building"></i> Entreprises
                 </button>
+                <button class="tab-btn" data-tab="cours">
+                    <i class="fas fa-calendar-alt"></i> Cours
+                </button>
             </div>
 
             <!-- Tab Content: Adultes -->
@@ -855,6 +948,28 @@
                             </button>
                         </div>
                     </div>
+                </div>
+            </div>
+
+            <!-- Tab Content: Cours -->
+            <div class="tab-content" id="tab-cours">
+                <div class="cours-container">
+                    <div class="cours-header">
+                        <div class="cours-icon">
+                            <i class="fas fa-calendar-check"></i>
+                        </div>
+                        <div class="cours-info">
+                            <h3>Planning des Cours</h3>
+                            <p>Réservez votre cours de pâtisserie en ligne ! Choisissez votre créneau et participez à nos ateliers gourmands.</p>
+                        </div>
+                    </div>
+                    
+                    <!-- Calendly inline widget begin -->
+                    <div class="calendly-wrapper">
+                        <div class="calendly-inline-widget" data-url="https://calendly.com/planche-antoine11/30min" style="min-width:280px;height:500px;"></div>
+                        <script type="text/javascript" src="https://assets.calendly.com/assets/external/widget.js" async></script>
+                    </div>
+                    <!-- Calendly inline widget end -->
                 </div>
             </div>
         </div>

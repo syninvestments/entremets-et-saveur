@@ -4,7 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Boutique - Entremets et Saveurs</title>
-    <meta name="description" content="Notre boutique en ligne arrive bientôt ! Découvrez nos futures offres de pâtisserie et services en ligne.">
+    <meta name="description" content="Boutique en ligne Entremets et Saveurs - Commandez nos pâtisseries artisanales et créations sur mesure. Livraison soignée de nos délices.">
     
     <!-- Preload critical resources -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -25,6 +25,232 @@
     
     <!-- Mobile Detection -->
     <script src="src/mobile-detection.js"></script>
+    
+    <!-- Custom Styles pour les produits -->
+    <style>
+        .shopify-products-container {
+            display: flex !important;
+            gap: 2rem;
+            justify-content: center;
+            align-items: stretch !important;
+            flex-wrap: wrap;
+            margin-top: 2rem;
+        }
+        
+        .shopify-collection {
+            width: 100% !important;
+            max-width: 1200px !important;
+            display: flex !important;
+            flex-direction: column !important;
+        }
+        
+        /* FORCE ABSOLUE sur tous les éléments Shopify */
+        .shopify-collection *,
+        .shopify-product * {
+            box-sizing: border-box !important;
+        }
+        
+        /* Force tous les conteneurs principaux */
+        .shopify-collection > div,
+        .shopify-product > div,
+        .shopify-collection [data-shopify-buy],
+        .shopify-product [data-shopify-buy] {
+            height: 100% !important;
+            display: flex !important;
+            flex-direction: column !important;
+            width: 100% !important;
+        }
+        
+        /* Force la structure des produits */
+        .shopify-collection .shopify-buy__product,
+        .shopify-product .shopify-buy__product {
+            display: flex !important;
+            flex-direction: column !important;
+            height: 100% !important;
+            justify-content: space-between !important;
+        }
+        
+        /* FORCE les images à être identiques */
+        .shopify-collection img,
+        .shopify-product img,
+        .shopify-collection .shopify-buy__product__image img,
+        .shopify-product .shopify-buy__product__image img {
+            width: 100% !important;
+            height: 250px !important;
+            object-fit: cover !important;
+            border-radius: 8px !important;
+            margin: 0 !important;
+            padding: 0 !important;
+        }
+        
+        /* FORCE les conteneurs d'images */
+        .shopify-collection .shopify-buy__product__image,
+        .shopify-product .shopify-buy__product__image {
+            width: 100% !important;
+            height: 250px !important;
+            overflow: hidden !important;
+            border-radius: 8px !important;
+            margin-bottom: 1rem !important;
+        }
+        
+        /* FORCE les titres */
+        .shopify-collection h1,
+        .shopify-collection h2,
+        .shopify-collection h3,
+        .shopify-product h1,
+        .shopify-product h2,
+        .shopify-product h3,
+        .shopify-collection .shopify-buy__product__title,
+        .shopify-product .shopify-buy__product__title {
+            font-size: 1.2rem !important;
+            line-height: 1.4 !important;
+            height: 60px !important;
+            display: flex !important;
+            align-items: center !important;
+            justify-content: center !important;
+            text-align: center !important;
+            margin: 0.5rem 0 1rem 0 !important;
+            padding: 0 !important;
+            overflow: hidden !important;
+        }
+        
+        /* FORCE les prix */
+        .shopify-collection .shopify-buy__product__actual-price,
+        .shopify-product .shopify-buy__product__actual-price {
+            font-size: 1.5rem !important;
+            font-weight: bold !important;
+            color: #d4342c !important;
+            text-align: center !important;
+            margin: 1rem 0 !important;
+            padding: 0 !important;
+        }
+        
+        /* FORCE les boutons à être en bas */
+        .shopify-collection .shopify-buy__btn,
+        .shopify-product .shopify-buy__btn,
+        .shopify-collection button,
+        .shopify-product button {
+            margin-top: auto !important;
+            width: 100% !important;
+            padding: 0.8rem 1.5rem !important;
+            font-size: 1rem !important;
+            font-weight: 600 !important;
+            border-radius: 8px !important;
+            border: none !important;
+        }
+        
+        /* FORCE les descriptions */
+        .shopify-collection .shopify-buy__product__description,
+        .shopify-product .shopify-buy__product__description {
+            flex: 1 !important;
+            text-align: center !important;
+            padding: 0.5rem !important;
+            margin: 0.5rem 0 1rem 0 !important;
+            font-size: 0.9rem !important;
+            line-height: 1.4 !important;
+        }
+        
+        @media (max-width: 768px) {
+            .shopify-products-container {
+                flex-direction: column !important;
+                gap: 1rem !important;
+            }
+            
+            .shopify-collection,
+            .shopify-product {
+                max-width: 100% !important;
+                min-height: 450px !important; /* Hauteur réduite sur mobile */
+            }
+            
+            .shopify-collection img,
+            .shopify-product img,
+            .shopify-collection .shopify-buy__product__image img,
+            .shopify-product .shopify-buy__product__image img {
+                height: 200px !important; /* Images plus petites sur mobile */
+            }
+            
+            .shopify-collection .shopify-buy__product__image,
+            .shopify-product .shopify-buy__product__image {
+                height: 200px !important;
+            }
+            
+            .shopify-collection h1,
+            .shopify-collection h2, 
+            .shopify-collection h3,
+            .shopify-product h1,
+            .shopify-product h2,
+            .shopify-product h3,
+            .shopify-collection .shopify-buy__product__title,
+            .shopify-product .shopify-buy__product__title {
+                font-size: 1.1rem !important;
+                height: 50px !important;
+            }
+        }
+    </style>
+
+    <!-- Script pour forcer l'uniformité après le chargement Shopify -->
+    <script>
+    // Fonction pour forcer l'uniformité des produits
+    function forceProductUniformity() {
+        // Sélectionner tous les conteneurs de produits
+        const products = document.querySelectorAll('.shopify-collection, .shopify-product');
+        
+        products.forEach(product => {
+            // Forcer la hauteur minimale
+            product.style.setProperty('min-height', '600px', 'important');
+            product.style.setProperty('display', 'flex', 'important');
+            product.style.setProperty('flex-direction', 'column', 'important');
+            
+            // Trouver et uniformiser les images
+            const images = product.querySelectorAll('img');
+            images.forEach(img => {
+                img.style.setProperty('height', '250px', 'important');
+                img.style.setProperty('width', '100%', 'important');
+                img.style.setProperty('object-fit', 'cover', 'important');
+            });
+            
+            // Trouver et uniformiser les titres
+            const titles = product.querySelectorAll('h1, h2, h3, .shopify-buy__product__title');
+            titles.forEach(title => {
+                title.style.setProperty('height', '60px', 'important');
+                title.style.setProperty('display', 'flex', 'important');
+                title.style.setProperty('align-items', 'center', 'important');
+                title.style.setProperty('justify-content', 'center', 'important');
+            });
+            
+            // Forcer les boutons en bas
+            const buttons = product.querySelectorAll('button, .shopify-buy__btn');
+            buttons.forEach(btn => {
+                btn.style.setProperty('margin-top', 'auto', 'important');
+                btn.style.setProperty('width', '100%', 'important');
+            });
+        });
+    }
+    
+    // Exécuter la fonction après le chargement de la page
+    document.addEventListener('DOMContentLoaded', function() {
+        // Attendre un peu que Shopify charge
+        setTimeout(forceProductUniformity, 1000);
+        
+        // Ré-exécuter périodiquement au cas où Shopify recharge des éléments
+        setInterval(forceProductUniformity, 3000);
+    });
+    
+    // Observer les changements dans le DOM pour les nouveaux éléments Shopify
+    const observer = new MutationObserver(function(mutations) {
+        mutations.forEach(function(mutation) {
+            if (mutation.type === 'childList') {
+                setTimeout(forceProductUniformity, 500);
+            }
+        });
+    });
+    
+    // Commencer à observer
+    observer.observe(document.body, {
+        childList: true,
+        subtree: true
+    });
+    </script>
 </head>
 <body>
     <!-- Navigation -->
@@ -76,12 +302,12 @@
             <div class="boutique-hero-content" data-aos="fade-up">
                 <div class="hero-badge">
                     <i class="fas fa-store"></i>
-                    <span>Bientôt Disponible</span>
+                    <span>Maintenant Ouvert</span>
                 </div>
                 <h1 class="hero-title">Notre Boutique en Ligne</h1>
                 <p class="hero-subtitle">
-                    Nous préparons avec soin une expérience d'achat exceptionnelle pour vous offrir 
-                    nos délicieuses créations directement chez vous.
+                    Découvrez et commandez nos délicieuses créations artisanales directement en ligne. 
+                    Livraison soignée pour préserver toute la saveur de nos pâtisseries.
                 </p>
             </div>
         </div>
@@ -98,63 +324,21 @@
         </div>
     </section>
 
-    <!-- Coming Soon Section -->
+    <!-- Boutique Shopify Section -->
     <section class="boutique-section">
         <div class="container">
-            <div class="boutique-coming-soon" data-aos="fade-up" data-aos-delay="200">
-                <div class="coming-soon-content">
-                    <div class="oven-animation">
-                        <i class="fas fa-fire"></i>
-                        <div class="oven-icon">
-                        </div>
-                        <div class="heat-waves">
-                            <span></span>
-                            <span></span>
-                            <span></span>
-                        </div>
-                    </div>
-                    
-                    <h2>Notre boutique est encore au four !</h2>
-                    <p>
-                        Comme nos plus beaux entremets, notre boutique en ligne nécessite le temps et la patience 
-                        nécessaires pour vous offrir une expérience parfaite. Nous mettons les dernières touches 
-                        pour que vous puissiez bientôt commander vos pâtisseries préférées en ligne.
-                    </p>
-                    
-                    <div class="coming-soon-features">
-                        <div class="feature-item" data-aos="fade-up" data-aos-delay="300">
-                            <i class="fas fa-shopping-cart"></i>
-                            <h4>Livraison à domicile</h4>
-                        </div>
-                        <div class="feature-item" data-aos="fade-up" data-aos-delay="400">
-                            <i class="fas fa-calendar-alt"></i>
-                            <h4>Commandes sur mesure</h4>
-                        </div>
-                        <div class="feature-item" data-aos="fade-up" data-aos-delay="500">
-                            <i class="fas fa-gift"></i>
-                            <h4>Coffrets cadeaux</h4>
-                        </div>
-                    </div>
-                    
-                    <div class="notify-form" data-aos="fade-up" data-aos-delay="600">
-                        <h4>Soyez les premiers informés !</h4>
-                        <form class="newsletter-form" onsubmit="handleNewsletterSubmit(event)">
-                            <div class="input-group">
-                                <input type="email" placeholder="Votre adresse email" required>
-                                <button type="submit" class="btn btn-primary">
-                                    <span>Me prévenir</span>
-                                    <i class="fas fa-bell"></i>
-                                </button>
-                            </div>
-                        </form>
-                    </div>
-
-                    <div class="back-to-home" data-aos="fade-up" data-aos-delay="700">
-                        <a href="index.html" class="btn btn-outline">
-                            <i class="fas fa-arrow-left"></i>
-                            <span>Retour à l'accueil</span>
-                        </a>
-                    </div>
+            <div class="section-header" data-aos="fade-up">
+                <span class="section-badge">Nos Produits</span>
+                <h2 class="section-title">Découvrez Nos Créations</h2>
+                <p class="section-description">
+                    Précommandez vos pâtisseries préférées en ligne sous 48h et profitez de nos créations artisanales.
+                </p>
+            </div>
+            
+            <!-- Shopify Products Container -->
+            <div class="shopify-products-container" data-aos="fade-up" data-aos-delay="200">
+                <div class="shopify-collection">
+                    <div id='collection-component-1759074293880'></div>
                 </div>
             </div>
         </div>
@@ -240,6 +424,467 @@
                 navbar.classList.remove('scrolled');
             }
         });
+    </script>
+
+    <!-- Shopify Buy Button Script -->
+    <script type="text/javascript">
+    /*<![CDATA[*/
+    (function () {
+      var scriptURL = 'https://sdks.shopifycdn.com/buy-button/latest/buy-button-storefront.min.js';
+      if (window.ShopifyBuy) {
+        if (window.ShopifyBuy.UI) {
+          ShopifyBuyInit();
+        } else {
+          loadScript();
+        }
+      } else {
+        loadScript();
+      }
+      function loadScript() {
+        var script = document.createElement('script');
+        script.async = true;
+        script.src = scriptURL;
+        (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(script);
+        script.onload = ShopifyBuyInit;
+      }
+      function ShopifyBuyInit() {
+        var client = ShopifyBuy.buildClient({
+          domain: 'khdfpt-w7.myshopify.com',
+          storefrontAccessToken: '215724ba2a41ddbca9e93be0e63540ef',
+        });
+        ShopifyBuy.UI.onReady(client).then(function (ui) {
+          ui.createComponent('collection', {
+            id: '732746645886',
+            node: document.getElementById('collection-component-1759074293880'),
+            moneyFormat: '%E2%82%AC%7B%7Bamount_with_comma_separator%7D%7D',
+            options: {
+      "product": {
+        "styles": {
+          "product": {
+            "@media (min-width: 601px)": {
+              "max-width": "calc(25% - 20px)",
+              "margin-left": "20px",
+              "margin-bottom": "50px",
+              "width": "calc(25% - 20px)"
+            },
+            "img": {
+              "height": "calc(100% - 15px)",
+              "position": "absolute",
+              "left": "0",
+              "right": "0",
+              "top": "0"
+            },
+            "imgWrapper": {
+              "padding-top": "calc(75% + 15px)",
+              "position": "relative",
+              "height": "0"
+            }
+          },
+          "button": {
+            "color": "#000000",
+            ":hover": {
+              "color": "#000000",
+              "background-color": "#ddcfbe"
+            },
+            "background-color": "#f5e6d3",
+            ":focus": {
+              "background-color": "#ddcfbe"
+            }
+          }
+        },
+        "buttonDestination": "checkout",
+        "text": {
+          "button": "Pré-commander"
+        }
+      },
+      "productSet": {
+        "styles": {
+          "products": {
+            "@media (min-width: 601px)": {
+              "margin-left": "-20px"
+            }
+          }
+        }
+      },
+      "modalProduct": {
+        "contents": {
+          "img": false,
+          "imgWithCarousel": true,
+          "button": false,
+          "buttonWithQuantity": true
+        },
+        "styles": {
+          "product": {
+            "@media (min-width: 601px)": {
+              "max-width": "100%",
+              "margin-left": "0px",
+              "margin-bottom": "0px"
+            }
+          },
+          "button": {
+            "color": "#000000",
+            ":hover": {
+              "color": "#000000",
+              "background-color": "#ddcfbe"
+            },
+            "background-color": "#f5e6d3",
+            ":focus": {
+              "background-color": "#ddcfbe"
+            }
+          }
+        },
+        "text": {
+          "button": "Add to cart"
+        }
+      },
+      "option": {},
+      "cart": {
+        "styles": {
+          "button": {
+            "color": "#000000",
+            ":hover": {
+              "color": "#000000",
+              "background-color": "#ddcfbe"
+            },
+            "background-color": "#f5e6d3",
+            ":focus": {
+              "background-color": "#ddcfbe"
+            }
+          }
+        },
+        "text": {
+          "total": "Subtotal",
+          "button": "Checkout"
+        }
+      },
+      "toggle": {
+        "styles": {
+          "toggle": {
+            "background-color": "#f5e6d3",
+            ":hover": {
+              "background-color": "#ddcfbe"
+            },
+            ":focus": {
+              "background-color": "#ddcfbe"
+            }
+          },
+          "count": {
+            "color": "#000000",
+            ":hover": {
+              "color": "#000000"
+            }
+          },
+          "iconPath": {
+            "fill": "#000000"
+          }
+        }
+      }
+    },
+          });
+        });
+      }
+    })();
+    /*]]>*/
+    </script>
+    
+    <!-- Produit Shopify Script -->
+    <script type="text/javascript">
+    /*<![CDATA[*/
+    (function () {
+      var scriptURL = 'https://sdks.shopifycdn.com/buy-button/latest/buy-button-storefront.min.js';
+      if (window.ShopifyBuy) {
+        if (window.ShopifyBuy.UI) {
+          ShopifyBuyInit();
+        } else {
+          loadScript();
+        }
+      } else {
+        loadScript();
+      }
+      function loadScript() {
+        var script = document.createElement('script');
+        script.async = true;
+        script.src = scriptURL;
+        (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(script);
+        script.onload = ShopifyBuyInit;
+      }
+      function ShopifyBuyInit() {
+        var client = ShopifyBuy.buildClient({
+          domain: 'khdfpt-w7.myshopify.com',
+          storefrontAccessToken: '215724ba2a41ddbca9e93be0e63540ef',
+        });
+        ShopifyBuy.UI.onReady(client).then(function (ui) {
+          ui.createComponent('product', {
+            id: '15599550792062',
+            node: document.getElementById('product-component-1759073453459'),
+            moneyFormat: '%E2%82%AC%7B%7Bamount_with_comma_separator%7D%7D',
+            options: {
+      "product": {
+        "styles": {
+          "product": {
+            "@media (min-width: 601px)": {
+              "max-width": "calc(25% - 20px)",
+              "margin-left": "20px",
+              "margin-bottom": "50px"
+            }
+          },
+          "button": {
+            "color": "#000000",
+            ":hover": {
+              "color": "#000000",
+              "background-color": "#ddcfbe"
+            },
+            "background-color": "#f5e6d3",
+            ":focus": {
+              "background-color": "#ddcfbe"
+            }
+          }
+        },
+        "text": {
+          "button": "Pré-commander"
+        }
+      },
+      "productSet": {
+        "styles": {
+          "products": {
+            "@media (min-width: 601px)": {
+              "margin-left": "-20px"
+            }
+          }
+        }
+      },
+      "modalProduct": {
+        "contents": {
+          "img": false,
+          "imgWithCarousel": true,
+          "button": false,
+          "buttonWithQuantity": true
+        },
+        "styles": {
+          "product": {
+            "@media (min-width: 601px)": {
+              "max-width": "100%",
+              "margin-left": "0px",
+              "margin-bottom": "0px"
+            }
+          },
+          "button": {
+            "color": "#000000",
+            ":hover": {
+              "color": "#000000",
+              "background-color": "#ddcfbe"
+            },
+            "background-color": "#f5e6d3",
+            ":focus": {
+              "background-color": "#ddcfbe"
+            }
+          }
+        },
+        "text": {
+          "button": "Add to cart"
+        }
+      },
+      "option": {},
+      "cart": {
+        "styles": {
+          "button": {
+            "color": "#000000",
+            ":hover": {
+              "color": "#000000",
+              "background-color": "#ddcfbe"
+            },
+            "background-color": "#f5e6d3",
+            ":focus": {
+              "background-color": "#ddcfbe"
+            }
+          }
+        },
+        "text": {
+          "title": "Panier",
+          "total": "Total",
+          "empty": "Panier vide",
+          "notice": "",
+          "button": "Pré-commander"
+        }
+      },
+      "toggle": {
+        "styles": {
+          "toggle": {
+            "background-color": "#f5e6d3",
+            ":hover": {
+              "background-color": "#ddcfbe"
+            },
+            ":focus": {
+              "background-color": "#ddcfbe"
+            }
+          },
+          "count": {
+            "color": "#000000",
+            ":hover": {
+              "color": "#000000"
+            }
+          },
+          "iconPath": {
+            "fill": "#000000"
+          }
+        }
+      }
+    },
+          });
+        });
+      }
+    })();
+    /*]]>*/
+    </script>
+
+    <!-- New Product Script -->
+    <script type="text/javascript">
+    /*<![CDATA[*/
+    (function () {
+      var scriptURL = 'https://sdks.shopifycdn.com/buy-button/latest/buy-button-storefront.min.js';
+      if (window.ShopifyBuy) {
+        if (window.ShopifyBuy.UI) {
+          ShopifyBuyInit();
+        } else {
+          loadScript();
+        }
+      } else {
+        loadScript();
+      }
+      function loadScript() {
+        var script = document.createElement('script');
+        script.async = true;
+        script.src = scriptURL;
+        (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(script);
+        script.onload = ShopifyBuyInit;
+      }
+      function ShopifyBuyInit() {
+        var client = ShopifyBuy.buildClient({
+          domain: 'khdfpt-w7.myshopify.com',
+          storefrontAccessToken: '215724ba2a41ddbca9e93be0e63540ef',
+        });
+        ShopifyBuy.UI.onReady(client).then(function (ui) {
+          ui.createComponent('product', {
+            id: '15599550792062',
+            node: document.getElementById('product-component-1759073453468'),
+            moneyFormat: '%E2%82%AC%7B%7Bamount_with_comma_separator%7D%7D',
+            options: {
+      "product": {
+        "styles": {
+          "product": {
+            "@media (min-width: 601px)": {
+              "max-width": "calc(25% - 20px)",
+              "margin-left": "20px",
+              "margin-bottom": "50px"
+            }
+          },
+          "button": {
+            "color": "#000000",
+            ":hover": {
+              "color": "#000000",
+              "background-color": "#ddcfbe"
+            },
+            "background-color": "#f5e6d3",
+            ":focus": {
+              "background-color": "#ddcfbe"
+            }
+          }
+        },
+        "text": {
+          "button": "Pré-commander"
+        }
+      },
+      "productSet": {
+        "styles": {
+          "products": {
+            "@media (min-width: 601px)": {
+              "margin-left": "-20px"
+            }
+          }
+        }
+      },
+      "modalProduct": {
+        "contents": {
+          "img": false,
+          "imgWithCarousel": true,
+          "button": false,
+          "buttonWithQuantity": true
+        },
+        "styles": {
+          "product": {
+            "@media (min-width: 601px)": {
+              "max-width": "100%",
+              "margin-left": "0px",
+              "margin-bottom": "0px"
+            }
+          },
+          "button": {
+            "color": "#000000",
+            ":hover": {
+              "color": "#000000",
+              "background-color": "#ddcfbe"
+            },
+            "background-color": "#f5e6d3",
+            ":focus": {
+              "background-color": "#ddcfbe"
+            }
+          }
+        },
+        "text": {
+          "button": "Add to cart"
+        }
+      },
+      "option": {},
+      "cart": {
+        "styles": {
+          "button": {
+            "color": "#000000",
+            ":hover": {
+              "color": "#000000",
+              "background-color": "#ddcfbe"
+            },
+            "background-color": "#f5e6d3",
+            ":focus": {
+              "background-color": "#ddcfbe"
+            }
+          }
+        },
+        "text": {
+          "title": "Panier",
+          "total": "Total",
+          "empty": "Panier vide",
+          "notice": "",
+          "button": "Pré-commander"
+        }
+      },
+      "toggle": {
+        "styles": {
+          "toggle": {
+            "background-color": "#f5e6d3",
+            ":hover": {
+              "background-color": "#ddcfbe"
+            },
+            ":focus": {
+              "background-color": "#ddcfbe"
+            }
+          },
+          "count": {
+            "color": "#000000",
+            ":hover": {
+              "color": "#000000"
+            }
+          },
+          "iconPath": {
+            "fill": "#000000"
+          }
+        }
+      }
+    },
+          });
+        });
+      }
+    })();
+    /*]]>*/
     </script>
 </body>
 </html>

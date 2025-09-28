@@ -1,0 +1,685 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ateliers Pâtisserie - Entremets et Saveurs</title>
+    <meta name="description" content="Participez à nos ateliers pâtisserie : adultes, anniversaires enfants et team building. Réservez en ligne vos cours de pâtisserie.">
+    
+    <!-- Preload critical resources -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;500;600;700&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
+    
+    <!-- Favicon -->
+    <link rel="icon" type="image/svg+xml" href="assets/images/favicon.svg">
+    
+    <!-- Icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    
+    <!-- AOS Animation Library -->
+    <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
+    
+    <style>
+        :root {
+            --primary-color: #f18264;
+            --primary-light: #f5a085;
+            --secondary-color: #040846;
+            --accent-orange: #ff6b35;
+            --accent-cream: #f5e6d3;
+            --white: #ffffff;
+            --light-gray: #f8f9fa;
+            --medium-gray: #6c757d;
+            --dark-gray: #495057;
+            --font-primary: 'Playfair Display', serif;
+            --font-secondary: 'Inter', sans-serif;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: var(--font-secondary);
+            color: var(--secondary-color);
+            line-height: 1.6;
+            background-color: var(--light-gray);
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 1rem;
+        }
+
+        /* Navigation Mobile */
+        .navbar {
+            background: var(--white);
+            padding: 1rem 0;
+            position: fixed;
+            width: 100%;
+            top: 0;
+            z-index: 1000;
+            box-shadow: 0 2px 15px rgba(0, 0, 0, 0.1);
+        }
+
+        .nav-container {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 0 1rem;
+        }
+
+        .nav-logo img {
+            height: 50px;
+            width: auto;
+            border-radius: 8px;
+        }
+
+        .nav-menu {
+            position: fixed;
+            left: -100%;
+            top: 70px;
+            flex-direction: column;
+            background: var(--white);
+            width: 100%;
+            text-align: center;
+            transition: 0.3s;
+            list-style: none;
+            box-shadow: 0 10px 27px rgba(0, 0, 0, 0.1);
+            max-height: calc(100vh - 70px);
+            overflow-y: auto;
+        }
+
+        .nav-menu.active {
+            left: 0;
+        }
+
+        .nav-item {
+            margin: 1rem 0;
+        }
+
+        .nav-link {
+            font-size: 1.1rem;
+            font-weight: 500;
+            color: var(--secondary-color);
+            text-decoration: none;
+            transition: color 0.3s ease;
+            padding: 0.5rem 1rem;
+            display: inline-block;
+        }
+
+        .nav-link.active,
+        .nav-link:hover {
+            color: var(--primary-color);
+        }
+
+        .btn-call {
+            background: linear-gradient(135deg, var(--primary-color), var(--accent-orange));
+            color: var(--white) !important;
+            padding: 0.75rem 1.5rem;
+            border-radius: 25px;
+            margin-top: 1rem;
+            display: inline-flex;
+            align-items: center;
+            gap: 0.5rem;
+        }
+
+        .hamburger {
+            display: block;
+            cursor: pointer;
+        }
+
+        .hamburger.active .bar:nth-child(2) {
+            opacity: 0;
+        }
+
+        .hamburger.active .bar:nth-child(1) {
+            transform: translateY(8px) rotate(45deg);
+        }
+
+        .hamburger.active .bar:nth-child(3) {
+            transform: translateY(-8px) rotate(-45deg);
+        }
+
+        .bar {
+            display: block;
+            width: 25px;
+            height: 3px;
+            margin: 5px auto;
+            transition: all 0.3s ease-in-out;
+            background-color: var(--secondary-color);
+        }
+
+        /* Hero Section Mobile */
+        .ateliers-hero {
+            background: linear-gradient(135deg, var(--primary-color) 0%, var(--primary-light) 100%);
+            padding: 100px 0 60px;
+            position: relative;
+            overflow: hidden;
+            margin-top: 70px;
+        }
+
+        .ateliers-hero::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100"><circle cx="25" cy="25" r="2" fill="%23ffffff" opacity="0.1"/><circle cx="75" cy="75" r="1.5" fill="%23ffffff" opacity="0.15"/></svg>') repeat;
+            pointer-events: none;
+        }
+
+        .ateliers-hero-content {
+            text-align: center;
+            color: white;
+            position: relative;
+            z-index: 2;
+        }
+
+        .ateliers-hero h1 {
+            font-family: var(--font-primary);
+            font-size: 2.2rem;
+            font-weight: 600;
+            margin-bottom: 1rem;
+            text-shadow: 0 2px 10px rgba(0, 0, 0, 0.2);
+        }
+
+        .ateliers-hero p {
+            font-size: 1.1rem;
+            opacity: 0.9;
+            margin: 0 auto 2rem;
+            line-height: 1.6;
+        }
+
+        .ateliers-hero-icons {
+            display: flex;
+            justify-content: center;
+            gap: 1rem;
+            margin-top: 2rem;
+            flex-wrap: wrap;
+        }
+
+        .hero-icon {
+            background: rgba(255, 255, 255, 0.2);
+            border-radius: 50%;
+            width: 60px;
+            height: 60px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            backdrop-filter: blur(10px);
+            border: 1px solid rgba(255, 255, 255, 0.3);
+        }
+
+        .hero-icon i {
+            font-size: 1.5rem;
+            color: white;
+        }
+
+        /* Section principale ateliers */
+        .ateliers-main {
+            padding: 60px 0;
+            background: var(--white);
+        }
+
+        .atelier-card {
+            background: var(--white);
+            border-radius: 20px;
+            padding: 1.5rem;
+            margin-bottom: 2rem;
+            box-shadow: 0 8px 25px rgba(0, 0, 0, 0.08);
+            border: 2px solid rgba(241, 130, 100, 0.1);
+            transition: all 0.3s ease;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .atelier-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 4px;
+            height: 100%;
+            background: linear-gradient(180deg, var(--primary-color), var(--accent-orange));
+            transform: scaleY(0);
+            transition: transform 0.3s ease;
+        }
+
+        .atelier-card:hover::before {
+            transform: scaleY(1);
+        }
+
+        .atelier-icon {
+            background: linear-gradient(135deg, var(--primary-color), var(--primary-light));
+            border-radius: 50%;
+            width: 60px;
+            height: 60px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin-bottom: 1.5rem;
+            box-shadow: 0 4px 15px rgba(241, 130, 100, 0.3);
+        }
+
+        .atelier-icon i {
+            font-size: 1.5rem;
+            color: var(--white);
+        }
+
+        .atelier-card h3 {
+            font-family: var(--font-primary);
+            font-size: 1.5rem;
+            font-weight: 600;
+            margin-bottom: 1rem;
+            color: var(--secondary-color);
+        }
+
+        .atelier-card p {
+            color: var(--medium-gray);
+            line-height: 1.6;
+            margin-bottom: 1.5rem;
+            font-size: 1rem;
+        }
+
+        .atelier-features {
+            list-style: none;
+            margin-bottom: 2rem;
+        }
+
+        .atelier-features li {
+            display: flex;
+            align-items: center;
+            margin-bottom: 0.75rem;
+            color: var(--secondary-color);
+            font-size: 0.9rem;
+        }
+
+        .atelier-features li i {
+            color: var(--primary-color);
+            margin-right: 0.75rem;
+            font-size: 1rem;
+            width: 18px;
+            flex-shrink: 0;
+        }
+
+        .atelier-price {
+            background: var(--accent-cream);
+            color: var(--primary-color);
+            padding: 0.5rem 1.25rem;
+            border-radius: 25px;
+            font-weight: 600;
+            font-size: 1.1rem;
+            display: inline-block;
+            box-shadow: 0 3px 10px rgba(241, 130, 100, 0.2);
+        }
+
+        /* Section réservation */
+        .booking-section {
+            background: var(--white);
+            border-radius: 25px;
+            padding: 2rem;
+            margin-top: 2rem;
+            box-shadow: 0 10px 40px rgba(0, 0, 0, 0.1);
+            border: 2px solid rgba(241, 130, 100, 0.1);
+        }
+
+        .booking-header {
+            text-align: center;
+            margin-bottom: 2rem;
+        }
+
+        .booking-header h2 {
+            font-family: var(--font-primary);
+            font-size: 1.8rem;
+            font-weight: 600;
+            color: var(--secondary-color);
+            margin-bottom: 1rem;
+        }
+
+        .booking-header p {
+            font-size: 1rem;
+            color: var(--medium-gray);
+            line-height: 1.6;
+        }
+
+        .simplybook-container {
+            min-height: 500px;
+            border-radius: 20px;
+            overflow: hidden;
+            background: var(--light-gray);
+            position: relative;
+        }
+
+        /* Footer */
+        .footer {
+            background: var(--secondary-color);
+            color: var(--white);
+            padding: 3rem 0 1rem;
+        }
+
+        .footer-content {
+            display: grid;
+            grid-template-columns: 1fr;
+            gap: 2rem;
+            text-align: center;
+        }
+
+        .footer-brand p {
+            margin: 1rem 0;
+            opacity: 0.8;
+        }
+
+        .footer-logo-image {
+            height: 60px;
+            border-radius: 8px;
+        }
+
+        .footer-social {
+            display: flex;
+            justify-content: center;
+            gap: 1rem;
+            margin-top: 1rem;
+        }
+
+        .footer-social a {
+            background: var(--primary-color);
+            color: var(--white);
+            width: 40px;
+            height: 40px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            border-radius: 50%;
+            text-decoration: none;
+            transition: background 0.3s ease;
+        }
+
+        .footer-social a:hover {
+            background: var(--accent-orange);
+        }
+
+        .footer-links h4,
+        .footer-services h4,
+        .footer-contact h4 {
+            color: var(--primary-color);
+            margin-bottom: 1rem;
+            font-family: var(--font-primary);
+        }
+
+        .footer-links ul,
+        .footer-services ul {
+            list-style: none;
+        }
+
+        .footer-links li,
+        .footer-services li {
+            margin-bottom: 0.5rem;
+        }
+
+        .footer-links a,
+        .footer-services a {
+            color: rgba(255, 255, 255, 0.8);
+            text-decoration: none;
+            transition: color 0.3s ease;
+        }
+
+        .footer-links a:hover,
+        .footer-services a:hover {
+            color: var(--primary-color);
+        }
+
+        .footer-contact-item {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin-bottom: 0.75rem;
+            gap: 0.75rem;
+        }
+
+        .footer-contact-item i {
+            color: var(--primary-color);
+            width: 20px;
+        }
+
+        .footer-contact-item a {
+            color: rgba(255, 255, 255, 0.8);
+            text-decoration: none;
+            transition: color 0.3s ease;
+        }
+
+        .footer-contact-item a:hover {
+            color: var(--primary-color);
+        }
+
+        .footer-bottom {
+            border-top: 1px solid rgba(255, 255, 255, 0.1);
+            margin-top: 2rem;
+            padding-top: 2rem;
+        }
+
+        .footer-bottom-content {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: 1rem;
+            text-align: center;
+        }
+
+        .footer-legal {
+            display: flex;
+            gap: 1.5rem;
+            flex-wrap: wrap;
+            justify-content: center;
+        }
+
+        .footer-legal a {
+            color: rgba(255, 255, 255, 0.6);
+            text-decoration: none;
+            font-size: 0.9rem;
+            transition: color 0.3s ease;
+        }
+
+        .footer-legal a:hover {
+            color: var(--primary-color);
+        }
+
+        /* Responsive adjustments */
+        @media (max-width: 480px) {
+            .container {
+                padding: 0 0.75rem;
+            }
+            
+            .ateliers-hero h1 {
+                font-size: 1.8rem;
+            }
+            
+            .atelier-card {
+                padding: 1.25rem;
+            }
+            
+            .booking-section {
+                padding: 1.5rem;
+            }
+            
+            .booking-header h2 {
+                font-size: 1.5rem;
+            }
+            
+            .hero-icon {
+                width: 50px;
+                height: 50px;
+            }
+            
+            .hero-icon i {
+                font-size: 1.2rem;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Navigation -->
+    <nav class="navbar" id="navbar">
+        <div class="nav-container">
+            <div class="nav-logo">
+                <a href="index-mobile.html">
+                    <img src="assets/images/logo.jpg" alt="Entremets et Saveurs - Logo" class="logo-image">
+                </a>
+            </div>
+            
+            <ul class="nav-menu" id="nav-menu">
+                <li class="nav-item">
+                    <a href="index-mobile.html" class="nav-link">Accueil</a>
+                </li>
+                <li class="nav-item">
+                    <a href="boutique-mobile.html" class="nav-link">Boutique</a>
+                </li>
+                <li class="nav-item">
+                    <a href="formules-mobile.html" class="nav-link">Formules</a>
+                </li>
+                <li class="nav-item">
+                    <a href="ateliers-mobile.html" class="nav-link active">Ateliers</a>
+                </li>
+                <li class="nav-item cta">
+                    <a href="tel:+33644177920" class="nav-link btn-call">
+                        <i class="fas fa-phone"></i> <span>Appeler</span>
+                    </a>
+                </li>
+            </ul>
+            
+            <div class="hamburger" id="hamburger">
+                <span class="bar"></span>
+                <span class="bar"></span>
+                <span class="bar"></span>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Widget Simplybook uniquement -->
+    <section style="padding: 100px 0 50px; background: #f8f9fa;">
+        <div style="max-width: 1200px; margin: 0 auto; padding: 0 1rem;">
+            <!-- Le widget Simplybook s'affichera ici automatiquement -->
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-brand">
+                    <div class="footer-logo">
+                        <img src="assets/images/logo.jpg" alt="Entremets et Saveurs - Logo" class="footer-logo-image">
+                    </div>
+                    <p>L'art de la pâtisserie revisité avec passion et créativité depuis 2019.</p>
+                    <div class="footer-social">
+                        <a href="https://www.facebook.com/entremetsetsaveurs/" target="_blank">
+                            <i class="fab fa-facebook-f"></i>
+                        </a>
+                        <a href="https://www.instagram.com/entremetsetsaveurs/" target="_blank">
+                            <i class="fab fa-instagram"></i>
+                        </a>
+                    </div>
+                </div>
+                
+                <div class="footer-links">
+                    <h4>Navigation</h4>
+                    <ul>
+                        <li><a href="index-mobile.html">Accueil</a></li>
+                        <li><a href="boutique-mobile.html">Boutique</a></li>
+                        <li><a href="formules-mobile.html">Formules</a></li>
+                        <li><a href="ateliers-mobile.html">Ateliers</a></li>
+                    </ul>
+                </div>
+                
+                <div class="footer-services">
+                    <h4>Nos Ateliers</h4>
+                    <ul>
+                        <li><a href="#ateliers">Ateliers adultes</a></li>
+                        <li><a href="#ateliers">Anniversaires enfants</a></li>
+                        <li><a href="#ateliers">Team building</a></li>
+                        <li><a href="#ateliers">Cours privés</a></li>
+                    </ul>
+                </div>
+                
+                <div class="footer-contact">
+                    <h4>Réservations</h4>
+                    <div class="footer-contact-item">
+                        <i class="fas fa-phone"></i>
+                        <a href="tel:+33644177920">+33 6 44 17 79 20</a>
+                    </div>
+                    <div class="footer-contact-item">
+                        <i class="fas fa-envelope"></i>
+                        <a href="mailto:entremets-et-saveurs@orange.fr">entremets-et-saveurs@orange.fr</a>
+                    </div>
+                    <div class="footer-contact-item">
+                        <i class="fas fa-map-marker-alt"></i>
+                        <span>Montgradail, France</span>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="footer-bottom">
+                <div class="footer-bottom-content">
+                    <p>&copy; 2024 Entremets et Saveurs. Tous droits réservés.</p>
+                    <div class="footer-legal">
+                        <a href="#" onclick="openPrivacyModal()">Mentions légales</a>
+                        <a href="#" onclick="openPrivacyModal()">Protection des données</a>
+                        <a href="#" onclick="openCookieSettings()">Paramètres cookies</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Scripts -->
+    <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+    <script>
+        // Initialize AOS
+        AOS.init({
+            duration: 800,
+            easing: 'ease-in-out',
+            once: true,
+            mirror: false
+        });
+
+        // Mobile menu functionality
+        const hamburger = document.getElementById('hamburger');
+        const navMenu = document.getElementById('nav-menu');
+
+        if (hamburger && navMenu) {
+            hamburger.addEventListener('click', () => {
+                hamburger.classList.toggle('active');
+                navMenu.classList.toggle('active');
+            });
+
+            // Close menu when clicking on a link
+            document.querySelectorAll('.nav-link').forEach(link => {
+                link.addEventListener('click', () => {
+                    hamburger.classList.remove('active');
+                    navMenu.classList.remove('active');
+                });
+            });
+        }
+
+        // Navbar scroll effect
+        window.addEventListener('scroll', function() {
+            const navbar = document.getElementById('navbar');
+            if (window.scrollY > 50) {
+                navbar.style.backgroundColor = 'rgba(255, 255, 255, 0.98)';
+            } else {
+                navbar.style.backgroundColor = 'var(--white)';
+            }
+        });
+    </script>
+    
+    <!-- Simplybook Widget Scripts -->
+    <script src="//widget.simplybook.it/v2/widget/widget.js" type="text/javascript"></script>
+    <script type="text/javascript">
+        var widget = new SimplybookWidget({"widget_type":"button","url":"https:\/\/entremetsetsaveurs.simplybook.it","theme":"default","theme_settings":{"timeline_hide_unavailable":"1","hide_past_days":"0","timeline_show_end_time":"0","timeline_modern_display":"as_slots","sb_base_color":"#f5e6d3","display_item_mode":"block","booking_nav_bg_color":"#f5e6d3","body_bg_color":"#f2f2f2","sb_review_image":"","dark_font_color":"#040846","light_font_color":"#ffffff","btn_color_1":"#d63384","sb_busy":"#c7b3b3","sb_available":"#d6ebff"},"timeline":"modern","datepicker":"top_calendar","is_rtl":false,"app_config":{"clear_session":0,"allow_switch_to_ada":0,"predefined":[]},"button_title":"R\u00e9server maintenant","button_background_color":"#f5e6d3","button_text_color":"#ffffff","button_position":"right","button_position_offset":"55%"});
+    </script>
+</body>
+</html>

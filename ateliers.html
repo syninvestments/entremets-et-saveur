@@ -1,0 +1,488 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ateliers Pâtisserie - Entremets et Saveurs</title>
+    <meta name="description" content="Participez à nos ateliers pâtisserie : adultes, anniversaires enfants et team building. Réservez en ligne vos cours de pâtisserie.">
+    
+    <!-- Preload critical resources -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;500;600;700&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
+    
+    <!-- Favicon -->
+    <link rel="icon" type="image/svg+xml" href="assets/images/favicon.svg">
+    
+    <!-- Styles -->
+    <link rel="stylesheet" href="src/styles.css">
+    
+    <!-- Icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    
+    <!-- AOS Animation Library -->
+    <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
+    
+    <!-- Mobile Detection -->
+    <script src="src/mobile-detection.js"></script>
+    
+    <style>
+        /* Styles spécifiques pour la page ateliers */
+        .ateliers-hero {
+            background: linear-gradient(135deg, var(--primary-color) 0%, var(--primary-light) 100%);
+            padding: 120px 0 80px;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .ateliers-hero::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100"><circle cx="25" cy="25" r="2" fill="%23ffffff" opacity="0.1"/><circle cx="75" cy="75" r="1.5" fill="%23ffffff" opacity="0.15"/><circle cx="50" cy="10" r="1" fill="%23ffffff" opacity="0.1"/></svg>') repeat;
+            pointer-events: none;
+        }
+
+        .ateliers-hero-content {
+            text-align: center;
+            color: white;
+            position: relative;
+            z-index: 2;
+        }
+
+        .ateliers-hero h1 {
+            font-family: var(--font-primary);
+            font-size: 3.5rem;
+            font-weight: 600;
+            margin-bottom: 1rem;
+            text-shadow: 0 2px 10px rgba(0, 0, 0, 0.2);
+        }
+
+        .ateliers-hero p {
+            font-size: 1.3rem;
+            opacity: 0.9;
+            max-width: 600px;
+            margin: 0 auto 2rem;
+            line-height: 1.6;
+        }
+
+        .ateliers-hero-icons {
+            display: flex;
+            justify-content: center;
+            gap: 2rem;
+            margin-top: 2rem;
+        }
+
+        .hero-icon {
+            background: rgba(255, 255, 255, 0.2);
+            border-radius: 50%;
+            width: 80px;
+            height: 80px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            backdrop-filter: blur(10px);
+            border: 1px solid rgba(255, 255, 255, 0.3);
+        }
+
+        .hero-icon i {
+            font-size: 2rem;
+            color: white;
+        }
+
+        /* Section principale ateliers */
+        .ateliers-main {
+            padding: 80px 0;
+            background: var(--white);
+        }
+
+        .ateliers-grid {
+            display: grid;
+            grid-template-columns: 1fr 2fr;
+            gap: 4rem;
+            align-items: start;
+        }
+
+        .ateliers-info {
+            position: sticky;
+            top: 100px;
+        }
+
+        .atelier-card {
+            background: var(--white);
+            border-radius: 20px;
+            padding: 2rem;
+            margin-bottom: 2rem;
+            box-shadow: 0 8px 25px rgba(0, 0, 0, 0.08);
+            border: 2px solid rgba(241, 130, 100, 0.1);
+            transition: all 0.3s ease;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .atelier-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 4px;
+            height: 100%;
+            background: linear-gradient(180deg, var(--primary-color), var(--accent-orange));
+            transform: scaleY(0);
+            transition: transform 0.3s ease;
+        }
+
+        .atelier-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 15px 40px rgba(241, 130, 100, 0.2);
+            border-color: var(--primary-color);
+        }
+
+        .atelier-card:hover::before {
+            transform: scaleY(1);
+        }
+
+        .atelier-icon {
+            background: linear-gradient(135deg, var(--primary-color), var(--primary-light));
+            border-radius: 50%;
+            width: 70px;
+            height: 70px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin-bottom: 1.5rem;
+            box-shadow: 0 4px 15px rgba(241, 130, 100, 0.3);
+        }
+
+        .atelier-icon i {
+            font-size: 1.8rem;
+            color: var(--white);
+        }
+
+        .atelier-card h3 {
+            font-family: var(--font-primary);
+            font-size: 1.8rem;
+            font-weight: 600;
+            margin-bottom: 1rem;
+            color: var(--secondary-color);
+        }
+
+        .atelier-card p {
+            color: var(--medium-gray);
+            line-height: 1.6;
+            margin-bottom: 1.5rem;
+            font-size: 1.1rem;
+        }
+
+        .atelier-features {
+            list-style: none;
+            margin-bottom: 2rem;
+        }
+
+        .atelier-features li {
+            display: flex;
+            align-items: center;
+            margin-bottom: 0.75rem;
+            color: var(--secondary-color);
+        }
+
+        .atelier-features li i {
+            color: var(--primary-color);
+            margin-right: 0.75rem;
+            font-size: 1.1rem;
+            width: 20px;
+        }
+
+        .atelier-price {
+            background: var(--accent-cream);
+            color: var(--primary-color);
+            padding: 0.75rem 1.5rem;
+            border-radius: 25px;
+            font-weight: 600;
+            font-size: 1.3rem;
+            display: inline-block;
+            box-shadow: 0 3px 10px rgba(241, 130, 100, 0.2);
+        }
+
+        /* Section réservation */
+        .booking-section {
+            background: var(--white);
+            border-radius: 25px;
+            padding: 3rem;
+            box-shadow: 0 10px 40px rgba(0, 0, 0, 0.1);
+            border: 2px solid rgba(241, 130, 100, 0.1);
+            position: relative;
+        }
+
+        .booking-header {
+            text-align: center;
+            margin-bottom: 3rem;
+        }
+
+        .booking-header h2 {
+            font-family: var(--font-primary);
+            font-size: 2.5rem;
+            font-weight: 600;
+            color: var(--secondary-color);
+            margin-bottom: 1rem;
+        }
+
+        .booking-header p {
+            font-size: 1.2rem;
+            color: var(--medium-gray);
+            max-width: 500px;
+            margin: 0 auto;
+        }
+
+        .simplybook-container {
+            min-height: 600px;
+            border-radius: 20px;
+            overflow: hidden;
+            background: var(--light-gray);
+            position: relative;
+        }
+
+        /* Responsive */
+        @media (max-width: 1200px) {
+            .ateliers-grid {
+                gap: 3rem;
+            }
+            
+            .ateliers-hero h1 {
+                font-size: 3rem;
+            }
+        }
+
+        @media (max-width: 768px) {
+            .ateliers-grid {
+                grid-template-columns: 1fr;
+                gap: 2rem;
+            }
+            
+            .ateliers-info {
+                position: static;
+            }
+            
+            .ateliers-hero {
+                padding: 100px 0 60px;
+            }
+            
+            .ateliers-hero h1 {
+                font-size: 2.5rem;
+            }
+            
+            .ateliers-hero-icons {
+                flex-wrap: wrap;
+                gap: 1rem;
+            }
+            
+            .hero-icon {
+                width: 60px;
+                height: 60px;
+            }
+            
+            .hero-icon i {
+                font-size: 1.5rem;
+            }
+            
+            .atelier-card {
+                padding: 1.5rem;
+            }
+            
+            .booking-section {
+                padding: 2rem;
+            }
+        }
+
+        @media (max-width: 480px) {
+            .ateliers-hero h1 {
+                font-size: 2rem;
+            }
+            
+            .ateliers-hero p {
+                font-size: 1.1rem;
+            }
+            
+            .atelier-card h3 {
+                font-size: 1.5rem;
+            }
+            
+            .booking-header h2 {
+                font-size: 2rem;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Navigation -->
+    <nav class="navbar" id="navbar">
+        <div class="nav-container">
+            <div class="nav-logo">
+                <a href="index.html">
+                    <img src="assets/images/logo.jpg" alt="Entremets et Saveurs - Logo" class="logo-image">
+                </a>
+            </div>
+            
+            <ul class="nav-menu" id="nav-menu">
+                <li class="nav-item">
+                    <a href="index.html" class="nav-link">Accueil</a>
+                </li>
+                <li class="nav-item">
+                    <a href="index.html#about" class="nav-link">À Propos</a>
+                </li>
+                <li class="nav-item">
+                    <a href="index.html#gallery" class="nav-link">Galerie</a>
+                </li>
+                <li class="nav-item">
+                    <a href="boutique.html" class="nav-link">Boutique</a>
+                </li>
+                <li class="nav-item">
+                    <a href="formules.html" class="nav-link">Formules</a>
+                </li>
+                <li class="nav-item">
+                    <a href="ateliers.html" class="nav-link active">Ateliers</a>
+                </li>
+                <li class="nav-item">
+                    <a href="index.html#services" class="nav-link">Services</a>
+                </li>
+                <li class="nav-item">
+                    <a href="index.html#contact" class="nav-link">Contact</a>
+                </li>
+                <li class="nav-item cta">
+                    <a href="tel:+33644177920" class="nav-link btn-call">
+                        <i class="fas fa-phone"></i> <span>Appeler</span>
+                    </a>
+                </li>
+            </ul>
+            
+            <div class="hamburger" id="hamburger">
+                <span class="bar"></span>
+                <span class="bar"></span>
+                <span class="bar"></span>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Widget Simplybook uniquement -->
+    <section style="padding: 100px 0 50px; background: #f8f9fa;">
+        <div class="container" style="max-width: 1200px; margin: 0 auto; padding: 0 1rem;">
+            <!-- Le widget Simplybook s'affichera ici automatiquement -->
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-brand">
+                    <div class="footer-logo">
+                        <img src="assets/images/logo.jpg" alt="Entremets et Saveurs - Logo" class="footer-logo-image">
+                    </div>
+                    <p>L'art de la pâtisserie revisité avec passion et créativité depuis 2019.</p>
+                    <div class="footer-social">
+                        <a href="https://www.facebook.com/entremetsetsaveurs/" target="_blank">
+                            <i class="fab fa-facebook-f"></i>
+                        </a>
+                        <a href="https://www.instagram.com/entremetsetsaveurs/" target="_blank">
+                            <i class="fab fa-instagram"></i>
+                        </a>
+                    </div>
+                </div>
+                
+                <div class="footer-links">
+                    <h4>Navigation</h4>
+                    <ul>
+                        <li><a href="index.html">Accueil</a></li>
+                        <li><a href="index.html#about">À Propos</a></li>
+                        <li><a href="index.html#gallery">Galerie</a></li>
+                        <li><a href="boutique.html">Boutique</a></li>
+                        <li><a href="formules.html">Formules</a></li>
+                        <li><a href="ateliers.html">Ateliers</a></li>
+                        <li><a href="index.html#services">Services</a></li>
+                        <li><a href="index.html#contact">Contact</a></li>
+                    </ul>
+                </div>
+                
+                <div class="footer-services">
+                    <h4>Nos Ateliers</h4>
+                    <ul>
+                        <li><a href="#ateliers">Ateliers adultes</a></li>
+                        <li><a href="#ateliers">Anniversaires enfants</a></li>
+                        <li><a href="#ateliers">Team building</a></li>
+                        <li><a href="#ateliers">Cours privés</a></li>
+                    </ul>
+                </div>
+                
+                <div class="footer-contact">
+                    <h4>Réservations</h4>
+                    <div class="footer-contact-item">
+                        <i class="fas fa-phone"></i>
+                        <a href="tel:+33644177920">+33 6 44 17 79 20</a>
+                    </div>
+                    <div class="footer-contact-item">
+                        <i class="fas fa-envelope"></i>
+                        <a href="mailto:entremets-et-saveurs@orange.fr">entremets-et-saveurs@orange.fr</a>
+                    </div>
+                    <div class="footer-contact-item">
+                        <i class="fas fa-map-marker-alt"></i>
+                        <span>Montgradail, France</span>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="footer-bottom">
+                <div class="footer-bottom-content">
+                    <p>&copy; 2024 Entremets et Saveurs. Tous droits réservés.</p>
+                    <div class="footer-legal">
+                        <a href="#" onclick="openPrivacyModal()">Mentions légales</a>
+                        <a href="#" onclick="openPrivacyModal()">Protection des données</a>
+                        <a href="#" onclick="openCookieSettings()">Paramètres cookies</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Scripts -->
+    <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+    <script>
+        // Initialize AOS
+        AOS.init({
+            duration: 800,
+            easing: 'ease-in-out',
+            once: true,
+            mirror: false
+        });
+
+        // Mobile menu functionality
+        const hamburger = document.getElementById('hamburger');
+        const navMenu = document.getElementById('nav-menu');
+
+        if (hamburger && navMenu) {
+            hamburger.addEventListener('click', () => {
+                hamburger.classList.toggle('active');
+                navMenu.classList.toggle('active');
+            });
+        }
+
+        // Navbar scroll effect
+        window.addEventListener('scroll', function() {
+            const navbar = document.getElementById('navbar');
+            if (window.scrollY > 100) {
+                navbar.classList.add('scrolled');
+            } else {
+                navbar.classList.remove('scrolled');
+            }
+        });
+    </script>
+    
+    <!-- Simplybook Widget Scripts -->
+    <script src="//widget.simplybook.it/v2/widget/widget.js" type="text/javascript"></script>
+    <script type="text/javascript">
+        var widget = new SimplybookWidget({"widget_type":"button","url":"https:\/\/entremetsetsaveurs.simplybook.it","theme":"default","theme_settings":{"timeline_hide_unavailable":"1","hide_past_days":"0","timeline_show_end_time":"0","timeline_modern_display":"as_slots","sb_base_color":"#f5e6d3","display_item_mode":"block","booking_nav_bg_color":"#f5e6d3","body_bg_color":"#f2f2f2","sb_review_image":"","dark_font_color":"#040846","light_font_color":"#ffffff","btn_color_1":"#d63384","sb_company_label_color":"#ffffff","hide_img_mode":"0","show_sidebar":"1","sb_busy":"#c7b3b3","sb_available":"#d6ebff"},"timeline":"modern","datepicker":"top_calendar","is_rtl":false,"app_config":{"clear_session":0,"allow_switch_to_ada":0,"predefined":[]},"button_title":"R\u00e9server maintenant","button_background_color":"#f5e6d3","button_text_color":"#ffffff","button_position":"right","button_position_offset":"55%"});
+    </script>
+</body>
+</html>
